@@ -1,0 +1,101 @@
+
+/* ========================================
+   GENERAL BACKGROUND
+======================================== */
+
+html {
+    min-height: 100%;
+    background: linear-gradient(
+        135deg,
+        var(--black),
+        var(--black2)
+    );
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: transparent;
+    color: var(--white);
+}
+
+
+/* ========================================
+   GENERAL SECTIONS
+======================================== */
+
+section {
+    position: relative;
+    padding: 5rem 1.5rem;
+    background: transparent;
+    color: var(--white);
+    scroll-margin-top: 80px;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+#navbar {
+    background: linear-gradient(
+        135deg,
+        var(--black),
+        var(--black2)
+    );
+}
+
+
+/* ========================================
+   SECTION DIVIDERS
+======================================== */
+
+hr {
+    width: 100%;
+    max-width: 100%;
+    height: 2px;
+    margin: 0;
+    border: 0;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--primary),
+        var(--secondary),
+        transparent
+    );
+}
+
+section hr {
+    margin-bottom: 4rem;
+}
+
+
+/* ========================================
+   GENERAL SECTION HEADINGS
+======================================== */
+
+section h3 {
+    color: var(--primary);
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 1rem;
+    }
+
+    section hr {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 3.5rem 1rem;
+    }
+}

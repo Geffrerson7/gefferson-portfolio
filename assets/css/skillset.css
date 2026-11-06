@@ -1,0 +1,465 @@
+
+/* ========================================
+   SKILLSET SECTION
+======================================== */
+
+.skillset-section {
+    position: relative;
+    padding: var(--section-padding, 5rem 1.5rem);
+    background: transparent;
+}
+
+.skillset-container {
+    width: 100%;
+    max-width: var(--container-width, 1200px);
+    margin: 0 auto;
+}
+
+/* ========================================
+   SECTION HEADER
+======================================== */
+
+.skillset-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.skillset-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--secondary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.eyebrow-line {
+    width: 35px;
+    height: 2px;
+    background: var(--secondary);
+}
+
+.skillset-heading h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--white);
+}
+
+.skillset-heading h3 span {
+    color: var(--primary);
+}
+
+.skillset-description {
+    max-width: 500px;
+    justify-self: end;
+    color: var(--gray2);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    padding-bottom: 0.5rem;
+}
+
+/* Divider */
+
+.skillset-container > hr {
+    width: 100%;
+    height: 2px;
+    border: none;
+    margin: 0 0 3rem;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--secondary),
+        transparent
+    );
+}
+
+/* ========================================
+   SHOWCASE HEADER
+======================================== */
+
+.skills-showcase-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.skills-showcase-header > span {
+    color: var(--gray2);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Navigation arrows */
+
+.skills-controls {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.skills-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    background: rgba(0, 195, 255, 0.06);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+
+    color: var(--primary);
+    font-size: 1.3rem;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.skills-arrow:hover:not(:disabled) {
+    background: var(--primary);
+    color: var(--black2);
+    border-color: var(--primary);
+    box-shadow: 0 0 18px rgba(0, 195, 255, 0.2);
+}
+
+.skills-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* ========================================
+   HORIZONTAL CAROUSEL
+======================================== */
+
+.skills-track {
+    display: flex;
+    gap: 1.2rem;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    padding: 0.5rem 0 1.5rem;
+}
+
+.skills-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   CATEGORY SLIDES
+======================================== */
+
+.skills-slide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    flex: 0 0 calc((100% - 2.4rem) / 3);
+    min-width: 0;
+    min-height: 390px;
+
+    padding: 2rem;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(0, 195, 255, 0.12),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(27, 42, 53, 0.97),
+            rgba(16, 24, 32, 0.99)
+        );
+
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+    scroll-snap-align: start;
+
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.skills-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 70px;
+    height: 70px;
+
+    border-top: 2px solid rgba(0, 195, 255, 0.5);
+    border-right: 2px solid rgba(0, 195, 255, 0.5);
+
+    pointer-events: none;
+}
+
+.skills-slide:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 35px rgba(0, 195, 255, 0.08);
+}
+
+/* Slide number */
+
+.slide-number {
+    color: var(--secondary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+/* Category symbol */
+
+.slide-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    margin-bottom: 1.2rem;
+
+    background: rgba(0, 195, 255, 0.08);
+    border: 1px solid rgba(0, 195, 255, 0.3);
+    border-radius: 12px;
+
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+/* Category title */
+
+.skills-slide h4 {
+    color: var(--white);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.4rem;
+}
+
+.skills-slide > p {
+    color: var(--gray2);
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   TECHNOLOGY LOGOS
+======================================== */
+
+.slide-technologies {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.8rem 0.8rem;
+    margin-top: auto;
+}
+
+.slide-tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 0.7rem;
+    min-width: 0;
+
+    color: var(--gray);
+    text-align: center;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.slide-tech img {
+    width: 68px;
+    height: 68px;
+
+    display: block;
+    object-fit: contain;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.slide-tech span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: normal;
+}
+
+.slide-tech:hover {
+    transform: translateY(-5px);
+    color: var(--primary);
+}
+
+.slide-tech:hover img {
+    transform: scale(1.12);
+    filter: drop-shadow(
+        0 0 10px rgba(0, 195, 255, 0.4)
+    );
+}
+
+/* ========================================
+   PROGRESS BAR
+======================================== */
+
+.skills-progress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skills-progress-track {
+    flex: 1;
+    height: 3px;
+    background: rgba(170, 184, 192, 0.15);
+    overflow: hidden;
+}
+
+.skills-progress-bar {
+    width: 16.666%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+    transition: width 0.3s ease;
+}
+
+#skills-counter {
+    min-width: 55px;
+    color: var(--gray2);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: right;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+    .skills-slide {
+        flex-basis: calc((100% - 1.2rem) / 2);
+    }
+
+    .slide-tech img {
+        width: 62px;
+        height: 62px;
+    }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+    .skillset-header {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 1.2rem;
+    }
+
+    .skillset-description {
+        justify-self: start;
+        max-width: 600px;
+        padding-bottom: 0;
+    }
+
+    .skillset-container > hr {
+        margin-bottom: 2rem;
+    }
+
+    .skills-slide {
+        flex-basis: 85%;
+        min-height: 390px;
+        padding: 1.6rem;
+    }
+
+    .slide-tech img {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skillset-section {
+        padding: 4rem 1rem;
+    }
+
+    .skills-slide {
+        flex-basis: 92%;
+        min-height: 370px;
+    }
+
+    .slide-technologies {
+        gap: 1.5rem 0.5rem;
+    }
+
+    .slide-tech img {
+        width: 58px;
+        height: 58px;
+    }
+
+    .skills-arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .skills-track {
+        scroll-behavior: auto;
+    }
+
+    .skills-slide,
+    .slide-tech,
+    .slide-tech img,
+    .skills-arrow,
+    .skills-progress-bar {
+        transition: none;
+    }
+
+    .skills-slide:hover,
+    .slide-tech:hover,
+    .slide-tech:hover img {
+        transform: none;
+    }
+}
