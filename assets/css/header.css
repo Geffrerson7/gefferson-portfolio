@@ -10,16 +10,16 @@
     background:
         radial-gradient(
             ellipse at 80% 45%,
-            rgba(0, 195, 255, 0.09),
+            rgba(var(--primary-rgb), 0.09),
             transparent 40%
         ),
         linear-gradient(
             135deg,
-            var(--black),
-            var(--black2)
+            var(--bg),
+            var(--bg-deep)
         );
 
-    color: var(--white);
+    color: var(--text-strong);
 }
 
 /* Background grid */
@@ -32,12 +32,12 @@
 
     background-image:
         linear-gradient(
-            rgba(0, 195, 255, 0.035) 1px,
+            rgba(var(--primary-rgb), 0.035) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(0, 195, 255, 0.035) 1px,
+            rgba(var(--primary-rgb), 0.035) 1px,
             transparent 1px
         );
 
@@ -66,7 +66,7 @@
     padding: 4rem var(--gutter) 7rem;
 
     background: transparent;
-    color: var(--white);
+    color: var(--text-strong);
 }
 
 
@@ -116,14 +116,14 @@
     height: 8px;
     border-radius: 50%;
 
-    background: var(--secondary);
-    box-shadow: 0 0 12px var(--secondary);
+    background: var(--secondary-fill);
+    box-shadow: 0 0 8px rgba(var(--secondary-rgb), 0.45);
 }
 
 .hero-intro {
     margin-bottom: 0.5rem;
 
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 1.1rem;
     letter-spacing: 0.08em;
 }
@@ -137,7 +137,7 @@
     line-height: 1.12;
     letter-spacing: -0.01em;
 
-    color: var(--white);
+    color: var(--text-strong);
 }
 
 .hero-content h1 span {
@@ -154,7 +154,7 @@
     line-height: 1.5;
     letter-spacing: 0.02em;
 
-    color: var(--white2);
+    color: var(--text-soft);
 }
 
 .hero-subtitle span {
@@ -165,7 +165,7 @@
     max-width: 540px;
     margin-bottom: 2rem;
 
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.9;
 }
@@ -212,18 +212,18 @@
 }
 
 .hero-button-primary {
-    background: var(--primary);
-    color: var(--black2);
+    background: var(--primary-fill);
+    color: var(--on-accent);
 }
 
 .hero-button-primary:hover {
-    background: var(--white);
-    box-shadow: 0 0 25px var(--cyan-glow);
+    background: var(--primary-fill-hover);
+    box-shadow: 0 0 18px var(--cyan-glow);
 }
 
 .hero-button-outline {
-    border: 1px solid var(--gray3);
-    color: var(--white);
+    border: 1px solid var(--text-subtle);
+    color: var(--text-strong);
 }
 
 .hero-button-outline:hover {
@@ -234,8 +234,8 @@
 /* Resume (CV) button: secondary accent, opens in a new tab */
 .hero-button-cv {
     gap: 0.6rem;
-    border: 1px solid rgba(255, 159, 67, 0.55);
-    color: var(--white);
+    border: 1px solid rgba(var(--secondary-rgb), 0.55);
+    color: var(--text-strong);
 }
 
 .hero-button-cv svg {
@@ -248,7 +248,7 @@
 .hero-button-cv:hover {
     border-color: var(--secondary);
     color: var(--secondary);
-    box-shadow: 0 0 20px var(--orange-glow);
+    box-shadow: 0 0 16px var(--orange-glow);
 }
 
 
@@ -264,7 +264,7 @@
 }
 
 .hero-socials > span {
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.8rem;
     font-weight: 700;
@@ -272,7 +272,7 @@
 }
 
 .hero-socials a {
-    color: var(--gray2);
+    color: var(--text-muted);
     padding: 0.6rem 0;
     font-size: 0.8rem;
     font-weight: 500;
@@ -323,14 +323,14 @@
 
     background: linear-gradient(
         135deg,
-        var(--primary),
-        var(--secondary),
-        var(--primary)
+        var(--primary-fill) 0%,
+        var(--primary-fill) 55%,
+        var(--secondary-fill) 100%
     );
 
     box-shadow:
-        0 0 25px rgba(0, 195, 255, 0.2),
-        0 0 60px rgba(0, 195, 255, 0.08);
+        0 0 22px var(--cyan-glow),
+        0 0 50px rgba(var(--primary-rgb), 0.05);
 }
 
 
@@ -341,7 +341,7 @@
     position: absolute;
     inset: -14px;
 
-    border: 1px solid rgba(0, 195, 255, 0.35);
+    border: 1px solid rgba(var(--primary-rgb), 0.35);
     border-radius: 50%;
 
     pointer-events: none;
@@ -361,9 +361,9 @@
     height: 18px;
 
     border-radius: 50%;
-    background: var(--secondary);
+    background: var(--secondary-fill);
 
-    box-shadow: 0 0 15px var(--secondary);
+    box-shadow: 0 0 10px rgba(var(--secondary-rgb), 0.4);
 }
 
 
@@ -406,7 +406,7 @@
     margin-top: 0.5rem;
     text-align: center;
 
-    color: var(--gray2);
+    color: var(--text-muted);
     font-family: var(--font-tech);
     font-size: 0.8rem;
     font-weight: 600;
@@ -444,7 +444,7 @@
 }
 
 .hero-decoration span:last-child {
-    color: var(--gray3);
+    color: var(--text-subtle);
 }
 
 .hero-decoration-top {
@@ -476,7 +476,7 @@
     align-items: center;
     gap: 0.8rem;
 
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.75rem;
     font-weight: 700;

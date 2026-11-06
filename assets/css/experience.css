@@ -18,17 +18,17 @@
     align-items: center;
     gap: 2rem;
     padding: 2.5rem 1rem;
-    border-bottom: 1px solid rgba(0, 195, 255, 0.18);
+    border-bottom: 1px solid rgba(var(--primary-rgb), 0.18);
     overflow: hidden;
     transition: background 0.3s ease;
 }
 
 .experience-card:first-child {
-    border-top: 1px solid rgba(0, 195, 255, 0.18);
+    border-top: 1px solid rgba(var(--primary-rgb), 0.18);
 }
 
 .experience-card:hover {
-    background: rgba(0, 195, 255, 0.035);
+    background: rgba(var(--primary-rgb), 0.035);
 }
 
 /* Index */
@@ -81,7 +81,7 @@
     justify-content: space-between;
     gap: 0.5rem;
     margin-bottom: 1rem;
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 700;
@@ -94,7 +94,7 @@
 
 .experience-main h3 {
     margin: 0;
-    color: var(--white);
+    color: var(--text-strong);
     font-size: clamp(1.4rem, 3vw, 2rem);
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -107,7 +107,7 @@
 
 .experience-role {
     margin: 0.5rem 0 1.2rem;
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 0.95rem;
 }
 
@@ -122,11 +122,11 @@
 
 .experience-position .experience-role {
     margin: 0;
-    color: var(--white2);
+    color: var(--text-soft);
 }
 
 .experience-position > span {
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 600;
@@ -144,10 +144,10 @@
 
 .experience-tags li {
     padding: 0.4rem 0.7rem;
-    border: 1px solid rgba(0, 195, 255, 0.2);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
     border-radius: 3px;
-    color: var(--gray2);
-    background: rgba(0, 195, 255, 0.035);
+    color: var(--text-muted);
+    background: rgba(var(--primary-rgb), 0.035);
     font-size: 0.7rem;
     transition:
         border-color 0.25s ease,
@@ -155,14 +155,14 @@
 }
 
 .experience-card:hover .experience-tags li {
-    border-color: rgba(0, 195, 255, 0.4);
-    color: var(--white);
+    border-color: rgba(var(--primary-rgb), 0.4);
+    color: var(--text-strong);
 }
 
 /* Expandable details */
 
 .experience-details {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--hairline);
 }
 
 .experience-details summary {
@@ -179,7 +179,7 @@
 }
 
 .experience-details summary:hover .details-icon {
-    background: rgba(0, 195, 255, 0.12);
+    background: rgba(var(--primary-rgb), 0.12);
 }
 
 .experience-details summary::-webkit-details-marker {
@@ -199,12 +199,12 @@
 
 .experience-details[open] .details-icon {
     transform: rotate(45deg);
-    background: rgba(0, 195, 255, 0.12);
+    background: rgba(var(--primary-rgb), 0.12);
 }
 
 .experience-description {
     padding-top: 1rem;
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.8;
     animation: experience-reveal 0.3s ease;
@@ -225,7 +225,7 @@
 }
 
 .experience-description strong {
-    color: var(--white);
+    color: var(--text-strong);
 }
 
 /* Abstract CSS visuals */
@@ -238,10 +238,10 @@
     align-items: center;
     min-height: 145px;
     overflow: hidden;
-    border: 1px solid rgba(0, 195, 255, 0.2);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
     background:
-        radial-gradient(circle at center, rgba(0, 195, 255, 0.13), transparent 65%),
-        linear-gradient(135deg, rgba(0, 195, 255, 0.04), rgba(16, 24, 32, 0.8));
+        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.13), transparent 65%),
+        linear-gradient(135deg, rgba(var(--primary-rgb), 0.04), rgba(var(--surface-rgb), 0.8));
 }
 
 .experience-visual::before,
@@ -250,7 +250,7 @@
     position: absolute;
     width: 130px;
     height: 130px;
-    border: 1px solid rgba(0, 195, 255, 0.18);
+    border: 1px solid rgba(var(--primary-rgb), 0.18);
     transform: rotate(45deg);
     transition: transform 0.5s ease;
 }
@@ -258,7 +258,7 @@
 .experience-visual::after {
     width: 90px;
     height: 90px;
-    border-color: rgba(255, 159, 67, 0.35);
+    border-color: rgba(var(--secondary-rgb), 0.35);
 }
 
 .experience-card:hover .experience-visual::before {
@@ -282,7 +282,7 @@
     position: absolute;
     z-index: 1;
     bottom: 0.7rem;
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.75rem;
     font-weight: 600;
@@ -291,8 +291,8 @@
 
 .visual-two {
     background:
-        radial-gradient(circle at center, rgba(255, 159, 67, 0.12), transparent 65%),
-        linear-gradient(135deg, rgba(255, 159, 67, 0.04), rgba(16, 24, 32, 0.8));
+        radial-gradient(circle at center, rgba(var(--secondary-rgb), 0.12), transparent 65%),
+        linear-gradient(135deg, rgba(var(--secondary-rgb), 0.04), rgba(var(--surface-rgb), 0.8));
 }
 
 .visual-two .visual-symbol {
@@ -301,14 +301,14 @@
 
 .visual-three {
     background:
-        radial-gradient(circle at center, rgba(0, 195, 255, 0.16), transparent 65%),
-        linear-gradient(135deg, rgba(0, 195, 255, 0.04), rgba(16, 24, 32, 0.8));
+        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.16), transparent 65%),
+        linear-gradient(135deg, rgba(var(--primary-rgb), 0.04), rgba(var(--surface-rgb), 0.8));
 }
 
 .visual-four {
     background:
-        radial-gradient(circle at center, rgba(255, 159, 67, 0.12), transparent 65%),
-        linear-gradient(135deg, rgba(0, 195, 255, 0.04), rgba(16, 24, 32, 0.8));
+        radial-gradient(circle at center, rgba(var(--secondary-rgb), 0.12), transparent 65%),
+        linear-gradient(135deg, rgba(var(--secondary-rgb), 0.04), rgba(var(--surface-rgb), 0.8));
 }
 
 /* Animation */

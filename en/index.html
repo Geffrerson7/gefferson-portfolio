@@ -10,7 +10,20 @@
     />
     <meta name="author" content="Gefferson Casasola" />
     <meta name="theme-color" content="#101820" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="dark light" />
+    <!-- Theme: applied before the stylesheets paint (prevents a flash of the
+         wrong theme). Saved choice > OS preference > dark (default). -->
+    <script>
+      (function () {
+        var theme = 'dark';
+        try {
+          var saved = localStorage.getItem('theme');
+          if (saved === 'light' || saved === 'dark') theme = saved;
+          else if (window.matchMedia('(prefers-color-scheme: light)').matches) theme = 'light';
+        } catch (e) {}
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
 
     <!-- Canonical + language alternates -->
     <link rel="canonical" href="https://gefferson-portfolio.vercel.app/en/" />
@@ -63,6 +76,7 @@
     <link rel="stylesheet" href="../assets/css/footer.css" />
 
     <!-- Scripts (deferred: run after HTML parsing, in order) -->
+    <script src="../assets/js/theme.js" defer></script>
     <script src="../assets/js/main.js" defer></script>
     <script src="../assets/js/navbar.js" defer></script>
     <script src="../assets/js/skillset.js" defer></script>
@@ -105,6 +119,15 @@
           <path d="M9 13h6M9 17h4" />
         </g>
       </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" />
+        </g>
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20.2 14.6A8.5 8.5 0 0 1 9.4 3.8a8.5 8.5 0 1 0 10.8 10.8z" />
+      </symbol>
     </svg>
 
     <a href="#main" class="skip-link">Skip to content</a>
@@ -145,10 +168,24 @@
             </a>
           </div>
 
-          <div class="lang-switch" role="group" aria-label="Language">
-            <a href="../" class="lang-link" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
-            <span aria-hidden="true">|</span>
-            <a href="./" class="lang-link active" hreflang="en" lang="en" aria-current="true" aria-label="English (current language)">EN</a>
+          <div class="navbar-tools">
+            <div class="lang-switch" role="group" aria-label="Language">
+              <a href="../" class="lang-link" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
+              <span aria-hidden="true">|</span>
+              <a href="./" class="lang-link active" hreflang="en" lang="en" aria-current="true" aria-label="English (current language)">EN</a>
+            </div>
+
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              type="button"
+              aria-label="Light mode"
+              aria-pressed="false"
+              title="Switch between light and dark mode"
+            >
+              <svg class="icon-moon" aria-hidden="true" focusable="false"><use href="#icon-moon" /></svg>
+              <svg class="icon-sun" aria-hidden="true" focusable="false"><use href="#icon-sun" /></svg>
+            </button>
           </div>
         </div>
       </nav>
@@ -397,7 +434,7 @@
                     <span>Node.js</span>
                   </li>
                   <li class="slide-tech">
-                    <img src="../assets/img/skillset/expressjs-light.svg" alt="" width="68" height="68" decoding="async" />
+                    <img src="../assets/img/skillset/expressjs-light.svg" alt="" class="logo-on-dark" width="68" height="68" decoding="async" />
                     <span>Express.js</span>
                   </li>
                   <li class="slide-tech">
@@ -465,7 +502,7 @@
                     <span>Git</span>
                   </li>
                   <li class="slide-tech">
-                    <img src="../assets/img/skillset/github-light.svg" alt="" width="68" height="68" decoding="async" />
+                    <img src="../assets/img/skillset/github-light.svg" alt="" class="logo-on-dark" width="68" height="68" decoding="async" />
                     <span>GitHub</span>
                   </li>
                   <li class="slide-tech">
@@ -477,7 +514,7 @@
                     <span>Linux</span>
                   </li>
                   <li class="slide-tech">
-                    <img src="../assets/img/skillset/aws.svg" alt="" width="68" height="68" decoding="async" />
+                    <img src="../assets/img/skillset/aws.svg" alt="" class="logo-invert" width="68" height="68" decoding="async" />
                     <span>AWS</span>
                   </li>
                   <li class="slide-tech">
@@ -497,7 +534,7 @@
 
                 <ul class="slide-technologies">
                   <li class="slide-tech">
-                    <img src="../assets/img/skillset/openai.svg" alt="" width="68" height="68" decoding="async" />
+                    <img src="../assets/img/skillset/openai-white.svg" alt="" class="logo-plate" width="68" height="68" decoding="async" />
                     <span>OpenAI</span>
                   </li>
                   <li class="slide-tech">
@@ -817,7 +854,7 @@
             <div class="section-heading">
               <span class="section-eyebrow">
                 <span class="eyebrow-line" aria-hidden="true"></span>
-                SELECTED WORK / 2024 — 2026
+                SELECTED WORK / 2026
               </span>
               <h2 class="section-title" id="portfolio-title">Projects<span>.</span></h2>
             </div>
@@ -861,8 +898,7 @@
                 <h3>Football Players</h3>
 
                 <p>
-                  Web application for managing football players, featuring full
-                  CRUD operations and Supabase integration.
+                  Web app for managing a football squad: full player CRUD backed by Supabase, player detail view, position filter and light/dark theme. Teams and matches modules are in development.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Technologies">
@@ -870,6 +906,7 @@
                   <li>JavaScript</li>
                   <li>Supabase</li>
                   <li>Tailwind CSS</li>
+                  <li>React Router</li>
                 </ul>
 
                 <div class="portfolio-links">
@@ -920,20 +957,20 @@
               <div class="portfolio-info">
                 <div class="portfolio-meta">
                   <span>02 / WEB APPLICATION</span>
-                  <span>2025</span>
+                  <span>2026</span>
                 </div>
 
-                <h3>Products CRUD</h3>
+                <h3>ProductAdmin</h3>
 
                 <p>
-                  Product management web application with create, read, update
-                  and delete operations through an admin dashboard.
+                  Admin dashboard for managing a product catalog: CRUD with modal forms, delete confirmation, pagination and toast notifications, backed by a mock REST API (MockAPI).
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Technologies">
                   <li>React</li>
-                  <li>TypeScript</li>
+                  <li>JavaScript</li>
                   <li>Tailwind CSS</li>
+                  <li>React Router</li>
                   <li>MockAPI</li>
                 </ul>
 
@@ -944,7 +981,7 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Live demo<span class="sr-only">: Products CRUD (opens in a new tab)</span>
+                    Live demo<span class="sr-only">: ProductAdmin (opens in a new tab)</span>
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -955,7 +992,7 @@
                     class="portfolio-link portfolio-link-source"
                   >
                     <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    View source<span class="sr-only">: Products CRUD repository on GitHub (opens in a new tab)</span>
+                    View source<span class="sr-only">: ProductAdmin repository on GitHub (opens in a new tab)</span>
                   </a>
                 </div>
               </div>
@@ -985,20 +1022,21 @@
               <div class="portfolio-info">
                 <div class="portfolio-meta">
                   <span>03 / FRONTEND</span>
-                  <span>2025</span>
+                  <span>2026</span>
                 </div>
 
-                <h3>Rick and Morty App</h3>
+                <h3>Rick and Morty Explorer</h3>
 
                 <p>
-                  Front-end application built as a learning project, integrating
-                  data from a public REST API.
+                  Character and episode explorer with name search, pagination, detail views, nested routes and breadcrumbs, powered by the official public Rick and Morty API.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Technologies">
                   <li>React</li>
                   <li>Vite</li>
                   <li>JavaScript</li>
+                  <li>Tailwind CSS</li>
+                  <li>React Router</li>
                   <li>REST API</li>
                 </ul>
 
@@ -1009,7 +1047,7 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Live demo<span class="sr-only">: Rick and Morty App (opens in a new tab)</span>
+                    Live demo<span class="sr-only">: Rick and Morty Explorer (opens in a new tab)</span>
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -1020,7 +1058,7 @@
                     class="portfolio-link portfolio-link-source"
                   >
                     <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    View source<span class="sr-only">: Rick and Morty App repository on GitHub (opens in a new tab)</span>
+                    View source<span class="sr-only">: Rick and Morty Explorer repository on GitHub (opens in a new tab)</span>
                   </a>
                 </div>
               </div>
@@ -1050,14 +1088,13 @@
               <div class="portfolio-info">
                 <div class="portfolio-meta">
                   <span>04 / WEB APPLICATION</span>
-                  <span>2025</span>
+                  <span>2026</span>
                 </div>
 
                 <h3>Pokédex</h3>
 
                 <p>
-                  Web application for browsing Pokémon and looking up their
-                  details through an external API.
+                  Pokédex with search by name or number, paginated loading, base stats and Pokémon capture, built on PokéAPI with fetch, async/await and Promise.all, including error handling and retry.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Technologies">
@@ -1266,7 +1303,8 @@
 
                 <button type="submit" class="contact-submit">
                   SEND MESSAGE
-                  <span aria-hidden="true">↗</span>
+                  <span class="contact-submit-arrow" aria-hidden="true">↗</span>
+                  <span class="spinner" aria-hidden="true"></span>
                 </button>
 
                 <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>

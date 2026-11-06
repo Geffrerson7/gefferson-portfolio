@@ -17,18 +17,19 @@
 
 .contact-info {
     position: relative;
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
     padding: 2.5rem;
     overflow: hidden;
-    border: 1px solid rgba(0, 195, 255, 0.18);
+    border: 1px solid rgba(var(--primary-rgb), 0.18);
     background:
         radial-gradient(
             circle at 10% 90%,
-            rgba(0, 195, 255, 0.1),
+            rgba(var(--primary-rgb), 0.1),
             transparent 45%
         ),
-        rgba(16, 24, 32, 0.65);
+        rgba(var(--surface-rgb), 0.65);
 }
 
 .contact-number {
@@ -41,7 +42,7 @@
 
 .contact-info h3 {
     margin: 2.5rem 0 1rem;
-    color: var(--white);
+    color: var(--text-strong);
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     line-height: 1.15;
     font-weight: 800;
@@ -55,7 +56,7 @@
 .contact-info > p {
     max-width: 390px;
     margin-bottom: 2.5rem;
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.8;
 }
@@ -75,7 +76,7 @@
     width: 42px;
     height: 42px;
     flex-shrink: 0;
-    border: 1px solid rgba(0, 195, 255, 0.3);
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
     color: var(--primary);
     font-size: 1.1rem;
 }
@@ -88,7 +89,7 @@
 }
 
 .contact-detail-label {
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.8rem;
     font-weight: 700;
@@ -97,7 +98,7 @@
 
 .contact-detail a,
 .contact-detail-value {
-    color: var(--white2);
+    color: var(--text-soft);
     font-size: 0.85rem;
     text-decoration: none;
     overflow-wrap: anywhere;
@@ -121,7 +122,7 @@
 }
 
 .contact-social-links a {
-    color: var(--white2);
+    color: var(--text-soft);
     padding: 0.5rem 0;
     font-size: 0.85rem;
     font-weight: 700;
@@ -141,7 +142,7 @@
     gap: 0.8rem;
     margin-top: auto;
     padding-top: 3rem;
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.8rem;
     font-weight: 700;
@@ -158,9 +159,10 @@
 /* Contact form */
 
 .contact-form-container {
+    box-shadow: var(--card-shadow);
     padding: 2.5rem;
-    border: 1px solid rgba(0, 195, 255, 0.18);
-    background: rgba(16, 24, 32, 0.65);
+    border: 1px solid rgba(var(--primary-rgb), 0.18);
+    background: rgba(var(--surface-rgb), 0.65);
 }
 
 .contact-form-heading {
@@ -177,7 +179,7 @@
 
 .contact-form-container h3 {
     margin: 2rem 0 0.5rem;
-    color: var(--white);
+    color: var(--text-strong);
     font-size: 1.6rem;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -185,7 +187,7 @@
 
 .contact-form-description {
     margin-bottom: 2rem;
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 0.85rem;
 }
 
@@ -199,7 +201,7 @@
 }
 
 .contact-form-group label {
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 0.8rem;
     font-weight: 700;
 }
@@ -208,10 +210,10 @@
 .contact-form-group textarea {
     width: 100%;
     padding: 0.9rem 1rem;
-    border: 1px solid rgba(0, 195, 255, 0.18);
+    border: 1px solid rgba(var(--primary-rgb), 0.18);
     border-radius: 0;
-    background: var(--black2);
-    color: var(--white);
+    background: var(--field-bg);
+    color: var(--text-strong);
     font-family: inherit;
     font-size: 1rem;
     transition:
@@ -221,14 +223,14 @@
 
 .contact-form-group input::placeholder,
 .contact-form-group textarea::placeholder {
-    color: var(--gray3);
+    color: var(--text-subtle);
 }
 
 .contact-form-group input:focus,
 .contact-form-group textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 195, 255, 0.25);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.18);
 }
 
 .contact-form-group input[aria-invalid="true"],
@@ -252,8 +254,8 @@
     width: 100%;
     padding: 1rem 1.2rem;
     border: 1px solid var(--primary);
-    background: var(--primary);
-    color: var(--black2);
+    background: var(--primary-fill);
+    color: var(--on-accent);
     font-size: 0.75rem;
     font-weight: 900;
     letter-spacing: 0.12rem;
@@ -274,8 +276,25 @@
 }
 
 .contact-submit:disabled {
-    opacity: 0.6;
     cursor: wait;
+}
+
+/* Loading state (set by contact.js): spinner replaces the arrow */
+.contact-submit .spinner {
+    display: none;
+    font-size: 1rem;
+}
+
+.contact-submit.is-loading {
+    opacity: 0.85;
+}
+
+.contact-submit.is-loading .spinner {
+    display: inline-block;
+}
+
+.contact-submit.is-loading .contact-submit-arrow {
+    display: none;
 }
 
 /* Submission feedback (filled by contact.js) */
@@ -284,7 +303,7 @@
     min-height: 1.5em;
     margin-top: 1rem;
     font-size: 0.85rem;
-    color: var(--gray2);
+    color: var(--text-muted);
 }
 
 .contact-form-status:empty {

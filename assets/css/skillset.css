@@ -12,7 +12,7 @@
 }
 
 .skills-showcase-header > span {
-    color: var(--gray2);
+    color: var(--text-muted);
     font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 700;
@@ -35,7 +35,7 @@
     width: 44px;
     height: 44px;
 
-    background: rgba(0, 195, 255, 0.06);
+    background: rgba(var(--primary-rgb), 0.06);
     border: 1px solid var(--border-color);
     border-radius: 50%;
 
@@ -53,10 +53,10 @@
 }
 
 .skills-arrow:hover:not(:disabled) {
-    background: var(--primary);
-    color: var(--black2);
+    background: var(--primary-fill);
+    color: var(--on-accent);
     border-color: var(--primary);
-    box-shadow: 0 0 18px rgba(0, 195, 255, 0.2);
+    box-shadow: 0 0 14px var(--cyan-glow);
 }
 
 .skills-arrow:disabled {
@@ -106,17 +106,18 @@
     background:
         radial-gradient(
             circle at 100% 0%,
-            rgba(0, 195, 255, 0.12),
+            rgba(var(--primary-rgb), 0.12),
             transparent 45%
         ),
         linear-gradient(
             145deg,
-            rgba(27, 42, 53, 0.97),
-            rgba(16, 24, 32, 0.99)
+            rgba(var(--surface-2-rgb), 0.97),
+            rgba(var(--surface-rgb), 0.99)
         );
 
     border: 1px solid var(--border-color);
     border-radius: 12px;
+    box-shadow: var(--card-shadow);
 
     scroll-snap-align: start;
 
@@ -135,8 +136,8 @@
     width: 70px;
     height: 70px;
 
-    border-top: 2px solid rgba(0, 195, 255, 0.5);
-    border-right: 2px solid rgba(0, 195, 255, 0.5);
+    border-top: 2px solid rgba(var(--primary-rgb), 0.5);
+    border-right: 2px solid rgba(var(--primary-rgb), 0.5);
 
     pointer-events: none;
 }
@@ -145,7 +146,7 @@
 .skills-slide:focus-within {
     transform: translateY(-5px);
     border-color: var(--primary);
-    box-shadow: 0 12px 35px rgba(0, 195, 255, 0.08);
+    box-shadow: 0 12px 30px var(--cyan-glow);
 }
 
 /* Slide number */
@@ -171,8 +172,8 @@
 
     margin-bottom: 1.2rem;
 
-    background: rgba(0, 195, 255, 0.08);
-    border: 1px solid rgba(0, 195, 255, 0.3);
+    background: rgba(var(--primary-rgb), 0.08);
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
     border-radius: 12px;
 
     color: var(--primary);
@@ -184,7 +185,7 @@
 /* Category title */
 
 .skills-slide h3 {
-    color: var(--white);
+    color: var(--text-strong);
     font-family: var(--font-display);
     font-size: 1rem;
     line-height: 1.5;
@@ -192,7 +193,7 @@
 }
 
 .skills-slide > p {
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 0.85rem;
     margin-bottom: 2rem;
 }
@@ -218,7 +219,7 @@
     gap: 0.7rem;
     min-width: 0;
 
-    color: var(--gray);
+    color: var(--text);
     text-align: center;
 
     transition:
@@ -253,18 +254,18 @@
 .slide-tech:hover img {
     transform: scale(1.12);
     filter: drop-shadow(
-        0 0 10px rgba(0, 195, 255, 0.4)
+        0 0 10px rgba(var(--primary-rgb), 0.28)
     );
 }
 
-/* Dark single-colour logos (e.g. Prisma): rendered light on the dark UI,
+/* Dark logos (Prisma, AWS wordmark): rendered light on the dark UI,
    same treatment as the *-light variants of Express.js and GitHub */
 .slide-tech img.logo-invert {
     filter: brightness(0) invert(0.95);
 }
 
 .slide-tech:hover img.logo-invert {
-    filter: brightness(0) invert(0.95) drop-shadow(0 0 10px rgba(0, 195, 255, 0.4));
+    filter: brightness(0) invert(0.95) drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.28));
 }
 
 /* ========================================
@@ -282,7 +283,7 @@
     position: relative;
     flex: 1;
     height: 3px;
-    background: rgba(170, 184, 192, 0.15);
+    background: var(--track);
     overflow: hidden;
 }
 
@@ -290,17 +291,14 @@
     width: 33.333%;
     height: 100%;
     will-change: transform;
-    background: linear-gradient(
-        90deg,
-        var(--primary),
-        var(--secondary)
-    );
+    background: var(--primary);
+    border-radius: 2px;
     transition: width var(--transition-fast);
 }
 
 #skills-counter {
     min-width: 70px;
-    color: var(--gray2);
+    color: var(--text-muted);
     font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 700;
@@ -380,4 +378,37 @@
     .slide-tech:hover img {
         transform: none;
     }
+}
+
+/* ========================================
+   LOGO TREATMENT PER THEME
+======================================== */
+
+/* White logo on a plate (OpenAI): the logo is white in both themes.
+   The plate only shows in the light theme (--logo-plate). */
+.slide-tech img.logo-plate {
+    border-radius: 50%;
+    background: var(--logo-plate);
+}
+
+:root[data-theme="light"] .slide-tech img.logo-plate {
+    padding: 12px;
+}
+
+/* Light theme: white-only logos (Express.js, GitHub) render as their
+   dark counterparts; Prisma returns to its original dark colour */
+:root[data-theme="light"] .slide-tech img.logo-on-dark {
+    filter: brightness(0);
+}
+
+:root[data-theme="light"] .slide-tech:hover img.logo-on-dark {
+    filter: brightness(0) drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.28));
+}
+
+:root[data-theme="light"] .slide-tech img.logo-invert {
+    filter: none;
+}
+
+:root[data-theme="light"] .slide-tech:hover img.logo-invert {
+    filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.28));
 }
