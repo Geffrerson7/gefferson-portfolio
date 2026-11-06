@@ -136,15 +136,21 @@
     --font-body: 'Montserrat', 'Segoe UI', sans-serif;
     --font-tech: 'Rajdhani', 'Segoe UI', sans-serif;
 
-    /* Layout */
-    --container-width: 1200px;
+    /* Layout: the container grows progressively from 1200px to 1440px
+       on large screens (1846px+ viewports reach the maximum) */
+    --container-width: clamp(1200px, 78vw, 1440px);
     --gutter: 1.5rem;
-    --section-space: 5rem;
+    --section-space: clamp(5rem, 2.5rem + 3.5vw, 7.5rem);
     --nav-height: 85px;
 
     /* Transitions */
     --transition-fast: 0.3s ease;
     --transition-normal: 0.5s ease;
+
+    /* Motion ("signals travel"): short distances, soft deceleration */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --reveal-distance: 12px;
+    --reveal-duration: 420ms;
 }
 
 
@@ -344,6 +350,116 @@ html.theme-transition *::after {
     50% {
         opacity: 0.35;
     }
+}
+
+
+/* ========================================
+   SCROLL REVEAL ("signals travel")
+   - The inline script in <head> adds .motion to <html> only when
+     motion is allowed and IntersectionObserver exists. Without it
+     (no JS, reduced motion, old browser) nothing is ever hidden.
+   - reveal.js adds .is-visible once per element; it never repeats.
+   - Only opacity/transform/scale are animated: no layout shift.
+   Variants (data-reveal="…"):
+     rise (default) · fade · line (draws from the left) · trace (draws down)
+   Stagger: elements inside [data-reveal-group] get --reveal-delay.
+======================================== */
+
+.motion [data-reveal] {
+    transition:
+        opacity var(--reveal-duration) var(--ease-out),
+        transform var(--reveal-duration) var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.motion [data-reveal]:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+}
+
+.motion [data-reveal="fade"]:not(.is-visible) {
+    transform: none;
+}
+
+.motion [data-reveal="line"] {
+    transform-origin: left center;
+    transition-duration: 700ms;
+}
+
+.motion [data-reveal="line"]:not(.is-visible) {
+    opacity: 1;
+    transform: scaleX(0);
+}
+
+/* Vertical variant: a trace drawn from the top (Skillset signal bus) */
+.motion [data-reveal="trace"] {
+    transform-origin: top center;
+    transition-duration: 1100ms;
+}
+
+.motion [data-reveal="trace"]:not(.is-visible) {
+    opacity: 1;
+    transform: scaleY(0);
+}
+
+/* After the reveal finishes, reveal.js removes [data-reveal] so each
+   component gets its own hover/focus transitions back. */
+
+
+/* ========================================
+   HERO ENTRANCE (CSS only, runs once on load)
+======================================== */
+
+@keyframes hero-in {
+    from {
+        opacity: 0;
+        transform: translateY(var(--reveal-distance));
+    }
+}
+
+/* Text that can be the LCP element (headline, subtitle, description)
+   only moves: it is painted at full opacity from the first frame, so the
+   entrance never delays Largest Contentful Paint. */
+@keyframes hero-in-text {
+    from {
+        transform: translateY(var(--reveal-distance));
+    }
+}
+
+.motion [data-hero] {
+    animation: hero-in 480ms var(--ease-out) both;
+    animation-delay: calc(var(--hero-step, 0) * 70ms);
+}
+
+.motion [data-hero="text"] {
+    animation-name: hero-in-text;
+    animation-delay: 0ms;
+}
+
+
+/* ========================================
+   VIEW TRANSITIONS (progressive enhancement)
+   - Theme switch: theme.js wraps the change in
+     document.startViewTransition() when supported → soft cross-fade.
+   - Language switch (/ ↔ /en/): cross-document transition.
+   Unsupported browsers simply switch instantly.
+======================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 320ms;
+    animation-timing-function: ease;
+}
+
+/* The fixed navbar stays in place during transitions */
+#navbar {
+    view-transition-name: site-navbar;
 }
 
 
