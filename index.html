@@ -1,46 +1,122 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="stylesheet" href="./assets/css/fonts.css" />
-    <link rel="stylesheet" href="./assets/css/sections.css" />
-    <link rel="stylesheet" href="./assets/css/header.css" />
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link rel="stylesheet" href="./assets/css/skillset.css" />
-    <link rel="stylesheet" href="./assets/css/experience.css" />
-    <link rel="stylesheet" href="./assets/css/portfolio.css" />
-    <link rel="stylesheet" href="./assets/css/contact.css" />
-    <link rel="stylesheet" href="./assets/css/footer.css" />
+    <title>Gefferson Casasola | Ingeniero Electrónico y Desarrollador Full Stack</title>
+    <meta
+      name="description"
+      content="Portafolio de Gefferson Casasola, Bachiller en Ingeniería Electrónica y Desarrollador Full Stack: aplicaciones web, soluciones backend, automatización de procesos e integración de tecnologías."
+    />
+    <meta name="author" content="Gefferson Casasola" />
+    <meta name="theme-color" content="#101820" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Canonical + language alternates -->
+    <link rel="canonical" href="https://gefferson-portfolio.vercel.app/" />
+    <link rel="alternate" hreflang="es" href="https://gefferson-portfolio.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://gefferson-portfolio.vercel.app/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://gefferson-portfolio.vercel.app/" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gefferson-portfolio.vercel.app/" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Gefferson Casasola" />
+    <meta
+      property="og:title"
+      content="Gefferson Casasola | Ingeniero Electrónico y Desarrollador Full Stack"
+    />
+    <meta
+      property="og:description"
+      content="Desarrollo de aplicaciones web, soluciones backend, automatización de procesos e integración de tecnologías."
+    />
+    <meta property="og:image" content="https://gefferson-portfolio.vercel.app/assets/img/og/og-es.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Portafolio de Gefferson Casasola, Ingeniero Electrónico y Desarrollador Full Stack" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Icons -->
+    <link rel="icon" href="assets/img/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&family=Orbitron:wght@500..800&family=Rajdhani:wght@500;600;700&display=swap"
     />
-    <title>Gefferson Casasola | Portafolio</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/sections.css" />
+    <link rel="stylesheet" href="assets/css/header.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/skillset.css" />
+    <link rel="stylesheet" href="assets/css/experience.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/contact.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+
+    <!-- Scripts (deferred: run after HTML parsing, in order) -->
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/navbar.js" defer></script>
+    <script src="assets/js/skillset.js" defer></script>
+    <script src="assets/js/contact.js" defer></script>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gefferson Max Casasola Huamancusi",
+        "alternateName": "Gefferson Casasola",
+        "jobTitle": "Desarrollador Full Stack",
+        "description": "Bachiller en Ingeniería Electrónica enfocado en el desarrollo de aplicaciones web, soluciones backend, automatización de procesos e integración de tecnologías.",
+        "url": "https://gefferson-portfolio.vercel.app/",
+        "image": "https://gefferson-portfolio.vercel.app/assets/img/icons/foto-perfil.webp",
+        "email": "mailto:gefferson.casasola@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lima",
+          "addressCountry": "PE"
+        },
+        "sameAs": [
+          "https://github.com/Geffrerson7",
+          "https://linkedin.com/in/gefferson-casasola"
+        ]
+      }
+    </script>
   </head>
   <body>
+    <!-- Shared inline icons (referenced with <use>) -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+      <symbol id="icon-github" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+      </symbol>
+      <symbol id="icon-resume" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+          <path d="M14 3v5h5" />
+          <path d="M9 13h6M9 17h4" />
+        </g>
+      </symbol>
+    </svg>
+
+    <a href="#main" class="skip-link">Saltar al contenido</a>
+
     <header id="home" class="site-header">
       <!-- NAVBAR -->
-      <nav id="navbar" class="navbar">
+      <nav id="navbar" class="navbar" aria-label="Navegación principal">
         <div class="navbar-container">
-          <a href="#home" class="navbar-brand">
+          <a href="#home" class="navbar-brand" aria-label="Gefferson, ir al inicio">
             <span class="brand-name">GEFFERSON<span>.</span></span>
-            <span class="brand-caption">DEVELOPER / ENGINEER</span>
+            <span class="brand-caption">DESARROLLADOR / INGENIERO</span>
           </a>
-
-          <div class="navbar-menu" id="navbar-menu">
-            <ul class="navbar-links">
-              <li><a href="#home" class="nav-link active">Home</a></li>
-              <li><a href="#skillset" class="nav-link">Skillset</a></li>
-              <li><a href="#experience" class="nav-link">Experience</a></li>
-              <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-            </ul>
-
-            <a href="#contact" class="navbar-contact">
-              Let's talk <span>↗</span>
-            </a>
-          </div>
 
           <button
             class="navbar-toggle"
@@ -49,10 +125,31 @@
             aria-label="Abrir menú"
             aria-expanded="false"
             aria-controls="navbar-menu"
+            data-label-open="Abrir menú"
+            data-label-close="Cerrar menú"
           >
-            <span></span>
-            <span></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </button>
+
+          <div class="navbar-menu" id="navbar-menu">
+            <ul class="navbar-links">
+              <li><a href="#home" class="nav-link active" aria-current="true">Inicio</a></li>
+              <li><a href="#skillset" class="nav-link">Habilidades</a></li>
+              <li><a href="#experience" class="nav-link">Experiencia</a></li>
+              <li><a href="#portfolio" class="nav-link">Proyectos</a></li>
+            </ul>
+
+            <a href="#contact" class="navbar-contact">
+              Hablemos <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="lang-switch" role="group" aria-label="Idioma">
+            <a href="./" class="lang-link active" hreflang="es" lang="es" aria-current="true" aria-label="Español (idioma actual)">ES</a>
+            <span aria-hidden="true">|</span>
+            <a href="en/" class="lang-link" hreflang="en" lang="en" aria-label="English version">EN</a>
+          </div>
         </div>
       </nav>
 
@@ -61,22 +158,22 @@
         <div class="hero-container">
           <div class="hero-content">
             <div class="hero-eyebrow">
-              <span class="hero-indicator"></span>
-              <span>WELCOME TO MY PORTFOLIO</span>
+              <span class="hero-indicator" aria-hidden="true"></span>
+              <span>BIENVENIDO A MI PORTAFOLIO</span>
             </div>
 
-            <p class="hero-intro">Hello, I'm</p>
+            <p class="hero-intro">Hola, soy</p>
 
             <h1>
               Gefferson
               <span>Casasola.</span>
             </h1>
 
-            <h2>
-              Electronic Engineer
+            <p class="hero-subtitle">
+              Ingeniero Electrónico
               <span>&</span>
-              Full Stack Developer
-            </h2>
+              Desarrollador Full Stack
+            </p>
 
             <p class="hero-description">
               Bachiller en Ingeniería Electrónica enfocado en el desarrollo de
@@ -86,327 +183,338 @@
 
             <div class="hero-actions">
               <a href="#portfolio" class="hero-button hero-button-primary">
-                Explore my work <span>↗</span>
+                Ver mis proyectos <span aria-hidden="true">↗</span>
               </a>
 
               <a href="#contact" class="hero-button hero-button-outline">
-                Get in touch
+                Contáctame
+              </a>
+
+              <a
+                href="https://rxresu.me/gcasasolah/cvgef"
+                class="hero-button hero-button-cv"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg aria-hidden="true" focusable="false"><use href="#icon-resume" /></svg>
+                Ver CV<span class="sr-only"> (se abre en una pestaña nueva)</span>
               </a>
             </div>
 
             <div class="hero-socials">
-              <span>CONNECT WITH ME</span>
+              <span>CONÉCTATE CONMIGO</span>
 
               <a
                 href="https://github.com/Geffrerson7"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub (se abre en una pestaña nueva)"
               >
-                GitHub ↗
+                GitHub <span aria-hidden="true">↗</span>
               </a>
 
               <a
                 href="https://linkedin.com/in/gefferson-casasola"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn (se abre en una pestaña nueva)"
               >
-                LinkedIn ↗
+                LinkedIn <span aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
 
           <!-- PROFILE IMAGE -->
-          <div class="hero-visual">
-            <div class="hero-image-frame">
-              <img
-                src="assets/img/icons/foto-perfil.jpg"
-                alt="Fotografía de perfil"
-                class="hero-profile-image"
-                fetchpriority="high"
-              />
+          <figure class="hero-visual">
+            <div class="hero-figure">
+              <div class="hero-image-frame">
+                <img
+                  src="assets/img/icons/foto-perfil.webp"
+                  alt="Fotografía de Gefferson Casasola"
+                  class="hero-profile-image"
+                  width="640"
+                  height="640"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="hero-decoration hero-decoration-top" aria-hidden="true">
+                <span>01</span>
+                <span>DESARROLLO</span>
+              </div>
+
+              <div class="hero-decoration hero-decoration-bottom" aria-hidden="true">
+                <span>INGENIERÍA</span>
+                <span>2026</span>
+              </div>
             </div>
 
-            <div class="hero-image-label">
-              <span class="hero-label-line"></span>
+            <figcaption class="hero-image-label">
+              <span class="hero-label-line" aria-hidden="true"></span>
               <span>GEFFERSON MAX CASASOLA HUAMANCUSI</span>
-            </div>
-
-            <div class="hero-decoration hero-decoration-top">
-              <span>01</span>
-              <span>DEVELOPER</span>
-            </div>
-
-            <div class="hero-decoration hero-decoration-bottom">
-              <span>ENGINEERING</span>
-              <span>2026</span>
-            </div>
-          </div>
+            </figcaption>
+          </figure>
         </div>
 
         <a href="#skillset" class="hero-scroll">
-          <span>SCROLL TO EXPLORE</span>
-          <span class="hero-scroll-line"></span>
+          <span>DESLIZA PARA EXPLORAR</span>
+          <span class="hero-scroll-line" aria-hidden="true"></span>
         </a>
       </div>
     </header>
 
-    <main>
-      <section id="skillset" class="skillset-section">
-        <div class="skillset-container">
-          <!-- Section heading -->
-          <div class="skillset-header">
-            <div class="skillset-heading">
+    <main id="main">
+      <!-- ========== SKILLSET ========== -->
+      <section id="skillset" class="skillset-section" aria-labelledby="skillset-title">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-heading">
               <span class="section-eyebrow">
-                <span class="eyebrow-line"></span>
-                TECH STACK / TOOLKIT
+                <span class="eyebrow-line" aria-hidden="true"></span>
+                STACK TECNOLÓGICO / HERRAMIENTAS
               </span>
-              <h3>Skillset<span>.</span></h3>
+              <h2 class="section-title" id="skillset-title">Habilidades<span>.</span></h2>
             </div>
 
-            <p class="skillset-description">
+            <p class="section-description">
               Tecnologías y herramientas que utilizo para desarrollar
               aplicaciones web, construir soluciones backend, gestionar datos y
               automatizar procesos.
             </p>
           </div>
 
-          <hr />
+          <hr class="section-divider" />
 
           <!-- Skills carousel -->
           <div class="skills-showcase">
             <div class="skills-showcase-header">
-              <span>EXPLORE MY TECHNOLOGIES</span>
+              <span>EXPLORA MIS TECNOLOGÍAS</span>
 
               <div class="skills-controls">
                 <button
                   class="skills-arrow"
                   id="skills-prev"
+                  type="button"
                   aria-label="Categoría anterior"
+                  aria-controls="skills-track"
                 >
-                  &#8592;
+                  <span aria-hidden="true">&#8592;</span>
                 </button>
                 <button
                   class="skills-arrow"
                   id="skills-next"
+                  type="button"
                   aria-label="Categoría siguiente"
+                  aria-controls="skills-track"
                 >
-                  &#8594;
+                  <span aria-hidden="true">&#8594;</span>
                 </button>
               </div>
             </div>
 
-            <div class="skills-track" id="skills-track">
+            <div
+              class="skills-track"
+              id="skills-track"
+              role="region"
+              aria-label="Categorías de tecnologías (desplazable horizontalmente)"
+              tabindex="0"
+            >
               <!-- 01 Programming Languages -->
-              <article class="skills-slide">
-                <div class="slide-number">01 / 06</div>
-                <div class="slide-icon">&lt;/&gt;</div>
+              <article class="skills-slide" aria-labelledby="skills-cat-1">
+                <div class="slide-number" aria-hidden="true">01 / 06</div>
+                <div class="slide-icon" aria-hidden="true">&lt;/&gt;</div>
 
-                <h4>Programming Languages</h4>
-                <p>Languages & fundamentals</p>
+                <h3 id="skills-cat-1">Lenguajes de programación</h3>
+                <p>Lenguajes y fundamentos</p>
 
-                <div class="slide-technologies">
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/html5.svg" alt="HTML5" />
+                <ul class="slide-technologies">
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/html5.svg" alt="" width="68" height="68" decoding="async" />
                     <span>HTML5</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/css3.svg" alt="CSS3" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/css3.svg" alt="" width="68" height="68" decoding="async" />
                     <span>CSS3</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img
-                      src="assets/img/skillset/javascript.svg"
-                      alt="JavaScript"
-                    />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/javascript.svg" alt="" width="68" height="68" decoding="async" />
                     <span>JavaScript</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img
-                      src="assets/img/skillset/typescript.svg"
-                      alt="TypeScript"
-                    />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/typescript.svg" alt="" width="68" height="68" decoding="async" />
                     <span>TypeScript</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/python.svg" alt="Python" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/python.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Python</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/c-sharp.svg" alt="C#" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/c-sharp.svg" alt="" width="68" height="68" decoding="async" />
                     <span>C#</span>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </article>
 
               <!-- 02 Frontend -->
-              <article class="skills-slide">
-                <div class="slide-number">02 / 06</div>
-                <div class="slide-icon">◈</div>
+              <article class="skills-slide" aria-labelledby="skills-cat-2">
+                <div class="slide-number" aria-hidden="true">02 / 06</div>
+                <div class="slide-icon" aria-hidden="true">◈</div>
 
-                <h4>Frontend Development</h4>
-                <p>Modern web interfaces</p>
+                <h3 id="skills-cat-2">Desarrollo Frontend</h3>
+                <p>Interfaces web modernas</p>
 
-                <div class="slide-technologies">
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/reactjs.svg" alt="React" />
+                <ul class="slide-technologies">
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/reactjs.svg" alt="" width="68" height="68" decoding="async" />
                     <span>React</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/nextjs.svg" alt="Next.js" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/nextjs.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Next.js</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img
-                      src="assets/img/skillset/tailwindcss.svg"
-                      alt="Tailwind CSS"
-                    />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/tailwindcss.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Tailwind CSS</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/angular.svg" alt="Angular" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/angular.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Angular</span>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </article>
 
               <!-- 03 Backend -->
-              <article class="skills-slide">
-                <div class="slide-number">03 / 06</div>
-                <div class="slide-icon">{ }</div>
+              <article class="skills-slide" aria-labelledby="skills-cat-3">
+                <div class="slide-number" aria-hidden="true">03 / 06</div>
+                <div class="slide-icon" aria-hidden="true">{ }</div>
 
-                <h4>Backend Development</h4>
-                <p>APIs & server-side development</p>
+                <h3 id="skills-cat-3">Desarrollo Backend</h3>
+                <p>APIs y desarrollo del lado del servidor</p>
 
-                <div class="slide-technologies">
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/nodejs.svg" alt="Node.js" />
+                <ul class="slide-technologies">
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/nodejs.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Node.js</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/expressjs-light.svg" alt="Express.js" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/expressjs-light.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Express.js</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/django.svg" alt="Django" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/django.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Django REST</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/nestjs.svg" alt="NestJS" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/nestjs.svg" alt="" width="68" height="68" decoding="async" />
                     <span>NestJS</span>
-                  </div>
-                </div>
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/prisma.svg" alt="" class="logo-invert" width="68" height="68" decoding="async" />
+                    <span>Prisma</span>
+                  </li>
+                </ul>
               </article>
 
               <!-- 04 Databases -->
-              <article class="skills-slide">
-                <div class="slide-number">04 / 06</div>
-                <div class="slide-icon">▤</div>
+              <article class="skills-slide" aria-labelledby="skills-cat-4">
+                <div class="slide-number" aria-hidden="true">04 / 06</div>
+                <div class="slide-icon" aria-hidden="true">▤</div>
 
-                <h4>Databases</h4>
-                <p>Data management & storage</p>
+                <h3 id="skills-cat-4">Bases de datos</h3>
+                <p>Gestión y almacenamiento de datos</p>
 
-                <div class="slide-technologies">
-                  <div class="slide-tech">
-                    <img
-                      src="assets/img/skillset/postgresql.svg"
-                      alt="PostgreSQL"
-                    />
+                <ul class="slide-technologies">
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/postgresql.svg" alt="" width="68" height="68" decoding="async" />
                     <span>PostgreSQL</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img
-                      src="assets/img/skillset/mysql.svg"
-                      alt="PostgreSQL"
-                    />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/mysql.svg" alt="" width="68" height="68" decoding="async" />
                     <span>MySQL</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img
-                      src="assets/img/skillset/microsoft-sql-server.svg"
-                      alt="SQL Server"
-                    />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/microsoft-sql-server.svg" alt="" width="68" height="68" decoding="async" />
                     <span>SQL Server</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/supabase.svg" alt="Supabase" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/supabase.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Supabase</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/redis.svg" alt="Redis" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/redis.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Redis</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/mongodb.svg" alt="MongoDB" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/mongodb.svg" alt="" width="68" height="68" decoding="async" />
                     <span>MongoDB</span>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </article>
 
               <!-- 05 Tools & DevOps -->
-              <article class="skills-slide">
-                <div class="slide-number">05 / 06</div>
-                <div class="slide-icon">⌘</div>
+              <article class="skills-slide" aria-labelledby="skills-cat-5">
+                <div class="slide-number" aria-hidden="true">05 / 06</div>
+                <div class="slide-icon" aria-hidden="true">⌘</div>
 
-                <h4>Tools & DevOps</h4>
-                <p>Development & infrastructure</p>
+                <h3 id="skills-cat-5">Herramientas y DevOps</h3>
+                <p>Desarrollo e infraestructura</p>
 
-                <div class="slide-technologies">
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/git.svg" alt="Git" />
+                <ul class="slide-technologies">
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/git.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Git</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/github-light.svg" alt="GitHub" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/github-light.svg" alt="" width="68" height="68" decoding="async" />
                     <span>GitHub</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/docker.svg" alt="Docker" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/docker.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Docker</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/linux.svg" alt="Linux" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/linux.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Linux</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/aws.svg" alt="AWS" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/aws.svg" alt="" width="68" height="68" decoding="async" />
                     <span>AWS</span>
-                  </div>
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/bash.svg" alt="Bash" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/bash.svg" alt="" width="68" height="68" decoding="async" />
                     <span>Bash</span>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </article>
 
               <!-- 06 AI & Automation -->
-              <article class="skills-slide">
-                <div class="slide-number">06 / 06</div>
-                <div class="slide-icon">✳</div>
+              <article class="skills-slide" aria-labelledby="skills-cat-6">
+                <div class="slide-number" aria-hidden="true">06 / 06</div>
+                <div class="slide-icon" aria-hidden="true">✳</div>
 
-                <h4>AI & Automation</h4>
-                <p>Artificial intelligence & automation</p>
+                <h3 id="skills-cat-6">IA y automatización</h3>
+                <p>Inteligencia artificial y automatización</p>
 
-                <div class="slide-technologies">
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/openai.svg" alt="OpenAI" />
+                <ul class="slide-technologies">
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/openai.svg" alt="" width="68" height="68" decoding="async" />
                     <span>OpenAI</span>
-                  </div>
-                 
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/claude-ai.svg" alt="ClaudeAI" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/claude-ai.svg" alt="" width="68" height="68" decoding="async" />
                     <span>ClaudeAI</span>
-                  </div>
-
-                  <div class="slide-tech">
-                    <img src="assets/img/skillset/n8n.svg" alt="n8n" />
+                  </li>
+                  <li class="slide-tech">
+                    <img src="assets/img/skillset/n8n.svg" alt="" width="68" height="68" decoding="async" />
                     <span>n8n</span>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </article>
             </div>
 
             <!-- Progress -->
-            <div class="skills-progress">
+            <div class="skills-progress" aria-hidden="true">
               <div class="skills-progress-track">
                 <div class="skills-progress-bar" id="skills-progress-bar"></div>
               </div>
@@ -416,618 +524,764 @@
         </div>
       </section>
 
-      <section id="experience">
-        <div class="experience-header">
-          <div>
-            <span class="experience-eyebrow">CAREER / 2023 — 2026</span>
-            <h3>Experience<span>.</span></h3>
+      <!-- ========== EXPERIENCE ========== -->
+      <section id="experience" aria-labelledby="experience-title">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-heading">
+              <span class="section-eyebrow">
+                <span class="eyebrow-line" aria-hidden="true"></span>
+                TRAYECTORIA / 2023 — 2026
+              </span>
+              <h2 class="section-title" id="experience-title">Experiencia<span>.</span></h2>
+            </div>
+
+            <p class="section-description">
+              Mi trayectoria profesional desarrollando software, automatizando
+              procesos y creando soluciones digitales.
+            </p>
           </div>
 
-          <p>
-            My professional journey building software, automating processes and
-            developing digital solutions.
-          </p>
+          <hr class="section-divider" />
+
+          <div class="experience-list">
+            <!-- 01: WILLIAM MERCAY -->
+            <article class="experience-card">
+              <div class="experience-index" aria-hidden="true">
+                <span>01</span>
+                <div class="experience-decoration decoration-one"></div>
+              </div>
+
+              <div class="experience-main">
+                <div class="experience-meta">
+                  <span>DESARROLLO FULL STACK</span>
+                  <span>2025 — 2026</span>
+                </div>
+
+                <h3>William Mercay S.A.</h3>
+                <p class="experience-role">Desarrollador Full Stack · Freelance</p>
+
+                <ul class="experience-tags" aria-label="Tecnologías">
+                  <li>Next.js</li>
+                  <li>TypeScript</li>
+                  <li>Python</li>
+                  <li>Django REST</li>
+                  <li>PostgreSQL</li>
+                  <li>AWS</li>
+                </ul>
+
+                <details class="experience-details">
+                  <summary>
+                    <span>Ver detalles<span class="sr-only"> de William Mercay S.A.</span></span>
+                    <span class="details-icon" aria-hidden="true">+</span>
+                  </summary>
+
+                  <div class="experience-description">
+                    <ul>
+                      <li>
+                        Desarrollo de aplicaciones web para consultoría legal y
+                        contable.
+                      </li>
+                      <li>
+                        Implementación de APIs REST con Django REST Framework y
+                        PostgreSQL.
+                      </li>
+                      <li>
+                        Integración de autenticación mediante Keycloak y
+                        protocolos OAuth 2.0 / OIDC.
+                      </li>
+                      <li>
+                        Configuración de tareas asíncronas con Celery y Redis.
+                      </li>
+                      <li>
+                        Uso de Docker y servicios AWS para el entorno de
+                        desarrollo.
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <div class="experience-visual visual-one" aria-hidden="true">
+                <span class="visual-symbol">&lt;/&gt;</span>
+                <span class="visual-caption">BACKEND / CLOUD</span>
+              </div>
+            </article>
+
+            <!-- 02: NEWPORT CAPITAL -->
+            <article class="experience-card">
+              <div class="experience-index" aria-hidden="true">
+                <span>02</span>
+                <div class="experience-decoration decoration-two"></div>
+              </div>
+
+              <div class="experience-main">
+                <div class="experience-meta">
+                  <span>DESARROLLO DE SOFTWARE</span>
+                  <span>2025</span>
+                </div>
+
+                <h3>Newport Capital S.A.C.</h3>
+                <p class="experience-role">Programador Full Stack</p>
+
+                <ul class="experience-tags" aria-label="Tecnologías">
+                  <li>Angular</li>
+                  <li>NestJS</li>
+                  <li>SQL Server</li>
+                  <li>C#</li>
+                  <li>ASP.NET Core</li>
+                </ul>
+
+                <details class="experience-details">
+                  <summary>
+                    <span>Ver detalles<span class="sr-only"> de Newport Capital S.A.C.</span></span>
+                    <span class="details-icon" aria-hidden="true">+</span>
+                  </summary>
+
+                  <div class="experience-description">
+                    <ul>
+                      <li>
+                        Desarrollo y mantenimiento de funcionalidades para una
+                        plataforma de gestión de casinos.
+                      </li>
+                      <li>
+                        Implementación de módulos de registro multisede y
+                        tarjetas de membresía.
+                      </li>
+                      <li>
+                        Desarrollo de funcionalidades para plantillas de
+                        planificación de comidas.
+                      </li>
+                      <li>
+                        Implementación de lógica de caja chica y alertas de
+                        proveedores con C# y ASP.NET Core.
+                      </li>
+                      <li>
+                        Gestión de información y consultas mediante SQL Server.
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <div class="experience-visual visual-two" aria-hidden="true">
+                <span class="visual-symbol">{ }</span>
+                <span class="visual-caption">FULL STACK</span>
+              </div>
+            </article>
+
+            <!-- 03: KUALI.AI / APRENDIZAJE DIGITAL -->
+            <article class="experience-card">
+              <div class="experience-index" aria-hidden="true">
+                <span>03</span>
+                <div class="experience-decoration decoration-three"></div>
+              </div>
+
+              <div class="experience-main">
+                <div class="experience-meta">
+                  <span>DESARROLLO WEB / E-COMMERCE</span>
+                  <span>2024 — 2025</span>
+                </div>
+
+                <h3>Kuali.ai / Aprendizaje Digital SAC</h3>
+
+                <div class="experience-position">
+                  <p class="experience-role">Full Stack Junior · Kuali.ai</p>
+                  <span>Feb 2025 — Mar 2025</span>
+                </div>
+
+                <div class="experience-position">
+                  <p class="experience-role">Asistente de Contenido y SKU</p>
+                  <span>Ene 2024 — Ene 2025</span>
+                </div>
+
+                <ul class="experience-tags" aria-label="Tecnologías">
+                  <li>React</li>
+                  <li>Python</li>
+                  <li>Django REST</li>
+                  <li>PostgreSQL</li>
+                  <li>OpenAI</li>
+                  <li>Pandas</li>
+                  <li>Selenium</li>
+                </ul>
+
+                <details class="experience-details">
+                  <summary>
+                    <span>Ver detalles<span class="sr-only"> de Kuali.ai / Aprendizaje Digital SAC</span></span>
+                    <span class="details-icon" aria-hidden="true">+</span>
+                  </summary>
+
+                  <div class="experience-description">
+                    <strong>Full Stack Junior — Kuali.ai</strong>
+                    <ul>
+                      <li>
+                        Desarrollo de una aplicación web para automatizar
+                        procesos de contenido y gestión de SKU.
+                      </li>
+                      <li>
+                        Implementación de funcionalidades con React, Django REST
+                        Framework y PostgreSQL.
+                      </li>
+                      <li>
+                        Integración de OpenAI y LangChain para procesamiento de
+                        contenido.
+                      </li>
+                      <li>
+                        Uso de Celery, Redis y Docker para tareas asíncronas y
+                        despliegue.
+                      </li>
+                    </ul>
+
+                    <strong>Asistente de Contenido y SKU — Aprendizaje Digital SAC</strong>
+                    <ul>
+                      <li>
+                        Gestión y actualización de catálogos de productos en
+                        VTEX.
+                      </li>
+                      <li>
+                        Automatización de tareas de extracción y procesamiento
+                        de información con Python, Selenium y BeautifulSoup.
+                      </li>
+                      <li>
+                        Generación de plantillas Excel para importación de
+                        productos mediante Pandas.
+                      </li>
+                      <li>
+                        Validación de atributos y control de calidad de
+                        información de productos.
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <div class="experience-visual visual-three" aria-hidden="true">
+                <span class="visual-symbol">AI</span>
+                <span class="visual-caption">DATOS / AUTOMATIZACIÓN</span>
+              </div>
+            </article>
+
+            <!-- 04: ISAT PERU -->
+            <article class="experience-card">
+              <div class="experience-index" aria-hidden="true">
+                <span>04</span>
+                <div class="experience-decoration decoration-four"></div>
+              </div>
+
+              <div class="experience-main">
+                <div class="experience-meta">
+                  <span>TELECOMUNICACIONES</span>
+                  <span>2023 — 2024</span>
+                </div>
+
+                <h3>ISAT PERU</h3>
+                <p class="experience-role">Practicante de Ingeniería</p>
+
+                <ul class="experience-tags" aria-label="Tecnologías">
+                  <li>5G</li>
+                  <li>4G LTE</li>
+                  <li>3G UMTS</li>
+                  <li>2G</li>
+                  <li>TSS</li>
+                </ul>
+
+                <details class="experience-details">
+                  <summary>
+                    <span>Ver detalles<span class="sr-only"> de ISAT PERU</span></span>
+                    <span class="details-icon" aria-hidden="true">+</span>
+                  </summary>
+
+                  <div class="experience-description">
+                    <ul>
+                      <li>
+                        Apoyo en actividades relacionadas con infraestructura de
+                        telecomunicaciones.
+                      </li>
+                      <li>
+                        Elaboración y revisión de reportes técnicos TSS para
+                        nodos de Claro.
+                      </li>
+                      <li>
+                        Familiarización con tecnologías móviles 5G, 4G LTE, 3G
+                        UMTS y 2G.
+                      </li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <div class="experience-visual visual-four" aria-hidden="true">
+                <span class="visual-symbol">5G</span>
+                <span class="visual-caption">REDES</span>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
 
-        <hr />
-
-        <div class="experience-list">
-          <!-- 01: WILLIAM MERCAY -->
-          <article class="experience-card">
-            <div class="experience-index">
-              <span>01</span>
-              <div class="experience-decoration decoration-one"></div>
+      <!-- ========== PORTFOLIO ========== -->
+      <section id="portfolio" aria-labelledby="portfolio-title">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-heading">
+              <span class="section-eyebrow">
+                <span class="eyebrow-line" aria-hidden="true"></span>
+                PROYECTOS DESTACADOS / 2024 — 2026
+              </span>
+              <h2 class="section-title" id="portfolio-title">Proyectos<span>.</span></h2>
             </div>
 
-            <div class="experience-main">
-              <div class="experience-meta">
-                <span>FULL STACK DEVELOPMENT</span>
-                <span>2025 — 2026</span>
-              </div>
+            <p class="section-description">
+              Una selección de proyectos enfocados en desarrollo de software,
+              automatización y soluciones digitales.
+            </p>
+          </div>
 
-              <h4>William Mercay S.A.</h4>
-              <p class="experience-role">Full Stack Developer · Freelancer</p>
+          <hr class="section-divider" />
 
-              <div class="experience-tags">
-                <span>Next.js</span>
-                <span>TypeScript</span>
-                <span>Python</span>
-                <span>Django REST</span>
-                <span>PostgreSQL</span>
-                <span>AWS</span>
-              </div>
+          <div class="portfolio-grid">
+            <!-- PROJECT 01 -->
+            <article class="portfolio-card">
+              <a
+                href="https://football-players-xi.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="portfolio-image"
+                tabindex="-1"
+                aria-hidden="true"
+              >
+                <img
+                  src="assets/img/portfolio/football-players.webp"
+                  alt=""
+                  width="960"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="portfolio-view">VER PROYECTO ↗</span>
+              </a>
 
-              <details class="experience-details">
-                <summary>
-                  <span>View experience</span>
-                  <span class="details-icon">+</span>
-                </summary>
-
-                <div class="experience-description">
-                  <ul>
-                    <li>
-                      Desarrollo de aplicaciones web para consultoría legal y
-                      contable.
-                    </li>
-                    <li>
-                      Implementación de APIs REST con Django REST Framework y
-                      PostgreSQL.
-                    </li>
-                    <li>
-                      Integración de autenticación mediante Keycloak y
-                      protocolos OAuth 2.0 / OIDC.
-                    </li>
-                    <li>
-                      Configuración de tareas asíncronas con Celery y Redis.
-                    </li>
-                    <li>
-                      Uso de Docker y servicios AWS para el entorno de
-                      desarrollo.
-                    </li>
-                  </ul>
+              <div class="portfolio-info">
+                <div class="portfolio-meta">
+                  <span>01 / APLICACIÓN WEB</span>
+                  <span>2026</span>
                 </div>
-              </details>
-            </div>
 
-            <div class="experience-visual visual-one">
-              <span class="visual-symbol">&lt;/&gt;</span>
-              <span class="visual-caption">BACKEND / CLOUD</span>
-            </div>
-          </article>
+                <h3>Football Players</h3>
 
-          <!-- 02: NEWPORT CAPITAL -->
-          <article class="experience-card">
-            <div class="experience-index">
-              <span>02</span>
-              <div class="experience-decoration decoration-two"></div>
-            </div>
+                <p>
+                  Aplicación web para la gestión de jugadores de fútbol, con
+                  operaciones CRUD e integración con Supabase.
+                </p>
 
-            <div class="experience-main">
-              <div class="experience-meta">
-                <span>SOFTWARE DEVELOPMENT</span>
-                <span>2025</span>
-              </div>
+                <ul class="portfolio-tags" aria-label="Tecnologías">
+                  <li>React</li>
+                  <li>JavaScript</li>
+                  <li>Supabase</li>
+                  <li>Tailwind CSS</li>
+                </ul>
 
-              <h4>Newport Capital S.A.C.</h4>
-              <p class="experience-role">Full Stack Programmer</p>
-
-              <div class="experience-tags">
-                <span>Angular</span>
-                <span>NestJS</span>
-                <span>SQL Server</span>
-                <span>C#</span>
-                <span>ASP.NET Core</span>
-              </div>
-
-              <details class="experience-details">
-                <summary>
-                  <span>View experience</span>
-                  <span class="details-icon">+</span>
-                </summary>
-
-                <div class="experience-description">
-                  <ul>
-                    <li>
-                      Desarrollo y mantenimiento de funcionalidades para una
-                      plataforma de gestión de casinos.
-                    </li>
-                    <li>
-                      Implementación de módulos de registro multisede y tarjetas
-                      de membresía.
-                    </li>
-                    <li>
-                      Desarrollo de funcionalidades para plantillas de
-                      planificación de comidas.
-                    </li>
-                    <li>
-                      Implementación de lógica de caja chica y alertas de
-                      proveedores con C# y ASP.NET Core.
-                    </li>
-                    <li>
-                      Gestión de información y consultas mediante SQL Server.
-                    </li>
-                  </ul>
-                </div>
-              </details>
-            </div>
-
-            <div class="experience-visual visual-two">
-              <span class="visual-symbol">{ }</span>
-              <span class="visual-caption">FULL STACK</span>
-            </div>
-          </article>
-
-          <!-- 03: KUALI.AI / APRENDIZAJE DIGITAL -->
-          <article class="experience-card">
-            <div class="experience-index">
-              <span>03</span>
-              <div class="experience-decoration decoration-three"></div>
-            </div>
-
-            <div class="experience-main">
-              <div class="experience-meta">
-                <span>WEB DEVELOPMENT / E-COMMERCE</span>
-                <span>2024 — 2025</span>
-              </div>
-
-              <h4>Kuali.ai / Aprendizaje Digital SAC</h4>
-
-              <div class="experience-position">
-                <p class="experience-role">Full Stack Junior · Kuali.ai</p>
-                <span>Feb 2025 — Mar 2025</span>
-              </div>
-
-              <div class="experience-position">
-                <p class="experience-role">Asistente de Contenido y SKU</p>
-                <span>Jan 2024 — Jan 2025</span>
-              </div>
-
-              <div class="experience-tags">
-                <span>React</span>
-                <span>Python</span>
-                <span>Django REST</span>
-                <span>PostgreSQL</span>
-                <span>OpenAI</span>
-                <span>Pandas</span>
-                <span>Selenium</span>
-              </div>
-
-              <details class="experience-details">
-                <summary>
-                  <span>View experience</span>
-                  <span class="details-icon">+</span>
-                </summary>
-
-                <div class="experience-description">
-                  <strong>Full Stack Junior — Kuali.ai</strong>
-                  <ul>
-                    <li>
-                      Desarrollo de una aplicación web para automatizar procesos
-                      de contenido y gestión de SKU.
-                    </li>
-                    <li>
-                      Implementación de funcionalidades con React, Django REST
-                      Framework y PostgreSQL.
-                    </li>
-                    <li>
-                      Integración de OpenAI y LangChain para procesamiento de
-                      contenido.
-                    </li>
-                    <li>
-                      Uso de Celery, Redis y Docker para tareas asíncronas y
-                      despliegue.
-                    </li>
-                  </ul>
-
-                  <strong
-                    >Asistente de Contenido y SKU — Aprendizaje Digital
-                    SAC</strong
+                <div class="portfolio-links">
+                  <a
+                    href="https://football-players-xi.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portfolio-link"
                   >
-                  <ul>
-                    <li>
-                      Gestión y actualización de catálogos de productos en VTEX.
-                    </li>
-                    <li>
-                      Automatización de tareas de extracción y procesamiento de
-                      información con Python, Selenium y BeautifulSoup.
-                    </li>
-                    <li>
-                      Generación de plantillas Excel para importación de
-                      productos mediante Pandas.
-                    </li>
-                    <li>
-                      Validación de atributos y control de calidad de
-                      información de productos.
-                    </li>
-                  </ul>
+                    Ver demo<span class="sr-only">: Football Players (se abre en una pestaña nueva)</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+
+                  <a
+                    href="https://github.com/Geffrerson7/football-players"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portfolio-link portfolio-link-source"
+                  >
+                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
+                    Ver código<span class="sr-only">: repositorio de Football Players en GitHub (se abre en una pestaña nueva)</span>
+                  </a>
                 </div>
-              </details>
-            </div>
-
-            <div class="experience-visual visual-three">
-              <span class="visual-symbol">AI</span>
-              <span class="visual-caption">DATA / AUTOMATION</span>
-            </div>
-          </article>
-
-          <!-- 04: ISAT PERU -->
-          <article class="experience-card">
-            <div class="experience-index">
-              <span>04</span>
-              <div class="experience-decoration decoration-four"></div>
-            </div>
-
-            <div class="experience-main">
-              <div class="experience-meta">
-                <span>TELECOMMUNICATIONS</span>
-                <span>2023 — 2024</span>
               </div>
+            </article>
 
-              <h4>ISAT PERU</h4>
-              <p class="experience-role">Practicante de Ingeniería</p>
+            <!-- PROJECT 02 -->
+            <article class="portfolio-card">
+              <a
+                href="https://products-crud-nu.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="portfolio-image"
+                tabindex="-1"
+                aria-hidden="true"
+              >
+                <img
+                  src="assets/img/portfolio/products-crud.webp"
+                  alt=""
+                  width="960"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="portfolio-view">VER PROYECTO ↗</span>
+              </a>
 
-              <div class="experience-tags">
-                <span>5G</span>
-                <span>4G LTE</span>
-                <span>3G UMTS</span>
-                <span>2G</span>
-                <span>TSS</span>
-              </div>
-
-              <details class="experience-details">
-                <summary>
-                  <span>View experience</span>
-                  <span class="details-icon">+</span>
-                </summary>
-
-                <div class="experience-description">
-                  <ul>
-                    <li>
-                      Apoyo en actividades relacionadas con infraestructura de
-                      telecomunicaciones.
-                    </li>
-                    <li>
-                      Elaboración y revisión de reportes técnicos TSS para nodos
-                      de Claro.
-                    </li>
-                    <li>
-                      Familiarización con tecnologías móviles 5G, 4G LTE, 3G
-                      UMTS y 2G.
-                    </li>
-                  </ul>
+              <div class="portfolio-info">
+                <div class="portfolio-meta">
+                  <span>02 / APLICACIÓN WEB</span>
+                  <span>2025</span>
                 </div>
-              </details>
-            </div>
 
-            <div class="experience-visual visual-four">
-              <span class="visual-symbol">5G</span>
-              <span class="visual-caption">NETWORKS</span>
-            </div>
-          </article>
+                <h3>Products CRUD</h3>
+
+                <p>
+                  Aplicación web para la gestión de productos, con operaciones
+                  de creación, consulta, actualización y eliminación mediante
+                  una interfaz administrativa.
+                </p>
+
+                <ul class="portfolio-tags" aria-label="Tecnologías">
+                  <li>React</li>
+                  <li>TypeScript</li>
+                  <li>Tailwind CSS</li>
+                  <li>MockAPI</li>
+                </ul>
+
+                <div class="portfolio-links">
+                  <a
+                    href="https://products-crud-nu.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portfolio-link"
+                  >
+                    Ver demo<span class="sr-only">: Products CRUD (se abre en una pestaña nueva)</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+
+                  <a
+                    href="https://github.com/Geffrerson7/products-crud"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portfolio-link portfolio-link-source"
+                  >
+                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
+                    Ver código<span class="sr-only">: repositorio de Products CRUD en GitHub (se abre en una pestaña nueva)</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 03 -->
+            <article class="portfolio-card">
+              <a
+                href="https://rick-and-morty-app-pink.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="portfolio-image"
+                tabindex="-1"
+                aria-hidden="true"
+              >
+                <img
+                  src="assets/img/portfolio/rick-and-morty-app.webp"
+                  alt=""
+                  width="960"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="portfolio-view">VER PROYECTO ↗</span>
+              </a>
+
+              <div class="portfolio-info">
+                <div class="portfolio-meta">
+                  <span>03 / FRONTEND</span>
+                  <span>2025</span>
+                </div>
+
+                <h3>Rick and Morty App</h3>
+
+                <p>
+                  Aplicación frontend desarrollada como proyecto de aprendizaje
+                  e integración con una API.
+                </p>
+
+                <ul class="portfolio-tags" aria-label="Tecnologías">
+                  <li>React</li>
+                  <li>Vite</li>
+                  <li>JavaScript</li>
+                  <li>API REST</li>
+                </ul>
+
+                <div class="portfolio-links">
+                  <a
+                    href="https://rick-and-morty-app-pink.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portfolio-link"
+                  >
+                    Ver demo<span class="sr-only">: Rick and Morty App (se abre en una pestaña nueva)</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+
+                  <a
+                    href="https://github.com/Geffrerson7/rick-and-morty-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portfolio-link portfolio-link-source"
+                  >
+                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
+                    Ver código<span class="sr-only">: repositorio de Rick and Morty App en GitHub (se abre en una pestaña nueva)</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 04 -->
+            <article class="portfolio-card">
+              <a
+                href="https://geffrerson7.github.io/pokedex/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="portfolio-image"
+                tabindex="-1"
+                aria-hidden="true"
+              >
+                <img
+                  src="assets/img/portfolio/pokedex.webp"
+                  alt=""
+                  width="960"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="portfolio-view">VER PROYECTO ↗</span>
+              </a>
+
+              <div class="portfolio-info">
+                <div class="portfolio-meta">
+                  <span>04 / APLICACIÓN WEB</span>
+                  <span>2025</span>
+                </div>
+
+                <h3>Pokédex</h3>
+
+                <p>
+                  Aplicación web para explorar Pokémon y consultar información
+                  mediante una API externa.
+                </p>
+
+                <ul class="portfolio-tags" aria-label="Tecnologías">
+                  <li>JavaScript</li>
+                  <li>Tailwind CSS</li>
+                  <li>PokéAPI</li>
+                </ul>
+
+                <div class="portfolio-links">
+                  <a
+                    href="https://geffrerson7.github.io/pokedex/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portfolio-link"
+                  >
+                    Ver demo<span class="sr-only">: Pokédex (se abre en una pestaña nueva)</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+
+                  <a
+                    href="https://github.com/Geffrerson7/pokedex"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="portfolio-link portfolio-link-source"
+                  >
+                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
+                    Ver código<span class="sr-only">: repositorio de Pokédex en GitHub (se abre en una pestaña nueva)</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="portfolio-footer">
+            <span>MÁS PROYECTOS</span>
+            <a
+              href="https://github.com/Geffrerson7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              EXPLORAR GITHUB<span class="sr-only"> (se abre en una pestaña nueva)</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      <section id="portfolio">
-        <div class="portfolio-header">
-          <div>
-            <span class="portfolio-eyebrow">SELECTED WORK / 2024 — 2026</span>
-            <h3>Portfolio<span>.</span></h3>
-          </div>
-
-          <p>
-            A selection of projects focused on software development, automation
-            and digital solutions.
-          </p>
-        </div>
-
-        <hr />
-
-        <div class="portfolio-grid">
-          <!-- PROJECT 01 -->
-          <article class="portfolio-card">
-            <a
-              href="https://football-players-xi.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="portfolio-image"
-            >
-              <img
-                src="assets/img/portfolio/football-players.png"
-                alt="Football Players application screenshot"
-              />
-              <span class="portfolio-view">VIEW PROJECT ↗</span>
-            </a>
-
-            <div class="portfolio-info">
-              <div class="portfolio-meta">
-                <span>01 / WEB APPLICATION</span>
-                <span>2026</span>
-              </div>
-
-              <h4>Football Players</h4>
-
-              <p>
-                Aplicación web para la gestión de jugadores de fútbol, con
-                operaciones CRUD e integración con Supabase.
-              </p>
-
-              <div class="portfolio-tags">
-                <span>React</span>
-                <span>JavaScript</span>
-                <span>Supabase</span>
-                <span>Tailwind CSS</span>
-              </div>
+      <!-- ========== CONTACT ========== -->
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-heading">
+              <span class="section-eyebrow">
+                <span class="eyebrow-line" aria-hidden="true"></span>
+                CONTACTO / CONVERSEMOS
+              </span>
+              <h2 class="section-title" id="contact-title">Contacto<span>.</span></h2>
             </div>
-          </article>
 
-          <!-- PROJECT 02 -->
-          <article class="portfolio-card">
-            <a
-              href="https://products-crud-nu.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="portfolio-image"
-            >
-              <img
-                src="assets/img/portfolio/products-crud.png"
-                alt="Products CRUD application screenshot"
-              />
-              <span class="portfolio-view">VIEW PROJECT ↗</span>
-            </a>
-
-            <div class="portfolio-info">
-              <div class="portfolio-meta">
-                <span>05 / WEB APPLICATION</span>
-                <span>2025</span>
-              </div>
-
-              <h4>Products CRUD</h4>
-
-              <p>
-                Aplicación web para la gestión de productos, con operaciones de
-                creación, consulta, actualización y eliminación mediante una
-                interfaz administrativa.
-              </p>
-
-              <div class="portfolio-tags">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Tailwind CSS</span>
-                <span>MockAPI</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 03 -->
-          <article class="portfolio-card">
-            <a
-              href="https://rick-and-morty-app-pink.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="portfolio-image"
-            >
-              <img
-                src="assets/img/portfolio/rick-and-morty-app.png"
-                alt="Rick and Morty application screenshot"
-              />
-              <span class="portfolio-view">VIEW PROJECT ↗</span>
-            </a>
-
-            <div class="portfolio-info">
-              <div class="portfolio-meta">
-                <span>03 / FRONTEND</span>
-                <span>2025</span>
-              </div>
-
-              <h4>Rick and Morty App</h4>
-
-              <p>
-                Aplicación frontend desarrollada como proyecto de aprendizaje e
-                integración con una API.
-              </p>
-
-              <div class="portfolio-tags">
-                <span>React</span>
-                <span>Vite</span>
-                <span>JavaScript</span>
-                <span>API REST</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 04 -->
-          <article class="portfolio-card">
-            <a
-              href="https://geffrerson7.github.io/pokedex/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="portfolio-image"
-            >
-              <img
-                src="assets/img/portfolio/pokedex.png"
-                alt="Pokédex application screenshot"
-              />
-              <span class="portfolio-view">VIEW PROJECT ↗</span>
-            </a>
-
-            <div class="portfolio-info">
-              <div class="portfolio-meta">
-                <span>04 / WEB APPLICATION</span>
-                <span>2025</span>
-              </div>
-
-              <h4>Pokédex</h4>
-
-              <p>
-                Aplicación web para explorar Pokémon y consultar información
-                mediante una API externa.
-              </p>
-
-              <div class="portfolio-tags">
-                <span>JavaScript</span>
-                <span>Tailwind CSS</span>
-                <span>PokéAPI</span>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="portfolio-footer">
-          <span>MORE PROJECTS</span>
-          <a
-            href="https://github.com/Geffrerson7"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            EXPLORE GITHUB ↗
-          </a>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="contact-header">
-          <div>
-            <span class="contact-eyebrow">GET IN TOUCH / LET'S CONNECT</span>
-            <h3>Contact<span>.</span></h3>
-          </div>
-
-          <p>
-            Have a project in mind or an opportunity to discuss? Feel free to
-            get in touch.
-          </p>
-        </div>
-
-        <hr />
-
-        <div class="contact-container">
-          <!-- Contact information -->
-          <div class="contact-info">
-            <span class="contact-number">01 / CONTACT DETAILS</span>
-
-            <h4>
-              Let's build something<br />
-              <span>great together.</span>
-            </h4>
-
-            <p>
-              Estoy abierto a oportunidades laborales, colaboraciones y
-              proyectos relacionados con desarrollo de software y tecnología.
+            <p class="section-description">
+              ¿Tienes un proyecto en mente o una oportunidad que conversar? No
+              dudes en escribirme.
             </p>
-
-            <div class="contact-detail">
-              <span class="contact-detail-icon">@</span>
-              <div>
-                <span class="contact-detail-label">EMAIL</span>
-                <a href="mailto:gefferson.casasola@gmail.com">
-                  gefferson.casasola@gmail.com
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-detail">
-              <span class="contact-detail-icon">↗</span>
-              <div>
-                <span class="contact-detail-label">LOCATION</span>
-                <span class="contact-detail-value">
-                  Villa El Salvador, Lima, Perú
-                </span>
-              </div>
-            </div>
-
-            <div class="contact-social">
-              <span class="contact-detail-label">FIND ME ONLINE</span>
-
-              <div class="contact-social-links">
-                <a
-                  href="https://linkedin.com/in/gefferson-casasola"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn ↗
-                </a>
-
-                <a
-                  href="https://github.com/Geffrerson7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-decoration">
-              <span>AVAILABLE FOR OPPORTUNITIES</span>
-              <div></div>
-            </div>
           </div>
 
-          <!-- Contact form -->
-          <div class="contact-form-container">
-            <div class="contact-form-heading">
-              <span class="contact-number">02 / SEND A MESSAGE</span>
-              <span class="contact-form-symbol">&lt;/&gt;</span>
+          <hr class="section-divider" />
+
+          <div class="contact-container">
+            <!-- Contact information -->
+            <div class="contact-info">
+              <span class="contact-number">01 / DATOS DE CONTACTO</span>
+
+              <h3>
+                Construyamos algo<br />
+                <span>grande juntos.</span>
+              </h3>
+
+              <p>
+                Estoy abierto a oportunidades laborales, colaboraciones y
+                proyectos relacionados con desarrollo de software y tecnología.
+              </p>
+
+              <div class="contact-detail">
+                <span class="contact-detail-icon" aria-hidden="true">@</span>
+                <div>
+                  <span class="contact-detail-label">CORREO</span>
+                  <a href="mailto:gefferson.casasola@gmail.com">
+                    gefferson.casasola@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <span class="contact-detail-icon" aria-hidden="true">↗</span>
+                <div>
+                  <span class="contact-detail-label">UBICACIÓN</span>
+                  <span class="contact-detail-value">
+                    Villa El Salvador, Lima, Perú
+                  </span>
+                </div>
+              </div>
+
+              <div class="contact-social">
+                <span class="contact-detail-label">ENCUÉNTRAME EN</span>
+
+                <div class="contact-social-links">
+                  <a
+                    href="https://linkedin.com/in/gefferson-casasola"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn (se abre en una pestaña nueva)"
+                  >
+                    LinkedIn <span aria-hidden="true">↗</span>
+                  </a>
+
+                  <a
+                    href="https://github.com/Geffrerson7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub (se abre en una pestaña nueva)"
+                  >
+                    GitHub <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-decoration" aria-hidden="true">
+                <span>DISPONIBLE PARA NUEVAS OPORTUNIDADES</span>
+                <div></div>
+              </div>
             </div>
 
-            <h4>Send me a message</h4>
-
-            <p class="contact-form-description">
-              Complete the form and I'll get back to you.
-            </p>
-
-            <form
-              action="https://formspree.io/f/TU_ID_DE_FORMSPREE"
-              method="POST"
-            >
-              <div class="contact-form-group">
-                <label for="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                />
+            <!-- Contact form -->
+            <div class="contact-form-container">
+              <div class="contact-form-heading">
+                <span class="contact-number">02 / ENVÍAME UN MENSAJE</span>
+                <span class="contact-form-symbol" aria-hidden="true">&lt;/&gt;</span>
               </div>
 
-              <div class="contact-form-group">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
+              <h3 id="contact-form-title">Envíame un mensaje</h3>
 
-              <div class="contact-form-group">
-                <label for="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="What is this about?"
-                  required
-                />
-              </div>
+              <p class="contact-form-description">
+                Completa el formulario y te responderé a la brevedad.
+              </p>
 
-              <div class="contact-form-group">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Write your message here..."
-                  required
-                ></textarea>
-              </div>
+              <form
+                class="contact-form"
+                id="contact-form"
+                action="https://formspree.io/f/mjvllwkl"
+                method="POST"
+                aria-labelledby="contact-form-title"
+                data-fallback-email="gefferson.casasola@gmail.com"
+                data-msg-required="Por favor, completa este campo."
+                data-msg-email="Ingresa un correo electrónico válido (por ejemplo: nombre@dominio.com)."
+                data-msg-sending="Enviando mensaje…"
+                data-msg-success="¡Gracias! Tu mensaje fue enviado correctamente. Te responderé pronto."
+                data-msg-error="No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme a gefferson.casasola@gmail.com."
+                data-msg-mailto="Se abrió tu cliente de correo con el mensaje listo para enviar."
+                data-msg-mail-subject="Contacto desde el portafolio"
+              >
+                <div class="contact-form-group">
+                  <label for="name">Nombre</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Tu nombre"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
 
-              <button type="submit" class="contact-submit">
-                SEND MESSAGE
-                <span>↗</span>
-              </button>
-            </form>
+                <div class="contact-form-group">
+                  <label for="email">Correo electrónico</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="tu@correo.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+                <div class="contact-form-group">
+                  <label for="subject">Asunto</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="¿Sobre qué quieres conversar?"
+                    required
+                  />
+                </div>
+
+                <div class="contact-form-group">
+                  <label for="message">Mensaje</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Escribe tu mensaje aquí..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="contact-submit">
+                  ENVIAR MENSAJE
+                  <span aria-hidden="true">↗</span>
+                </button>
+
+                <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+              </form>
+            </div>
           </div>
         </div>
       </section>
@@ -1037,49 +1291,51 @@
       <div class="footer-container">
         <!-- Brand -->
         <div class="footer-brand">
-          <a href="#home" class="footer-logo"> GEFFERSON<span>.</span> </a>
+          <a href="#home" class="footer-logo" aria-label="Gefferson, volver al inicio">GEFFERSON<span>.</span></a>
 
           <p>
-            Electronic Engineer & Full Stack Developer. Building digital
-            solutions through code and technology.
+            Ingeniero Electrónico y Desarrollador Full Stack. Construyendo
+            soluciones digitales a través del código y la tecnología.
           </p>
         </div>
 
         <!-- Navigation -->
         <div class="footer-navigation">
-          <span class="footer-heading">NAVIGATION</span>
+          <span class="footer-heading" id="footer-nav-title">NAVEGACIÓN</span>
 
-          <nav>
-            <a href="#home">Home</a>
-            <a href="#skillset">Skillset</a>
-            <a href="#experience">Experience</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contact">Contact</a>
+          <nav aria-labelledby="footer-nav-title">
+            <a href="#home">Inicio</a>
+            <a href="#skillset">Habilidades</a>
+            <a href="#experience">Experiencia</a>
+            <a href="#portfolio">Proyectos</a>
+            <a href="#contact">Contacto</a>
           </nav>
         </div>
 
         <!-- Social media -->
         <div class="footer-social">
-          <span class="footer-heading">CONNECT</span>
+          <span class="footer-heading">CONECTA</span>
 
           <a
             href="https://linkedin.com/in/gefferson-casasola"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn (se abre en una pestaña nueva)"
           >
-            LinkedIn <span>↗</span>
+            LinkedIn <span aria-hidden="true">↗</span>
           </a>
 
           <a
             href="https://github.com/Geffrerson7"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub (se abre en una pestaña nueva)"
           >
-            GitHub <span>↗</span>
+            GitHub <span aria-hidden="true">↗</span>
           </a>
 
-          <a href="mailto:gefferson.casasola@gmail.com">
-            Email <span>↗</span>
+          <a href="mailto:gefferson.casasola@gmail.com" aria-label="Correo: enviar un email">
+            Correo <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
@@ -1087,11 +1343,11 @@
       <!-- Footer bottom -->
       <div class="footer-bottom">
         <span>
-          © <span id="current-year">2026</span> Gefferson Casasola. All rights
-          reserved.
+          © <span id="current-year">2026</span> Gefferson Casasola. Todos los
+          derechos reservados.
         </span>
 
-        <a href="#home" class="footer-back-top"> BACK TO TOP ↑ </a>
+        <a href="#home" class="footer-back-top">VOLVER ARRIBA <span aria-hidden="true">↑</span></a>
       </div>
     </footer>
   </body>

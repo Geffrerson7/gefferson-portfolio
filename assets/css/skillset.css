@@ -1,96 +1,11 @@
 
 /* ========================================
-   SKILLSET SECTION
-======================================== */
-
-.skillset-section {
-    position: relative;
-    padding: var(--section-padding, 5rem 1.5rem);
-    background: transparent;
-}
-
-.skillset-container {
-    width: 100%;
-    max-width: var(--container-width, 1200px);
-    margin: 0 auto;
-}
-
-/* ========================================
-   SECTION HEADER
-======================================== */
-
-.skillset-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
-    gap: 3rem;
-    margin-bottom: 2.5rem;
-}
-
-.skillset-heading {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.section-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: var(--secondary);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.eyebrow-line {
-    width: 35px;
-    height: 2px;
-    background: var(--secondary);
-}
-
-.skillset-heading h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    color: var(--white);
-}
-
-.skillset-heading h3 span {
-    color: var(--primary);
-}
-
-.skillset-description {
-    max-width: 500px;
-    justify-self: end;
-    color: var(--gray2);
-    font-size: 0.95rem;
-    line-height: 1.8;
-    padding-bottom: 0.5rem;
-}
-
-/* Divider */
-
-.skillset-container > hr {
-    width: 100%;
-    height: 2px;
-    border: none;
-    margin: 0 0 3rem;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--primary),
-        var(--secondary),
-        transparent
-    );
-}
-
-/* ========================================
    SHOWCASE HEADER
 ======================================== */
 
 .skills-showcase-header {
     display: flex;
+    gap: 1rem;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.5rem;
@@ -98,9 +13,10 @@
 
 .skills-showcase-header > span {
     color: var(--gray2);
-    font-size: 0.7rem;
+    font-family: var(--font-tech);
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0.15em;
 }
 
 /* Navigation arrows */
@@ -115,6 +31,7 @@
     align-items: center;
     justify-content: center;
 
+    flex-shrink: 0;
     width: 44px;
     height: 44px;
 
@@ -127,7 +44,12 @@
 
     cursor: pointer;
 
-    transition: all 0.3s ease;
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        opacity var(--transition-fast);
 }
 
 .skills-arrow:hover:not(:disabled) {
@@ -147,12 +69,14 @@
 ======================================== */
 
 .skills-track {
+    position: relative;
     display: flex;
     gap: 1.2rem;
 
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -217,7 +141,8 @@
     pointer-events: none;
 }
 
-.skills-slide:hover {
+.skills-slide:hover,
+.skills-slide:focus-within {
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: 0 12px 35px rgba(0, 195, 255, 0.08);
@@ -227,9 +152,10 @@
 
 .slide-number {
     color: var(--secondary);
-    font-size: 0.7rem;
+    font-family: var(--font-tech);
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0.15em;
     margin-bottom: 1.5rem;
 }
 
@@ -250,16 +176,16 @@
     border-radius: 12px;
 
     color: var(--primary);
-    font-family: 'Orbitron', sans-serif;
+    font-family: var(--font-display);
     font-size: 1.35rem;
     font-weight: 700;
 }
 
 /* Category title */
 
-.skills-slide h4 {
+.skills-slide h3 {
     color: var(--white);
-    font-family: 'Orbitron', sans-serif;
+    font-family: var(--font-display);
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 0.4rem;
@@ -267,7 +193,7 @@
 
 .skills-slide > p {
     color: var(--gray2);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin-bottom: 2rem;
 }
 
@@ -276,6 +202,7 @@
 ======================================== */
 
 .slide-technologies {
+    list-style: none;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.8rem 0.8rem;
@@ -312,7 +239,7 @@
 }
 
 .slide-tech span {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.4;
     white-space: normal;
@@ -330,6 +257,16 @@
     );
 }
 
+/* Dark single-colour logos (e.g. Prisma): rendered light on the dark UI,
+   same treatment as the *-light variants of Express.js and GitHub */
+.slide-tech img.logo-invert {
+    filter: brightness(0) invert(0.95);
+}
+
+.slide-tech:hover img.logo-invert {
+    filter: brightness(0) invert(0.95) drop-shadow(0 0 10px rgba(0, 195, 255, 0.4));
+}
+
 /* ========================================
    PROGRESS BAR
 ======================================== */
@@ -342,6 +279,7 @@
 }
 
 .skills-progress-track {
+    position: relative;
     flex: 1;
     height: 3px;
     background: rgba(170, 184, 192, 0.15);
@@ -349,20 +287,22 @@
 }
 
 .skills-progress-bar {
-    width: 16.666%;
+    width: 33.333%;
     height: 100%;
+    will-change: transform;
     background: linear-gradient(
         90deg,
         var(--primary),
         var(--secondary)
     );
-    transition: width 0.3s ease;
+    transition: width var(--transition-fast);
 }
 
 #skills-counter {
-    min-width: 55px;
+    min-width: 70px;
     color: var(--gray2);
-    font-size: 0.7rem;
+    font-family: var(--font-tech);
+    font-size: 0.85rem;
     font-weight: 700;
     text-align: right;
 }
@@ -387,22 +327,6 @@
 ======================================== */
 
 @media (max-width: 768px) {
-    .skillset-header {
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: 1.2rem;
-    }
-
-    .skillset-description {
-        justify-self: start;
-        max-width: 600px;
-        padding-bottom: 0;
-    }
-
-    .skillset-container > hr {
-        margin-bottom: 2rem;
-    }
-
     .skills-slide {
         flex-basis: 85%;
         min-height: 390px;
@@ -416,10 +340,6 @@
 }
 
 @media (max-width: 480px) {
-    .skillset-section {
-        padding: 4rem 1rem;
-    }
-
     .skills-slide {
         flex-basis: 92%;
         min-height: 370px;
@@ -445,18 +365,16 @@
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-    .skills-track {
-        scroll-behavior: auto;
+    .skills-slide:hover,
+    .skills-slide:focus-within,
+    .slide-tech:hover,
+    .slide-tech:hover img {
+        transform: none;
     }
+}
 
-    .skills-slide,
-    .slide-tech,
-    .slide-tech img,
-    .skills-arrow,
-    .skills-progress-bar {
-        transition: none;
-    }
-
+/* Touch devices: no sticky hover lift */
+@media (hover: none) {
     .skills-slide:hover,
     .slide-tech:hover,
     .slide-tech:hover img {
