@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gefferson-portfolio.vercel.app/sitemap.xml

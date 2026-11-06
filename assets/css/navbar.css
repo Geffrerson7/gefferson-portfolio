@@ -5,6 +5,7 @@
 #navbar {
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
 
     width: 100%;
@@ -14,11 +15,26 @@
     -webkit-backdrop-filter: blur(12px);
 
     border-bottom: 1px solid rgba(0, 195, 255, 0.12);
+
+    font-family: var(--font-body);
+
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+/* Applied by navbar.js once the page is scrolled */
+#navbar.scrolled,
+body.menu-open #navbar {
+    background: rgba(16, 24, 32, 0.88);
+    border-bottom-color: rgba(0, 195, 255, 0.22);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .navbar-container {
-    width: min(100% - 3rem, var(--container-width));
-    min-height: 85px;
+    width: min(100% - 2 * var(--gutter), var(--container-width));
+    height: var(--nav-height);
 
     margin: 0 auto;
 
@@ -41,7 +57,7 @@
 }
 
 .brand-name {
-    font-family: 'Orbitron', sans-serif;
+    font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -53,9 +69,10 @@
 }
 
 .brand-caption {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.55rem;
-    font-weight: 500;
+    white-space: nowrap;
+    font-family: var(--font-tech);
+    font-size: 0.7rem;
+    font-weight: 600;
     letter-spacing: 0.2em;
     color: var(--gray2);
 }
@@ -68,6 +85,7 @@
     display: flex;
     align-items: center;
     gap: 2.5rem;
+    margin-left: auto;
 }
 
 .navbar-links {
@@ -94,20 +112,24 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 0;
+    width: 100%;
     height: 2px;
     background: var(--primary);
-    transition: width var(--transition-fast);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-fast);
 }
 
 .nav-link:hover,
+.nav-link:focus-visible,
 .nav-link.active {
     color: var(--primary);
 }
 
 .nav-link:hover::after,
+.nav-link:focus-visible::after,
 .nav-link.active::after {
-    width: 100%;
+    transform: scaleX(1);
 }
 
 /* ========================================
@@ -125,7 +147,10 @@
     font-weight: 600;
     letter-spacing: 0.04em;
     text-decoration: none;
-    transition: all var(--transition-fast);
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
 }
 
 .navbar-contact span {
@@ -133,7 +158,8 @@
     transition: transform var(--transition-fast);
 }
 
-.navbar-contact:hover {
+.navbar-contact:hover,
+.navbar-contact.active {
     background: var(--primary);
     color: var(--black2);
     box-shadow: 0 0 20px var(--cyan-glow);
@@ -144,13 +170,57 @@
 }
 
 /* ========================================
+   LANGUAGE SWITCH (ES | EN)
+======================================== */
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    flex-shrink: 0;
+    font-family: var(--font-tech);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.lang-switch > span {
+    color: var(--gray-line);
+}
+
+.lang-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0 0.3rem;
+    color: var(--gray3);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition:
+        color var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.lang-link:hover,
+.lang-link:focus-visible {
+    color: var(--white);
+}
+
+.lang-link.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+/* ========================================
    MOBILE TOGGLE
 ======================================== */
 
 .navbar-toggle {
     display: none;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     padding: 10px;
     background: transparent;
     flex-direction: column;
@@ -171,14 +241,47 @@
    RESPONSIVE
 ======================================== */
 
+/* Small desktops / landscape tablets: tighter spacing so the
+   (longer) Spanish labels fit next to the brand and ES|EN */
+@media (min-width: 851px) and (max-width: 1100px) {
+    .navbar-container {
+        gap: 1.25rem;
+    }
+
+    .navbar-menu {
+        gap: 1.5rem;
+    }
+
+    .navbar-links {
+        gap: 1.25rem;
+    }
+}
+
 @media (max-width: 850px) {
     .navbar-container {
-        min-height: 70px;
+        gap: 0.5rem;
+    }
+
+    .navbar-brand {
+        min-width: 0;
+        flex-shrink: 1;
+        margin-right: auto;
+    }
+
+    /* Visually: brand · ES|EN · toggle (menu is absolutely positioned) */
+    .lang-switch {
+        order: 1;
     }
 
     .navbar-toggle {
         display: flex;
+        order: 2;
         z-index: 1002;
+    }
+
+    .lang-link {
+        min-width: 40px;
+        min-height: 44px;
     }
 
     .navbar-menu {
@@ -186,7 +289,10 @@
         top: 100%;
         left: 0;
         width: 100%;
-        padding: 1.5rem;
+        max-height: calc(100vh - var(--nav-height));
+        max-height: calc(100dvh - var(--nav-height));
+        overflow-y: auto;
+        padding: 1rem var(--gutter) 1.5rem;
         background: rgba(16, 24, 32, 0.98);
         border-bottom: 1px solid var(--border-color);
         display: flex;
@@ -197,7 +303,10 @@
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
-        transition: all var(--transition-fast);
+        transition:
+            opacity var(--transition-fast),
+            transform var(--transition-fast),
+            visibility var(--transition-fast);
     }
 
     .navbar-menu.open {
@@ -209,20 +318,25 @@
     .navbar-links {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.5rem;
+        gap: 0.25rem;
     }
 
     .nav-link {
         display: block;
         padding: 0.8rem 0;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .nav-link::after {
+        width: 32px;
     }
 
     .navbar-contact {
         justify-content: center;
+        min-height: 48px;
     }
 
-    /* Hamburger animation */
+    /* Hamburger animation: two bars cross into an X */
     .navbar-toggle.open span:first-child {
         transform: translateY(4px) rotate(45deg);
     }
@@ -233,11 +347,38 @@
 }
 
 @media (max-width: 480px) {
+    .brand-name {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small phones: brand + ES|EN + toggle must fit in 288px */
+@media (max-width: 400px) {
     .navbar-container {
-        width: calc(100% - 2rem);
+        gap: 0.25rem;
     }
 
     .brand-name {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        letter-spacing: 0.06em;
+    }
+
+    .brand-caption {
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+    }
+
+    .lang-switch {
+        font-size: 0.9rem;
+    }
+
+    .lang-link {
+        min-width: 34px;
+        padding: 0 0.15rem;
+    }
+
+    .navbar-toggle {
+        width: 40px;
+        padding: 9px;
     }
 }

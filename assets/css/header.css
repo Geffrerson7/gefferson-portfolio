@@ -6,7 +6,7 @@
 .site-header {
     position: relative;
     overflow: hidden;
-    padding-top: 76px;
+    padding-top: var(--nav-height);
     background:
         radial-gradient(
             ellipse at 80% 45%,
@@ -62,8 +62,8 @@
     display: flex;
     align-items: center;
 
-    min-height: min(780px, 85vh);
-    padding: 5rem 1.5rem 7rem;
+    min-height: min(780px, calc(100vh - var(--nav-height)));
+    padding: 4rem var(--gutter) 7rem;
 
     background: transparent;
     color: var(--white);
@@ -104,12 +104,14 @@
     margin-bottom: 2rem;
 
     color: var(--primary);
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-family: var(--font-tech);
+    font-size: 0.85rem;
+    font-weight: 700;
     letter-spacing: 0.2em;
 }
 
 .hero-indicator {
+    flex-shrink: 0;
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -129,11 +131,11 @@
 .hero-content h1 {
     margin-bottom: 1.2rem;
 
-    font-family: 'Orbitron', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(2.8rem, 5.5vw, 5rem);
     font-weight: 700;
     line-height: 1.12;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.01em;
 
     color: var(--white);
 }
@@ -143,10 +145,10 @@
     color: var(--primary);
 }
 
-.hero-content h2 {
+.hero-subtitle {
     margin-bottom: 1.5rem;
 
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-body);
     font-size: clamp(1rem, 2vw, 1.35rem);
     font-weight: 500;
     line-height: 1.5;
@@ -155,7 +157,7 @@
     color: var(--white2);
 }
 
-.hero-content h2 span {
+.hero-subtitle span {
     color: var(--secondary);
 }
 
@@ -194,7 +196,19 @@
     letter-spacing: 0.04em;
 
     text-decoration: none;
-    transition: all var(--transition-fast);
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.hero-button span {
+    transition: transform var(--transition-fast);
+}
+
+.hero-button:hover span {
+    transform: translate(3px, -3px);
 }
 
 .hero-button-primary {
@@ -217,6 +231,26 @@
     color: var(--primary);
 }
 
+/* Resume (CV) button: secondary accent, opens in a new tab */
+.hero-button-cv {
+    gap: 0.6rem;
+    border: 1px solid rgba(255, 159, 67, 0.55);
+    color: var(--white);
+}
+
+.hero-button-cv svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--secondary);
+}
+
+.hero-button-cv:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    box-shadow: 0 0 20px var(--orange-glow);
+}
+
 
 /* ========================================
    SOCIAL LINKS
@@ -226,26 +260,29 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 0.5rem 1.5rem;
 }
 
 .hero-socials > span {
     color: var(--gray3);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-family: var(--font-tech);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
 }
 
 .hero-socials a {
     color: var(--gray2);
-    font-size: 0.75rem;
+    padding: 0.6rem 0;
+    font-size: 0.8rem;
     font-weight: 500;
     text-decoration: none;
 
     transition: color var(--transition-fast);
 }
 
-.hero-socials a:hover {
+.hero-socials a:hover,
+.hero-socials a:focus-visible {
     color: var(--primary);
 }
 
@@ -255,10 +292,14 @@
 ======================================== */
 
 .hero-visual {
-    position: relative;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+}
+
+/* Wrapper that anchors the decorations to the photo (not to the caption) */
+.hero-figure {
+    position: relative;
     padding: 2rem;
 }
 
@@ -362,16 +403,18 @@
     justify-content: center;
     gap: 0.8rem;
 
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     text-align: center;
 
     color: var(--gray2);
-    font-size: 0.6rem;
+    font-family: var(--font-tech);
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.13em;
 }
 
 .hero-label-line {
+    flex-shrink: 0;
     width: 30px;
     height: 1px;
 
@@ -388,10 +431,11 @@
 
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.2rem;
 
-    font-size: 0.6rem;
-    font-weight: 600;
+    font-family: var(--font-tech);
+    font-size: 0.75rem;
+    font-weight: 700;
     letter-spacing: 0.15em;
 }
 
@@ -408,8 +452,9 @@
     right: 0;
 }
 
+
 .hero-decoration-bottom {
-    bottom: 3rem;
+    bottom: 0;
     left: 0;
     text-align: right;
 }
@@ -432,16 +477,26 @@
     gap: 0.8rem;
 
     color: var(--gray3);
-    font-size: 0.6rem;
-    font-weight: 600;
+    font-family: var(--font-tech);
+    font-size: 0.75rem;
+    font-weight: 700;
     letter-spacing: 0.18em;
 
     text-decoration: none;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+}
+
+.hero-scroll:hover,
+.hero-scroll:focus-visible {
+    color: var(--primary);
 }
 
 .hero-scroll-line {
     width: 1px;
     height: 35px;
+    transform-origin: top;
+    animation: hero-scroll-pulse 2.2s ease-in-out infinite;
 
     background: linear-gradient(
         to bottom,
@@ -486,7 +541,7 @@
 
 @media (max-width: 650px) {
     .hero {
-        padding: 4rem 1.2rem 6rem;
+        padding: 3rem var(--gutter) 6rem;
     }
 
     .hero-container {
@@ -507,12 +562,8 @@
         max-width: 280px;
     }
 
-    .hero-decoration-top {
-        right: -0.5rem;
-    }
-
-    .hero-decoration-bottom {
-        left: -1.5rem;
+    .hero-figure {
+        padding: 1.75rem 1.25rem;
     }
 
     .hero-scroll {
@@ -526,8 +577,12 @@
 ======================================== */
 
 @media (max-width: 400px) {
+    .hero-actions .hero-button {
+        flex: 1 1 100%;
+    }
+
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 10vw, 2.5rem);
     }
 
     .hero-socials {
@@ -539,24 +594,32 @@
     }
 
     .hero-visual {
-        width: 85%;
+        width: 100%;
     }
 
     .hero-image-frame {
-        max-width: 250px;
+        max-width: 220px;
+    }
+
+    .hero-image-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
     }
 }
 
 
 /* ========================================
-   ACCESSIBILITY
+   ANIMATIONS
 ======================================== */
 
-@media (prefers-reduced-motion: reduce) {
-    .hero *,
-    .hero *::before,
-    .hero *::after {
-        scroll-behavior: auto;
-        transition: none !important;
+@keyframes hero-scroll-pulse {
+    0%, 100% {
+        transform: scaleY(0.4);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
     }
 }

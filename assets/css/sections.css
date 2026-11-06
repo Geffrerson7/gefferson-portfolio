@@ -1,49 +1,81 @@
 
 /* ========================================
-   GENERAL BACKGROUND
-======================================== */
-
-html {
-    min-height: 100%;
-    background: linear-gradient(
-        135deg,
-        var(--black),
-        var(--black2)
-    );
-    scroll-behavior: smooth;
-}
-
-body {
-    min-height: 100vh;
-    margin: 0;
-    background: transparent;
-    color: var(--white);
-}
-
-
-/* ========================================
    GENERAL SECTIONS
 ======================================== */
 
 section {
     position: relative;
-    padding: 5rem 1.5rem;
-    background: transparent;
+    padding: var(--section-space) var(--gutter);
     color: var(--white);
-    scroll-margin-top: 80px;
+    scroll-margin-top: var(--nav-height);
+}
+
+/* Shared content width: aligned with navbar and hero */
+.section-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
 }
 
 
 /* ========================================
-   NAVBAR
+   SHARED SECTION HEADER
+   Used by Skillset, Experience, Portfolio and Contact
 ======================================== */
 
-#navbar {
-    background: linear-gradient(
-        135deg,
-        var(--black),
-        var(--black2)
-    );
+.section-header {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 420px);
+    align-items: end;
+    gap: 2rem 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 0;
+}
+
+.section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--secondary);
+    font-family: var(--font-tech);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.eyebrow-line {
+    flex-shrink: 0;
+    width: 35px;
+    height: 2px;
+    background: var(--secondary);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    overflow-wrap: anywhere;
+}
+
+.section-title span {
+    color: var(--primary);
+}
+
+.section-description {
+    justify-self: end;
+    color: var(--gray2);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    padding-bottom: 0.5rem;
 }
 
 
@@ -51,32 +83,19 @@ section {
    SECTION DIVIDERS
 ======================================== */
 
-hr {
+hr,
+.section-divider {
     width: 100%;
-    max-width: 100%;
     height: 2px;
-    margin: 0;
+    margin: 0 0 3rem;
     border: 0;
     background: linear-gradient(
-        to right,
+        90deg,
         transparent,
         var(--primary),
         var(--secondary),
         transparent
     );
-}
-
-section hr {
-    margin-bottom: 4rem;
-}
-
-
-/* ========================================
-   GENERAL SECTION HEADINGS
-======================================== */
-
-section h3 {
-    color: var(--primary);
 }
 
 
@@ -85,17 +104,27 @@ section h3 {
 ======================================== */
 
 @media (max-width: 768px) {
-    section {
-        padding: 4rem 1rem;
+    .section-header {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
     }
 
-    section hr {
-        margin-bottom: 3rem;
+    .section-description {
+        justify-self: start;
+        max-width: 600px;
+        padding-bottom: 0;
+    }
+
+    .section-divider {
+        margin-bottom: 2rem;
     }
 }
 
-@media (max-width: 480px) {
-    section {
-        padding: 3.5rem 1rem;
+@media (max-width: 400px) {
+    .section-eyebrow {
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
     }
 }

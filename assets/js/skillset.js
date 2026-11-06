@@ -1,60 +1,84 @@
+/* ========================================
+   SKILLSET CAROUSEL
+   Native horizontal scroll + scroll-snap; this script only adds
+   arrow navigation, a progress indicator and a visible-range counter.
+======================================== */
 
-const skillsTrack = document.getElementById('skills-track');
-const skillsPrev = document.getElementById('skills-prev');
-const skillsNext = document.getElementById('skills-next');
-const skillsCounter = document.getElementById('skills-counter');
-const skillsProgress = document.getElementById('skills-progress-bar');
+(() => {
+    const track = document.getElementById('skills-track');
+    const prev = document.getElementById('skills-prev');
+    const next = document.getElementById('skills-next');
+    const counter = document.getElementById('skills-counter');
+    const progress = document.getElementById('skills-progress-bar');
 
-const skillsSlides = [...skillsTrack.querySelectorAll('.skills-slide')];
+    if (!track || !prev || !next) return;
 
-function updateSkillsCarousel() {
-    const maxScroll = skillsTrack.scrollWidth - skillsTrack.clientWidth;
+    const slides = [...track.querySelectorAll('.skills-slide')];
+    const total = slides.length;
+    const pad = n => String(n).padStart(2, '0');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    const currentScroll = skillsTrack.scrollLeft;
+    function update() {
+        const viewStart = track.scrollLeft;
+        const viewEnd = viewStart + track.clientWidth;
+        const maxScroll = track.scrollWidth - track.clientWidth;
 
-    const progress = maxScroll > 0
-        ? currentScroll / maxScroll
-        : 0;
+        // Slides at least 60% visible count as "in view"
+        const visible = slides
+            .map((slide, index) => {
+                const start = slide.offsetLeft;
+                const end = start + slide.offsetWidth;
+                const shown = Math.min(end, viewEnd) - Math.max(start, viewStart);
+                return shown / slide.offsetWidth >= 0.6 ? index : -1;
+            })
+            .filter(index => index >= 0);
 
-    const currentIndex = skillsSlides.reduce((closest, slide, index) => {
-        const currentDistance = Math.abs(
-            slide.offsetLeft - skillsTrack.offsetLeft - currentScroll
-        );
+        const first = (visible[0] ?? 0) + 1;
+        const last = (visible[visible.length - 1] ?? 0) + 1;
 
-        const closestDistance = Math.abs(
-            skillsSlides[closest].offsetLeft -
-            skillsTrack.offsetLeft -
-            currentScroll
-        );
+        if (counter) {
+            counter.textContent = first === last
+                ? `${pad(first)} / ${pad(total)}`
+                : `${pad(first)}–${pad(last)} / ${pad(total)}`;
+        }
 
-        return currentDistance < closestDistance ? index : closest;
-    }, 0);
+        if (progress) {
+            // Thumb width = visible fraction, position = scroll progress
+            const fraction = Math.min(1, track.clientWidth / track.scrollWidth);
+            const ratio = maxScroll > 0 ? viewStart / maxScroll : 0;
+            progress.style.width = `${fraction * 100}%`;
+            progress.style.transform =
+                `translateX(${ratio * (1 / fraction - 1) * 100}%)`;
+        }
 
-    skillsCounter.textContent =
-        `${String(currentIndex + 1).padStart(2, '0')} / 06`;
+        prev.disabled = viewStart <= 2;
+        next.disabled = viewStart >= maxScroll - 2;
+    }
 
-    skillsProgress.style.width =
-        `${Math.max(16.666, progress * 100)}%`;
+    function move(direction) {
+        const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        const step = slides[0].getBoundingClientRect().width + gap;
 
-    skillsPrev.disabled = currentScroll <= 2;
-    skillsNext.disabled = currentScroll >= maxScroll - 2;
-}
+        track.scrollBy({
+            left: direction * step,
+            behavior: reducedMotion.matches ? 'auto' : 'smooth',
+        });
+    }
 
-function moveSkills(direction) {
-    const firstSlide = skillsSlides[0];
-    const slideWidth = firstSlide.getBoundingClientRect().width;
-    const gap = parseFloat(getComputedStyle(skillsTrack).gap) || 0;
+    prev.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
 
-    skillsTrack.scrollBy({
-        left: direction * (slideWidth + gap),
-        behavior: 'smooth'
-    });
-}
+    let ticking = false;
+    function scheduleUpdate() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            update();
+            ticking = false;
+        });
+    }
 
-skillsPrev.addEventListener('click', () => moveSkills(-1));
-skillsNext.addEventListener('click', () => moveSkills(1));
-
-skillsTrack.addEventListener('scroll', updateSkillsCarousel);
-window.addEventListener('resize', updateSkillsCarousel);
-
-updateSkillsCarousel();
+    track.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate, { passive: true });
+    update();
+})();
