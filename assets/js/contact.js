@@ -62,8 +62,21 @@
 
     /* ---------- Submit ---------- */
 
+    let isSending = false;
+
+    // Loading state: spinner in the button, button disabled, form busy
+    function setLoading(loading) {
+        isSending = loading;
+        submit.disabled = loading;
+        submit.classList.toggle('is-loading', loading);
+        form.setAttribute('aria-busy', String(loading));
+    }
+
     form.addEventListener('submit', async event => {
         event.preventDefault();
+
+        // Guard against double submits (Enter key repeat, double click)
+        if (isSending) return;
 
         const data = new FormData(form);
 
@@ -72,7 +85,7 @@
             return;
         }
 
-        submit.disabled = true;
+        setLoading(true);
         setStatus(msg.msgSending);
 
         try {
@@ -90,7 +103,7 @@
         } catch {
             setStatus(msg.msgError, 'error');
         } finally {
-            submit.disabled = false;
+            setLoading(false);
         }
     });
 })();

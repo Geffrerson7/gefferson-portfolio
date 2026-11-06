@@ -13,36 +13,123 @@
 
 
 /* ========================================
-   CSS VARIABLES
+   THEME TOKENS
+   All colours live here. Components only use these variables, so a
+   theme is just a different set of values on <html data-theme="…">.
+   The initial theme is set by an inline script in <head> (no flash).
+======================================== */
+
+/* Palette: "Petróleo + Dorado". Petrol teal leads (links, active nav,
+   progress, interactive details); muted gold supports it (secondary CTA,
+   highlighted labels, small decorative accents). The two are never used
+   together on large surfaces.
+   Text tokens marked (AA) keep the palette hue but are adjusted slightly
+   so small text / button labels reach WCAG AA 4.5:1. */
+
+/* ---------- Dark theme (default) ---------- */
+
+:root,
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    /* Brand accents */
+    --primary: #3E9E94;          /* (AA) palette #3D9B91: 4.41:1 on cards */
+    --primary-rgb: 61, 155, 145;
+    --primary-fill: #3D9B91;
+    --primary-fill-hover: #55B0A5;
+
+    --secondary: #D6AD62;
+    --secondary-rgb: 214, 173, 98;
+    --secondary-fill: #D6AD62;
+    --secondary-fill-hover: #E4BE7A;
+
+    --on-accent: #101820;
+
+    /* Text */
+    --text-strong: #F5F7F8;
+    --text-soft: #E5EBEF;
+    --text: #CCD6DC;
+    --text-muted: #A7B5BE;
+    --text-subtle: #8797A2;
+    --line-muted: #52616B;
+
+    /* Backgrounds and surfaces */
+    --bg: #17232D;
+    --bg-deep: #101820;
+    --surface-rgb: 16, 24, 32;
+    --surface-2-rgb: 27, 42, 53;
+    --field-bg: #101820;
+    --track: rgba(167, 181, 190, 0.15);
+    --hairline: rgba(255, 255, 255, 0.08);
+
+    /* Glows */
+    --cyan-glow: rgba(61, 155, 145, 0.12);
+    --orange-glow: rgba(214, 173, 98, 0.12);
+
+    /* Shadows */
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --card-shadow: none;
+
+    /* Logo */
+    --logo-plate: transparent;
+}
+
+/* ---------- Light theme ---------- */
+
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    /* Brand accents */
+    --primary: #286F68;
+    --primary-rgb: 61, 155, 145;
+    --primary-fill: #3D9B91;
+    --primary-fill-hover: #388E85; /* (AA) palette #327F77: 3.78:1 with --on-accent */
+
+    --secondary: #87642C;        /* (AA) palette #8B672D: 4.38:1 on --bg-deep */
+    --secondary-rgb: 214, 173, 98;
+    --secondary-fill: #D6AD62;
+    --secondary-fill-hover: #C69B4E;
+
+    --on-accent: #101820;
+
+    /* Text */
+    --text-strong: #26343D;
+    --text-soft: #354650;
+    --text: #485963;
+    --text-muted: #5E6C75;
+    --text-subtle: #606C74;
+    --line-muted: #B3BEC5;
+
+    /* Backgrounds and surfaces */
+    --bg: #F1F3F5;
+    --bg-deep: #E9EDF0;
+    --surface-rgb: 255, 255, 255;
+    --surface-2-rgb: 246, 248, 249;
+    --field-bg: #FFFFFF;
+    --track: rgba(38, 52, 61, 0.1);
+    --hairline: rgba(38, 52, 61, 0.1);
+
+    /* Glows */
+    --cyan-glow: rgba(61, 155, 145, 0.08);
+    --orange-glow: rgba(139, 103, 45, 0.08);
+
+    /* Shadows */
+    --shadow-color: rgba(38, 52, 61, 0.06);
+    --card-shadow:
+        0 1px 2px rgba(38, 52, 61, 0.04),
+        0 6px 20px rgba(38, 52, 61, 0.05);
+
+    /* Logo */
+    --logo-plate: #26343D;
+}
+
+/* ========================================
+   NON-COLOUR VARIABLES
 ======================================== */
 
 :root {
-    /* Primary - Cyan */
-    --primary: #00C3FF;
-    --primary-dark: #009ACB;
-
-    /* Secondary - Orange */
-    --secondary: #FF9F43;
-    --secondary-dark: #E8872E;
-
-    /* Light colors */
-    --white: #F5F9FA;
-    --white2: #E8F1F5;
-
-    /* Grays (gray3 meets WCAG AA 4.5:1 on every dark background) */
-    --gray: #D5DEE3;
-    --gray2: #AAB8C0;
-    --gray3: #8494A0;
-    --gray-line: #52616B;
-
-    /* Dark backgrounds */
-    --black: #17232D;
-    --black2: #101820;
-
-    /* Borders and effects */
-    --border-color: rgba(0, 195, 255, 0.2);
-    --cyan-glow: rgba(0, 195, 255, 0.15);
-    --orange-glow: rgba(255, 159, 67, 0.15);
+    /* Derived colour token (follows the active theme) */
+    --border-color: rgba(var(--primary-rgb), 0.2);
 
     /* Typography */
     --font-display: 'Orbitron', 'Segoe UI', sans-serif;
@@ -69,7 +156,7 @@ html {
     min-height: 100%;
     scroll-behavior: smooth;
     scroll-padding-top: var(--nav-height);
-    background: linear-gradient(135deg, var(--black), var(--black2));
+    background: linear-gradient(135deg, var(--bg), var(--bg-deep));
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
@@ -77,7 +164,7 @@ html {
 body {
     min-height: 100vh;
     overflow-x: hidden;
-    color: var(--white);
+    color: var(--text-strong);
 }
 
 /* Lock page scroll while the mobile menu is open */
@@ -158,8 +245,8 @@ button {
     left: 0.75rem;
     z-index: 2000;
     padding: 0.75rem 1rem;
-    background: var(--primary);
-    color: var(--black2);
+    background: var(--primary-fill);
+    color: var(--on-accent);
     font-weight: 700;
     text-decoration: none;
     transform: translateY(-200%);
@@ -176,8 +263,8 @@ button {
 ======================================== */
 
 ::selection {
-    background: var(--primary);
-    color: var(--black2);
+    background: var(--primary-fill);
+    color: var(--on-accent);
 }
 
 
@@ -206,6 +293,61 @@ button {
 
 
 /* ========================================
+   THEME TRANSITION
+   theme.js adds .theme-transition to <html> only while switching,
+   so colours never animate on page load (and not at all with
+   prefers-reduced-motion).
+======================================== */
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        fill 0.35s ease !important;
+    transition-delay: 0s !important;
+}
+
+
+/* ========================================
+   SPINNER (reusable)
+   <span class="spinner" aria-hidden="true"></span>
+   Size follows the font size; colour follows currentColor.
+======================================== */
+
+.spinner {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 1.1em;
+    height: 1.1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-rotate 0.75s linear infinite;
+}
+
+@keyframes spinner-rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+
+/* ========================================
    REDUCED MOTION
 ======================================== */
 
@@ -221,5 +363,15 @@ button {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    /* Keep a loading cue without rotation: a gentle opacity pulse */
+    .spinner {
+        animation-name: spinner-pulse !important;
+        animation-duration: 1.6s !important;
+        animation-timing-function: ease-in-out !important;
+        animation-iteration-count: infinite !important;
+        border-right-color: currentColor;
+        border-style: dotted;
     }
 }

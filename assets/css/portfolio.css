@@ -15,12 +15,13 @@
 /* Project card */
 
 .portfolio-card {
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
     min-width: 0;
     overflow: hidden;
-    border: 1px solid rgba(0, 195, 255, 0.18);
-    background: rgba(16, 24, 32, 0.65);
+    border: 1px solid rgba(var(--primary-rgb), 0.18);
+    background: rgba(var(--surface-rgb), 0.65);
     transition:
         transform 0.35s ease,
         border-color 0.35s ease,
@@ -31,7 +32,7 @@
 .portfolio-card:focus-within {
     transform: translateY(-7px);
     border-color: var(--primary);
-    box-shadow: 0 12px 35px rgba(0, 195, 255, 0.1);
+    box-shadow: 0 12px 30px var(--cyan-glow);
 }
 
 /* Image */
@@ -44,9 +45,9 @@
     aspect-ratio: 16 / 10;
     overflow: hidden;
     background:
-        radial-gradient(circle at center, rgba(0, 195, 255, 0.1), transparent 70%),
-        var(--black2);
-    border-bottom: 1px solid rgba(0, 195, 255, 0.15);
+        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.1), transparent 70%),
+        var(--bg-deep);
+    border-bottom: 1px solid rgba(var(--primary-rgb), 0.15);
 }
 
 .portfolio-image img {
@@ -68,8 +69,8 @@
     right: 1rem;
     bottom: 1rem;
     padding: 0.65rem 0.9rem;
-    color: var(--black2);
-    background: var(--primary);
+    color: var(--on-accent);
+    background: var(--primary-fill);
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 0.08rem;
@@ -101,7 +102,7 @@
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1rem;
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 700;
@@ -114,7 +115,7 @@
 
 .portfolio-info h3 {
     margin: 0;
-    color: var(--white);
+    color: var(--text-strong);
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -127,7 +128,7 @@
 
 .portfolio-info > p {
     margin: 0.8rem 0 1.2rem;
-    color: var(--gray2);
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.7;
 }
@@ -144,10 +145,10 @@
 
 .portfolio-tags li {
     padding: 0.4rem 0.7rem;
-    border: 1px solid rgba(0, 195, 255, 0.2);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
     border-radius: 3px;
-    color: var(--gray2);
-    background: rgba(0, 195, 255, 0.035);
+    color: var(--text-muted);
+    background: rgba(var(--primary-rgb), 0.035);
     font-size: 0.7rem;
     transition:
         border-color 0.25s ease,
@@ -155,8 +156,8 @@
 }
 
 .portfolio-card:hover .portfolio-tags li {
-    border-color: rgba(0, 195, 255, 0.4);
-    color: var(--white);
+    border-color: rgba(var(--primary-rgb), 0.4);
+    color: var(--text-strong);
 }
 
 /* Live demo link */
@@ -196,7 +197,7 @@
 
 /* Secondary link: source code on GitHub */
 .portfolio-link-source {
-    color: var(--gray2);
+    color: var(--text-muted);
 }
 
 .portfolio-link-source svg {
@@ -218,11 +219,11 @@
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    border-top: 1px solid rgba(0, 195, 255, 0.18);
+    border-top: 1px solid rgba(var(--primary-rgb), 0.18);
 }
 
 .portfolio-footer > span {
-    color: var(--gray3);
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 700;
