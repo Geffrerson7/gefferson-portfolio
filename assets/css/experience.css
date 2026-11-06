@@ -14,8 +14,8 @@
 .experience-card {
     position: relative;
     display: grid;
-    grid-template-columns: 70px minmax(0, 1fr) 190px;
-    align-items: center;
+    grid-template-columns: 70px minmax(0, 1fr) 220px;
+    align-items: start;
     gap: 2rem;
     padding: 2.5rem 1rem;
     border-bottom: 1px solid rgba(var(--primary-rgb), 0.18);
@@ -228,87 +228,118 @@
     color: var(--text-strong);
 }
 
-/* Abstract CSS visuals */
+/* Visible technical highlights (no interaction needed) */
 
-.experience-visual {
+.experience-highlights {
+    display: grid;
+    gap: 0.55rem;
+    margin: 0 0 1.25rem;
+    list-style: none;
+}
+
+.experience-highlights li {
     position: relative;
+    padding-left: 1.35rem;
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/* Diamond "node" marker; fills in on hover */
+.experience-highlights li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 0.62em;
+    width: 7px;
+    height: 7px;
+    border: 1.5px solid var(--primary);
+    transform: rotate(45deg);
+    transition: background-color var(--transition-fast);
+}
+
+.experience-card:hover .experience-highlights li::before {
+    background: var(--primary);
+}
+
+/* Technical focus panel (replaces the old decorative symbol) */
+
+.experience-focus {
+    position: relative;
+    align-self: start;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 0.9rem;
     min-height: 145px;
+    padding: 1.25rem 1.25rem 1.35rem;
     overflow: hidden;
     border: 1px solid rgba(var(--primary-rgb), 0.2);
     background:
-        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.13), transparent 65%),
+        radial-gradient(circle at 100% 0%, rgba(var(--primary-rgb), 0.13), transparent 60%),
         linear-gradient(135deg, rgba(var(--primary-rgb), 0.04), rgba(var(--surface-rgb), 0.8));
 }
 
-.experience-visual::before,
-.experience-visual::after {
+/* Faint circuit-style frame, kept from the previous visual */
+.experience-focus::before {
     content: "";
     position: absolute;
-    width: 130px;
-    height: 130px;
+    right: -38px;
+    bottom: -38px;
+    width: 96px;
+    height: 96px;
     border: 1px solid rgba(var(--primary-rgb), 0.18);
     transform: rotate(45deg);
-    transition: transform 0.5s ease;
+    transition: transform 0.5s var(--ease-out);
+    pointer-events: none;
 }
 
-.experience-visual::after {
-    width: 90px;
-    height: 90px;
-    border-color: rgba(var(--secondary-rgb), 0.35);
-}
-
-.experience-card:hover .experience-visual::before {
+.experience-card:hover .experience-focus::before {
     transform: rotate(65deg) scale(1.1);
 }
 
-.experience-card:hover .experience-visual::after {
-    transform: rotate(25deg) scale(1.1);
-}
-
-.visual-symbol {
+.experience-focus-area {
     position: relative;
-    z-index: 1;
-    color: var(--primary);
-    font-family: var(--font-display);
-    font-size: 2.2rem;
-    font-weight: 800;
-}
-
-.visual-caption {
-    position: absolute;
-    z-index: 1;
-    bottom: 0.7rem;
-    color: var(--text-subtle);
+    color: var(--secondary);
     font-family: var(--font-tech);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 700;
     letter-spacing: 0.15em;
 }
 
-.visual-two {
-    background:
-        radial-gradient(circle at center, rgba(var(--secondary-rgb), 0.12), transparent 65%),
-        linear-gradient(135deg, rgba(var(--secondary-rgb), 0.04), rgba(var(--surface-rgb), 0.8));
+.experience-focus ul {
+    position: relative;
+    display: grid;
+    gap: 0.45rem;
+    list-style: none;
 }
 
-.visual-two .visual-symbol {
-    color: var(--secondary);
+.experience-focus li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--text-soft);
+    font-size: 0.85rem;
+    font-weight: 600;
 }
 
-.visual-three {
-    background:
-        radial-gradient(circle at center, rgba(var(--primary-rgb), 0.16), transparent 65%),
-        linear-gradient(135deg, rgba(var(--primary-rgb), 0.04), rgba(var(--surface-rgb), 0.8));
+.experience-focus li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+    background: var(--primary);
 }
 
+.visual-two,
 .visual-four {
     background:
-        radial-gradient(circle at center, rgba(var(--secondary-rgb), 0.12), transparent 65%),
+        radial-gradient(circle at 100% 0%, rgba(var(--secondary-rgb), 0.12), transparent 60%),
         linear-gradient(135deg, rgba(var(--secondary-rgb), 0.04), rgba(var(--surface-rgb), 0.8));
+}
+
+.visual-two li::before,
+.visual-four li::before {
+    background: var(--secondary);
 }
 
 /* Animation */
@@ -333,7 +364,7 @@
         gap: 1.2rem;
     }
 
-    .experience-visual {
+    .experience-focus {
         display: none;
     }
 }

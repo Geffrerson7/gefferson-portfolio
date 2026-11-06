@@ -1,0 +1,205 @@
+/* ========================================
+   404 PAGE — "Signal lost"
+   Reuses the theme tokens from main.css (dark/light).
+======================================== */
+
+/* Language blocks: Spanish by default, English for /en/... URLs */
+html:not(.is-en) .lang-en,
+html.is-en .lang-es {
+    display: none !important;
+}
+
+.error-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background:
+        radial-gradient(ellipse at 70% 30%, rgba(var(--primary-rgb), 0.09), transparent 45%),
+        linear-gradient(135deg, var(--bg), var(--bg-deep));
+}
+
+/* Background grid, same motif as the hero */
+.error-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(var(--primary-rgb), 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--primary-rgb), 0.035) 1px, transparent 1px);
+    background-size: 55px 55px;
+    mask-image: radial-gradient(ellipse at center, black, transparent 75%);
+}
+
+.error-header {
+    position: relative;
+    width: min(100% - 2 * var(--gutter), var(--container-width));
+    margin: 0 auto;
+    padding: 1.5rem 0;
+}
+
+.error-brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--text-strong);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.error-brand span {
+    color: var(--primary);
+}
+
+.error-main {
+    position: relative;
+    flex: 1;
+    width: min(100% - 2 * var(--gutter), 680px);
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Signal trace */
+.error-signal {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    overflow: visible;
+}
+
+.error-signal-trace,
+.error-signal-lost {
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.error-signal-trace {
+    stroke: var(--primary);
+    stroke-dasharray: 520;
+    stroke-dashoffset: 0;
+    animation: error-trace 1.4s var(--ease-out, ease-out) both;
+}
+
+.error-signal-lost {
+    stroke: var(--line-muted);
+    stroke-dasharray: 4 10;
+}
+
+.error-signal-node {
+    fill: var(--secondary-fill);
+}
+
+@keyframes error-trace {
+    from {
+        stroke-dashoffset: 520;
+    }
+}
+
+.error-code {
+    margin-bottom: 0.5rem;
+    color: var(--text-strong);
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 3rem + 8vw, 8rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.04em;
+}
+
+.error-eyebrow {
+    margin-bottom: 0.75rem;
+    color: var(--secondary);
+    font-family: var(--font-tech);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.error-copy h1 {
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+    font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.1rem);
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.error-text {
+    max-width: 520px;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+}
+
+.error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.error-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-height: 48px;
+    padding: 0.85rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform 0.15s ease;
+}
+
+.error-button:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+.error-button-primary {
+    background: var(--primary-fill);
+    color: var(--on-accent);
+}
+
+.error-button-primary:hover {
+    background: var(--primary-fill-hover);
+}
+
+.error-button-outline {
+    border: 1px solid var(--line-muted);
+    color: var(--text-strong);
+}
+
+.error-button-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.error-lang a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.error-lang a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 480px) {
+    .error-actions .error-button {
+        flex: 1 1 100%;
+    }
+}

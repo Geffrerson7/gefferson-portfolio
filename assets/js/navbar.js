@@ -59,10 +59,12 @@
 
     /* ---------- Scroll state + active section ---------- */
 
-    const sectionIds = ['home', 'skillset', 'experience', 'portfolio', 'contact'];
+    // Sections in document order (independent of how they are arranged)
+    const sectionIds = ['home', 'portfolio', 'experience', 'skillset', 'contact'];
     const sections = sectionIds
         .map(id => document.getElementById(id))
-        .filter(Boolean);
+        .filter(Boolean)
+        .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
 
     function setActive(id) {
         navLinks.forEach(link => {

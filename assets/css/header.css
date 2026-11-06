@@ -82,9 +82,9 @@
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
     align-items: center;
-    gap: 5rem;
+    gap: clamp(2.5rem, 5vw, 5rem);
 }
 
 
@@ -93,17 +93,19 @@
 ======================================== */
 
 .hero-content {
-    max-width: 650px;
+    max-width: 760px;
 }
 
 .hero-eyebrow {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.4rem 0.8rem;
 
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
 
-    color: var(--primary);
+    color: var(--text-muted);
+    text-transform: uppercase;
     font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 700;
@@ -120,27 +122,34 @@
     box-shadow: 0 0 8px rgba(var(--secondary-rgb), 0.45);
 }
 
-.hero-intro {
-    margin-bottom: 0.5rem;
-
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
+/* Name: brand identity (Orbitron), kept visible but secondary to the headline */
+.hero-name {
+    color: var(--text-strong);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
 }
 
-.hero-content h1 {
-    margin-bottom: 1.2rem;
+.hero-eyebrow-sep {
+    color: var(--secondary);
+}
+
+/* Headline: the main message of the page */
+.hero-title {
+    margin-bottom: 1.25rem;
 
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    font-size: clamp(2.1rem, 1.1rem + 2.9vw, 3.9rem);
     font-weight: 700;
-    line-height: 1.12;
+    line-height: 1.14;
     letter-spacing: -0.01em;
+    text-wrap: balance;
 
     color: var(--text-strong);
 }
 
-.hero-content h1 span {
+.hero-title span {
     display: block;
     color: var(--primary);
 }
@@ -158,16 +167,56 @@
 }
 
 .hero-subtitle span {
+    margin: 0 0.15em;
     color: var(--secondary);
 }
 
 .hero-description {
-    max-width: 540px;
-    margin-bottom: 2rem;
+    max-width: 580px;
+    margin-bottom: 1.5rem;
 
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.9;
+}
+
+
+/* ========================================
+   HERO TAGS (focus areas, drawn as signal nodes)
+======================================== */
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.25rem;
+    list-style: none;
+}
+
+.hero-tags li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.35rem 0.8rem;
+
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    background: rgba(var(--primary-rgb), 0.05);
+
+    color: var(--text-soft);
+    font-family: var(--font-tech);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+.hero-tags li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    background: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
 }
 
 
@@ -178,8 +227,9 @@
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .hero-button {
@@ -200,7 +250,13 @@
         background-color var(--transition-fast),
         border-color var(--transition-fast),
         color var(--transition-fast),
-        box-shadow var(--transition-fast);
+        box-shadow var(--transition-fast),
+        transform 0.15s ease;
+}
+
+/* Press feedback */
+.hero-button:active {
+    transform: translateY(1px) scale(0.98);
 }
 
 .hero-button span {
@@ -234,7 +290,8 @@
 /* Resume (CV) button: secondary accent, opens in a new tab */
 .hero-button-cv {
     gap: 0.6rem;
-    border: 1px solid rgba(var(--secondary-rgb), 0.55);
+    border: 1px solid var(--secondary);
+    background: rgba(var(--secondary-rgb), 0.08);
     color: var(--text-strong);
 }
 
@@ -247,8 +304,56 @@
 
 .hero-button-cv:hover {
     border-color: var(--secondary);
-    color: var(--secondary);
+    background: rgba(var(--secondary-rgb), 0.16);
+    color: var(--text-strong);   /* gold text on a gold tint fails AA in light mode */
     box-shadow: 0 0 16px var(--orange-glow);
+}
+
+/* Tertiary action: text link whose underline "draws" like a trace */
+.hero-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 48px;
+    padding: 0 0.25rem;
+
+    color: var(--text-soft);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.hero-link::after {
+    content: '';
+    position: absolute;
+    left: 0.25rem;
+    right: 0.25rem;
+    bottom: 12px;
+    height: 1px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s var(--ease-out);
+}
+
+.hero-link span {
+    transition: transform var(--transition-fast);
+}
+
+.hero-link:hover,
+.hero-link:focus-visible {
+    color: var(--primary);
+}
+
+.hero-link:hover::after,
+.hero-link:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.hero-link:hover span {
+    transform: translateX(4px);
 }
 
 
@@ -293,7 +398,7 @@
 
 .hero-visual {
     width: 100%;
-    max-width: 400px;
+    max-width: 360px;
     margin: 0 auto;
 }
 
@@ -312,7 +417,7 @@
     position: relative;
 
     width: 100%;
-    max-width: 340px;
+    max-width: 300px;
     aspect-ratio: 1 / 1;
 
     margin: 0 auto;
@@ -453,11 +558,6 @@
 }
 
 
-.hero-decoration-bottom {
-    bottom: 0;
-    left: 0;
-    text-align: right;
-}
 
 
 /* ========================================
@@ -496,7 +596,7 @@
     width: 1px;
     height: 35px;
     transform-origin: top;
-    animation: hero-scroll-pulse 2.2s ease-in-out infinite;
+    animation: hero-scroll-pulse 2.2s ease-in-out 3;
 
     background: linear-gradient(
         to bottom,
@@ -517,20 +617,16 @@
     }
 
     .hero-container {
-        grid-template-columns: 1fr 0.8fr;
-        gap: 2.5rem;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+        gap: 2rem;
     }
 
     .hero-visual {
-        max-width: 330px;
+        max-width: 280px;
     }
 
     .hero-image-frame {
-        max-width: 290px;
+        max-width: 240px;
     }
 }
 
@@ -541,12 +637,13 @@
 
 @media (max-width: 650px) {
     .hero {
-        padding: 3rem var(--gutter) 6rem;
+        padding: 2rem var(--gutter) 3rem;
     }
 
+    /* Compact hero: the photo becomes a small avatar above the text */
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 1.25rem;
     }
 
     .hero-content {
@@ -554,20 +651,50 @@
     }
 
     .hero-visual {
-        width: 80%;
-        max-width: 320px;
-    }
-
-    .hero-image-frame {
-        max-width: 280px;
+        order: -1;
+        width: auto;
+        max-width: none;
+        margin: 0;
     }
 
     .hero-figure {
-        padding: 1.75rem 1.25rem;
+        padding: 0;
+        width: 112px;
+    }
+
+    .hero-image-frame {
+        max-width: 112px;
+        padding: 4px;
+    }
+
+    .hero-image-frame::before {
+        inset: -7px;
+    }
+
+    .hero-image-frame::after {
+        width: 12px;
+        height: 12px;
+    }
+
+    .hero-decoration,
+    .hero-image-label {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: clamp(1.6rem, 6.6vw, 2.3rem);
+    }
+
+    .hero-tags {
+        margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+        margin-bottom: 1.75rem;
     }
 
     .hero-scroll {
-        bottom: 1rem;
+        display: none;
     }
 }
 
@@ -581,10 +708,6 @@
         flex: 1 1 100%;
     }
 
-    .hero-content h1 {
-        font-size: clamp(2rem, 10vw, 2.5rem);
-    }
-
     .hero-socials {
         gap: 1rem;
     }
@@ -593,17 +716,9 @@
         width: 100%;
     }
 
-    .hero-visual {
-        width: 100%;
-    }
-
-    .hero-image-frame {
-        max-width: 220px;
-    }
-
-    .hero-image-label {
-        font-size: 0.72rem;
-        letter-spacing: 0.08em;
+    .hero-tags li {
+        font-size: 0.82rem;
+        padding: 0.3rem 0.65rem;
     }
 }
 

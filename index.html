@@ -22,6 +22,16 @@
           else if (window.matchMedia('(prefers-color-scheme: light)').matches) theme = 'light';
         } catch (e) {}
         document.documentElement.setAttribute('data-theme', theme);
+
+        // Motion: enable scroll reveals only if allowed and supported.
+        // Safety net: if reveal.js has not started within 3 s, show everything.
+        var root = document.documentElement;
+        if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          root.classList.add('motion');
+          window.setTimeout(function () {
+            if (!root.classList.contains('motion-ready')) root.classList.remove('motion');
+          }, 3000);
+        }
       })();
     </script>
 
@@ -78,8 +88,8 @@
     <!-- Scripts (deferred: run after HTML parsing, in order) -->
     <script src="assets/js/theme.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/reveal.js" defer></script>
     <script src="assets/js/navbar.js" defer></script>
-    <script src="assets/js/skillset.js" defer></script>
     <script src="assets/js/contact.js" defer></script>
 
     <!-- Structured data -->
@@ -158,9 +168,9 @@
           <div class="navbar-menu" id="navbar-menu">
             <ul class="navbar-links">
               <li><a href="#home" class="nav-link active" aria-current="true">Inicio</a></li>
-              <li><a href="#skillset" class="nav-link">Habilidades</a></li>
-              <li><a href="#experience" class="nav-link">Experiencia</a></li>
               <li><a href="#portfolio" class="nav-link">Proyectos</a></li>
+              <li><a href="#experience" class="nav-link">Experiencia</a></li>
+              <li><a href="#skillset" class="nav-link">Habilidades</a></li>
             </ul>
 
             <a href="#contact" class="navbar-contact">
@@ -194,37 +204,39 @@
       <div class="hero">
         <div class="hero-container">
           <div class="hero-content">
-            <div class="hero-eyebrow">
+            <p class="hero-eyebrow" data-hero style="--hero-step: 0">
               <span class="hero-indicator" aria-hidden="true"></span>
-              <span>BIENVENIDO A MI PORTAFOLIO</span>
-            </div>
+              <span class="hero-name">Gefferson Casasola</span>
+              <span class="hero-eyebrow-sep" aria-hidden="true">/</span>
+              <span>Lima, Perú</span>
+            </p>
 
-            <p class="hero-intro">Hola, soy</p>
-
-            <h1>
-              Gefferson
-              <span>Casasola.</span>
+            <h1 class="hero-title" data-hero="text" style="--hero-step: 1">
+              Construyo sistemas que conectan
+              <span>datos, servicios e inteligencia.</span>
             </h1>
 
-            <p class="hero-subtitle">
-              Ingeniero Electrónico
-              <span>&</span>
+            <p class="hero-subtitle" data-hero="text" style="--hero-step: 2">
               Desarrollador Full Stack
+              <span aria-hidden="true">·</span>
+              Backend &amp; AI Integration
             </p>
 
-            <p class="hero-description">
-              Bachiller en Ingeniería Electrónica enfocado en el desarrollo de
-              aplicaciones web, soluciones backend, automatización de procesos e
-              integración de tecnologías.
+            <p class="hero-description" data-hero="text" style="--hero-step: 3">
+              Desarrollo aplicaciones web, APIs e integraciones de servicios con
+              tecnologías modernas, automatización y soluciones basadas en
+              inteligencia artificial.
             </p>
 
-            <div class="hero-actions">
+            <ul class="hero-tags" aria-label="Áreas de especialización" data-hero style="--hero-step: 4">
+              <li>Desarrollo Backend</li>
+              <li>APIs REST</li>
+              <li>Integración de IA</li>
+            </ul>
+
+            <div class="hero-actions" data-hero style="--hero-step: 5">
               <a href="#portfolio" class="hero-button hero-button-primary">
-                Ver mis proyectos <span aria-hidden="true">↗</span>
-              </a>
-
-              <a href="#contact" class="hero-button hero-button-outline">
-                Contáctame
+                Ver proyectos <span aria-hidden="true">↗</span>
               </a>
 
               <a
@@ -236,9 +248,13 @@
                 <svg aria-hidden="true" focusable="false"><use href="#icon-resume" /></svg>
                 Ver CV<span class="sr-only"> (se abre en una pestaña nueva)</span>
               </a>
+
+              <a href="#contact" class="hero-link">
+                Contáctame <span aria-hidden="true">→</span>
+              </a>
             </div>
 
-            <div class="hero-socials">
+            <div class="hero-socials" data-hero style="--hero-step: 6">
               <span>CONÉCTATE CONMIGO</span>
 
               <a
@@ -262,7 +278,7 @@
           </div>
 
           <!-- PROFILE IMAGE -->
-          <figure class="hero-visual">
+          <figure class="hero-visual" data-hero style="--hero-step: 3">
             <div class="hero-figure">
               <div class="hero-image-frame">
                 <img
@@ -277,13 +293,8 @@
               </div>
 
               <div class="hero-decoration hero-decoration-top" aria-hidden="true">
-                <span>01</span>
-                <span>DESARROLLO</span>
-              </div>
-
-              <div class="hero-decoration hero-decoration-bottom" aria-hidden="true">
-                <span>INGENIERÍA</span>
-                <span>2026</span>
+                <span>ESTADO</span>
+                <span>DISPONIBLE</span>
               </div>
             </div>
 
@@ -294,7 +305,7 @@
           </figure>
         </div>
 
-        <a href="#skillset" class="hero-scroll">
+        <a href="#portfolio" class="hero-scroll">
           <span>DESLIZA PARA EXPLORAR</span>
           <span class="hero-scroll-line" aria-hidden="true"></span>
         </a>
@@ -302,565 +313,11 @@
     </header>
 
     <main id="main">
-      <!-- ========== SKILLSET ========== -->
-      <section id="skillset" class="skillset-section" aria-labelledby="skillset-title">
-        <div class="section-container">
-          <div class="section-header">
-            <div class="section-heading">
-              <span class="section-eyebrow">
-                <span class="eyebrow-line" aria-hidden="true"></span>
-                STACK TECNOLÓGICO / HERRAMIENTAS
-              </span>
-              <h2 class="section-title" id="skillset-title">Habilidades<span>.</span></h2>
-            </div>
-
-            <p class="section-description">
-              Tecnologías y herramientas que utilizo para desarrollar
-              aplicaciones web, construir soluciones backend, gestionar datos y
-              automatizar procesos.
-            </p>
-          </div>
-
-          <hr class="section-divider" />
-
-          <!-- Skills carousel -->
-          <div class="skills-showcase">
-            <div class="skills-showcase-header">
-              <span>EXPLORA MIS TECNOLOGÍAS</span>
-
-              <div class="skills-controls">
-                <button
-                  class="skills-arrow"
-                  id="skills-prev"
-                  type="button"
-                  aria-label="Categoría anterior"
-                  aria-controls="skills-track"
-                >
-                  <span aria-hidden="true">&#8592;</span>
-                </button>
-                <button
-                  class="skills-arrow"
-                  id="skills-next"
-                  type="button"
-                  aria-label="Categoría siguiente"
-                  aria-controls="skills-track"
-                >
-                  <span aria-hidden="true">&#8594;</span>
-                </button>
-              </div>
-            </div>
-
-            <div
-              class="skills-track"
-              id="skills-track"
-              role="region"
-              aria-label="Categorías de tecnologías (desplazable horizontalmente)"
-              tabindex="0"
-            >
-              <!-- 01 Programming Languages -->
-              <article class="skills-slide" aria-labelledby="skills-cat-1">
-                <div class="slide-number" aria-hidden="true">01 / 06</div>
-                <div class="slide-icon" aria-hidden="true">&lt;/&gt;</div>
-
-                <h3 id="skills-cat-1">Lenguajes de programación</h3>
-                <p>Lenguajes y fundamentos</p>
-
-                <ul class="slide-technologies">
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/html5.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>HTML5</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/css3.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>CSS3</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/javascript.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>JavaScript</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/typescript.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>TypeScript</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/python.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Python</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/c-sharp.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>C#</span>
-                  </li>
-                </ul>
-              </article>
-
-              <!-- 02 Frontend -->
-              <article class="skills-slide" aria-labelledby="skills-cat-2">
-                <div class="slide-number" aria-hidden="true">02 / 06</div>
-                <div class="slide-icon" aria-hidden="true">◈</div>
-
-                <h3 id="skills-cat-2">Desarrollo Frontend</h3>
-                <p>Interfaces web modernas</p>
-
-                <ul class="slide-technologies">
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/reactjs.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>React</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/nextjs.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Next.js</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/tailwindcss.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Tailwind CSS</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/angular.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Angular</span>
-                  </li>
-                </ul>
-              </article>
-
-              <!-- 03 Backend -->
-              <article class="skills-slide" aria-labelledby="skills-cat-3">
-                <div class="slide-number" aria-hidden="true">03 / 06</div>
-                <div class="slide-icon" aria-hidden="true">{ }</div>
-
-                <h3 id="skills-cat-3">Desarrollo Backend</h3>
-                <p>APIs y desarrollo del lado del servidor</p>
-
-                <ul class="slide-technologies">
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/nodejs.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Node.js</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/expressjs-light.svg" alt="" class="logo-on-dark" width="68" height="68" decoding="async" />
-                    <span>Express.js</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/django.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Django REST</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/nestjs.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>NestJS</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/prisma.svg" alt="" class="logo-invert" width="68" height="68" decoding="async" />
-                    <span>Prisma</span>
-                  </li>
-                </ul>
-              </article>
-
-              <!-- 04 Databases -->
-              <article class="skills-slide" aria-labelledby="skills-cat-4">
-                <div class="slide-number" aria-hidden="true">04 / 06</div>
-                <div class="slide-icon" aria-hidden="true">▤</div>
-
-                <h3 id="skills-cat-4">Bases de datos</h3>
-                <p>Gestión y almacenamiento de datos</p>
-
-                <ul class="slide-technologies">
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/postgresql.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>PostgreSQL</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/mysql.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>MySQL</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/microsoft-sql-server.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>SQL Server</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/supabase.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Supabase</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/redis.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Redis</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/mongodb.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>MongoDB</span>
-                  </li>
-                </ul>
-              </article>
-
-              <!-- 05 Tools & DevOps -->
-              <article class="skills-slide" aria-labelledby="skills-cat-5">
-                <div class="slide-number" aria-hidden="true">05 / 06</div>
-                <div class="slide-icon" aria-hidden="true">⌘</div>
-
-                <h3 id="skills-cat-5">Herramientas y DevOps</h3>
-                <p>Desarrollo e infraestructura</p>
-
-                <ul class="slide-technologies">
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/git.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Git</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/github-light.svg" alt="" class="logo-on-dark" width="68" height="68" decoding="async" />
-                    <span>GitHub</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/docker.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Docker</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/linux.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Linux</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/aws.svg" alt="" class="logo-invert" width="68" height="68" decoding="async" />
-                    <span>AWS</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/bash.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>Bash</span>
-                  </li>
-                </ul>
-              </article>
-
-              <!-- 06 AI & Automation -->
-              <article class="skills-slide" aria-labelledby="skills-cat-6">
-                <div class="slide-number" aria-hidden="true">06 / 06</div>
-                <div class="slide-icon" aria-hidden="true">✳</div>
-
-                <h3 id="skills-cat-6">IA y automatización</h3>
-                <p>Inteligencia artificial y automatización</p>
-
-                <ul class="slide-technologies">
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/openai-white.svg" alt="" class="logo-plate" width="68" height="68" decoding="async" />
-                    <span>OpenAI</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/claude-ai.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>ClaudeAI</span>
-                  </li>
-                  <li class="slide-tech">
-                    <img src="assets/img/skillset/n8n.svg" alt="" width="68" height="68" decoding="async" />
-                    <span>n8n</span>
-                  </li>
-                </ul>
-              </article>
-            </div>
-
-            <!-- Progress -->
-            <div class="skills-progress" aria-hidden="true">
-              <div class="skills-progress-track">
-                <div class="skills-progress-bar" id="skills-progress-bar"></div>
-              </div>
-              <span id="skills-counter">01 / 06</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========== EXPERIENCE ========== -->
-      <section id="experience" aria-labelledby="experience-title">
-        <div class="section-container">
-          <div class="section-header">
-            <div class="section-heading">
-              <span class="section-eyebrow">
-                <span class="eyebrow-line" aria-hidden="true"></span>
-                TRAYECTORIA / 2023 — 2026
-              </span>
-              <h2 class="section-title" id="experience-title">Experiencia<span>.</span></h2>
-            </div>
-
-            <p class="section-description">
-              Mi trayectoria profesional desarrollando software, automatizando
-              procesos y creando soluciones digitales.
-            </p>
-          </div>
-
-          <hr class="section-divider" />
-
-          <div class="experience-list">
-            <!-- 01: WILLIAM MERCAY -->
-            <article class="experience-card">
-              <div class="experience-index" aria-hidden="true">
-                <span>01</span>
-                <div class="experience-decoration decoration-one"></div>
-              </div>
-
-              <div class="experience-main">
-                <div class="experience-meta">
-                  <span>DESARROLLO FULL STACK</span>
-                  <span>2025 — 2026</span>
-                </div>
-
-                <h3>William Mercay S.A.</h3>
-                <p class="experience-role">Desarrollador Full Stack · Freelance</p>
-
-                <ul class="experience-tags" aria-label="Tecnologías">
-                  <li>Next.js</li>
-                  <li>TypeScript</li>
-                  <li>Python</li>
-                  <li>Django REST</li>
-                  <li>PostgreSQL</li>
-                  <li>AWS</li>
-                </ul>
-
-                <details class="experience-details">
-                  <summary>
-                    <span>Ver detalles<span class="sr-only"> de William Mercay S.A.</span></span>
-                    <span class="details-icon" aria-hidden="true">+</span>
-                  </summary>
-
-                  <div class="experience-description">
-                    <ul>
-                      <li>
-                        Desarrollo de aplicaciones web para consultoría legal y
-                        contable.
-                      </li>
-                      <li>
-                        Implementación de APIs REST con Django REST Framework y
-                        PostgreSQL.
-                      </li>
-                      <li>
-                        Integración de autenticación mediante Keycloak y
-                        protocolos OAuth 2.0 / OIDC.
-                      </li>
-                      <li>
-                        Configuración de tareas asíncronas con Celery y Redis.
-                      </li>
-                      <li>
-                        Uso de Docker y servicios AWS para el entorno de
-                        desarrollo.
-                      </li>
-                    </ul>
-                  </div>
-                </details>
-              </div>
-
-              <div class="experience-visual visual-one" aria-hidden="true">
-                <span class="visual-symbol">&lt;/&gt;</span>
-                <span class="visual-caption">BACKEND / CLOUD</span>
-              </div>
-            </article>
-
-            <!-- 02: NEWPORT CAPITAL -->
-            <article class="experience-card">
-              <div class="experience-index" aria-hidden="true">
-                <span>02</span>
-                <div class="experience-decoration decoration-two"></div>
-              </div>
-
-              <div class="experience-main">
-                <div class="experience-meta">
-                  <span>DESARROLLO DE SOFTWARE</span>
-                  <span>2025</span>
-                </div>
-
-                <h3>Newport Capital S.A.C.</h3>
-                <p class="experience-role">Programador Full Stack</p>
-
-                <ul class="experience-tags" aria-label="Tecnologías">
-                  <li>Angular</li>
-                  <li>NestJS</li>
-                  <li>SQL Server</li>
-                  <li>C#</li>
-                  <li>ASP.NET Core</li>
-                </ul>
-
-                <details class="experience-details">
-                  <summary>
-                    <span>Ver detalles<span class="sr-only"> de Newport Capital S.A.C.</span></span>
-                    <span class="details-icon" aria-hidden="true">+</span>
-                  </summary>
-
-                  <div class="experience-description">
-                    <ul>
-                      <li>
-                        Desarrollo y mantenimiento de funcionalidades para una
-                        plataforma de gestión de casinos.
-                      </li>
-                      <li>
-                        Implementación de módulos de registro multisede y
-                        tarjetas de membresía.
-                      </li>
-                      <li>
-                        Desarrollo de funcionalidades para plantillas de
-                        planificación de comidas.
-                      </li>
-                      <li>
-                        Implementación de lógica de caja chica y alertas de
-                        proveedores con C# y ASP.NET Core.
-                      </li>
-                      <li>
-                        Gestión de información y consultas mediante SQL Server.
-                      </li>
-                    </ul>
-                  </div>
-                </details>
-              </div>
-
-              <div class="experience-visual visual-two" aria-hidden="true">
-                <span class="visual-symbol">{ }</span>
-                <span class="visual-caption">FULL STACK</span>
-              </div>
-            </article>
-
-            <!-- 03: KUALI.AI / APRENDIZAJE DIGITAL -->
-            <article class="experience-card">
-              <div class="experience-index" aria-hidden="true">
-                <span>03</span>
-                <div class="experience-decoration decoration-three"></div>
-              </div>
-
-              <div class="experience-main">
-                <div class="experience-meta">
-                  <span>DESARROLLO WEB / E-COMMERCE</span>
-                  <span>2024 — 2025</span>
-                </div>
-
-                <h3>Kuali.ai / Aprendizaje Digital SAC</h3>
-
-                <div class="experience-position">
-                  <p class="experience-role">Full Stack Junior · Kuali.ai</p>
-                  <span>Feb 2025 — Mar 2025</span>
-                </div>
-
-                <div class="experience-position">
-                  <p class="experience-role">Asistente de Contenido y SKU</p>
-                  <span>Ene 2024 — Ene 2025</span>
-                </div>
-
-                <ul class="experience-tags" aria-label="Tecnologías">
-                  <li>React</li>
-                  <li>Python</li>
-                  <li>Django REST</li>
-                  <li>PostgreSQL</li>
-                  <li>OpenAI</li>
-                  <li>Pandas</li>
-                  <li>Selenium</li>
-                </ul>
-
-                <details class="experience-details">
-                  <summary>
-                    <span>Ver detalles<span class="sr-only"> de Kuali.ai / Aprendizaje Digital SAC</span></span>
-                    <span class="details-icon" aria-hidden="true">+</span>
-                  </summary>
-
-                  <div class="experience-description">
-                    <strong>Full Stack Junior — Kuali.ai</strong>
-                    <ul>
-                      <li>
-                        Desarrollo de una aplicación web para automatizar
-                        procesos de contenido y gestión de SKU.
-                      </li>
-                      <li>
-                        Implementación de funcionalidades con React, Django REST
-                        Framework y PostgreSQL.
-                      </li>
-                      <li>
-                        Integración de OpenAI y LangChain para procesamiento de
-                        contenido.
-                      </li>
-                      <li>
-                        Uso de Celery, Redis y Docker para tareas asíncronas y
-                        despliegue.
-                      </li>
-                    </ul>
-
-                    <strong>Asistente de Contenido y SKU — Aprendizaje Digital SAC</strong>
-                    <ul>
-                      <li>
-                        Gestión y actualización de catálogos de productos en
-                        VTEX.
-                      </li>
-                      <li>
-                        Automatización de tareas de extracción y procesamiento
-                        de información con Python, Selenium y BeautifulSoup.
-                      </li>
-                      <li>
-                        Generación de plantillas Excel para importación de
-                        productos mediante Pandas.
-                      </li>
-                      <li>
-                        Validación de atributos y control de calidad de
-                        información de productos.
-                      </li>
-                    </ul>
-                  </div>
-                </details>
-              </div>
-
-              <div class="experience-visual visual-three" aria-hidden="true">
-                <span class="visual-symbol">AI</span>
-                <span class="visual-caption">DATOS / AUTOMATIZACIÓN</span>
-              </div>
-            </article>
-
-            <!-- 04: ISAT PERU -->
-            <article class="experience-card">
-              <div class="experience-index" aria-hidden="true">
-                <span>04</span>
-                <div class="experience-decoration decoration-four"></div>
-              </div>
-
-              <div class="experience-main">
-                <div class="experience-meta">
-                  <span>TELECOMUNICACIONES</span>
-                  <span>2023 — 2024</span>
-                </div>
-
-                <h3>ISAT PERU</h3>
-                <p class="experience-role">Practicante de Ingeniería</p>
-
-                <ul class="experience-tags" aria-label="Tecnologías">
-                  <li>5G</li>
-                  <li>4G LTE</li>
-                  <li>3G UMTS</li>
-                  <li>2G</li>
-                  <li>TSS</li>
-                </ul>
-
-                <details class="experience-details">
-                  <summary>
-                    <span>Ver detalles<span class="sr-only"> de ISAT PERU</span></span>
-                    <span class="details-icon" aria-hidden="true">+</span>
-                  </summary>
-
-                  <div class="experience-description">
-                    <ul>
-                      <li>
-                        Apoyo en actividades relacionadas con infraestructura de
-                        telecomunicaciones.
-                      </li>
-                      <li>
-                        Elaboración y revisión de reportes técnicos TSS para
-                        nodos de Claro.
-                      </li>
-                      <li>
-                        Familiarización con tecnologías móviles 5G, 4G LTE, 3G
-                        UMTS y 2G.
-                      </li>
-                    </ul>
-                  </div>
-                </details>
-              </div>
-
-              <div class="experience-visual visual-four" aria-hidden="true">
-                <span class="visual-symbol">5G</span>
-                <span class="visual-caption">REDES</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <!-- ========== PORTFOLIO ========== -->
       <section id="portfolio" aria-labelledby="portfolio-title">
         <div class="section-container">
           <div class="section-header">
-            <div class="section-heading">
+            <div class="section-heading" data-reveal>
               <span class="section-eyebrow">
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 PROYECTOS DESTACADOS / 2026
@@ -868,17 +325,17 @@
               <h2 class="section-title" id="portfolio-title">Proyectos<span>.</span></h2>
             </div>
 
-            <p class="section-description">
+            <p class="section-description" data-reveal="fade">
               Una selección de proyectos enfocados en desarrollo de software,
               automatización y soluciones digitales.
             </p>
           </div>
 
-          <hr class="section-divider" />
+          <hr class="section-divider" data-reveal="line" />
 
-          <div class="portfolio-grid">
+          <div class="portfolio-grid" data-reveal-group>
             <!-- PROJECT 01 -->
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-reveal>
               <a
                 href="https://football-players-xi.vercel.app/"
                 target="_blank"
@@ -943,7 +400,7 @@
             </article>
 
             <!-- PROJECT 02 -->
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-reveal>
               <a
                 href="https://products-crud-nu.vercel.app/"
                 target="_blank"
@@ -1008,7 +465,7 @@
             </article>
 
             <!-- PROJECT 03 -->
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-reveal>
               <a
                 href="https://rick-and-morty-app-pink.vercel.app/"
                 target="_blank"
@@ -1074,7 +531,7 @@
             </article>
 
             <!-- PROJECT 04 -->
-            <article class="portfolio-card">
+            <article class="portfolio-card" data-reveal>
               <a
                 href="https://geffrerson7.github.io/pokedex/"
                 target="_blank"
@@ -1137,7 +594,7 @@
             </article>
           </div>
 
-          <div class="portfolio-footer">
+          <div class="portfolio-footer" data-reveal="fade">
             <span>MÁS PROYECTOS</span>
             <a
               href="https://github.com/Geffrerson7"
@@ -1151,11 +608,477 @@
         </div>
       </section>
 
+      <!-- ========== EXPERIENCE ========== -->
+      <section id="experience" aria-labelledby="experience-title">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-heading" data-reveal>
+              <span class="section-eyebrow">
+                <span class="eyebrow-line" aria-hidden="true"></span>
+                TRAYECTORIA / 2023 — 2026
+              </span>
+              <h2 class="section-title" id="experience-title">Experiencia<span>.</span></h2>
+            </div>
+
+            <p class="section-description" data-reveal="fade">
+              Mi trayectoria profesional desarrollando software, automatizando
+              procesos y creando soluciones digitales.
+            </p>
+          </div>
+
+          <hr class="section-divider" data-reveal="line" />
+
+          <div class="experience-list" data-reveal-group>
+
+            <article class="experience-card" data-reveal>
+              <div class="experience-index" aria-hidden="true">
+                <span>01</span>
+                <div class="experience-decoration decoration-one"></div>
+              </div>
+
+              <div class="experience-main">
+                <div class="experience-meta">
+                  <span>DESARROLLO FULL STACK</span>
+                  <span>2025 — 2026</span>
+                </div>
+
+                <h3>William Mercay S.A.</h3>
+                <p class="experience-role">Desarrollador Full Stack · Freelance</p>
+
+                <ul class="experience-highlights" aria-label="Logros técnicos destacados">
+                  <li>Implementación de APIs REST con Django REST Framework y PostgreSQL.</li>
+                  <li>Integración de autenticación mediante Keycloak y protocolos OAuth 2.0 / OIDC.</li>
+                </ul>
+
+                <ul class="experience-tags" aria-label="Tecnologías">
+                  <li>Next.js</li>
+                  <li>TypeScript</li>
+                  <li>Python</li>
+                  <li>Django REST</li>
+                  <li>PostgreSQL</li>
+                  <li>AWS</li>
+                </ul>
+
+                <details class="experience-details">
+                  <summary>
+                    <span>Ver más detalles<span class="sr-only"> de William Mercay S.A.</span></span>
+                    <span class="details-icon" aria-hidden="true">+</span>
+                  </summary>
+
+                  <div class="experience-description">
+                    <ul>
+                      <li>Desarrollo de aplicaciones web para consultoría legal y contable.</li>
+                      <li>Configuración de tareas asíncronas con Celery y Redis.</li>
+                      <li>Uso de Docker y servicios AWS para el entorno de desarrollo.</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <aside class="experience-focus visual-one" aria-label="Foco técnico: William Mercay S.A.">
+                <span class="experience-focus-area">BACKEND / CLOUD</span>
+                <ul>
+                  <li>APIs REST</li>
+                  <li>OAuth 2.0 / OIDC</li>
+                  <li>Tareas asíncronas</li>
+                </ul>
+              </aside>
+            </article>
+
+            <article class="experience-card" data-reveal>
+              <div class="experience-index" aria-hidden="true">
+                <span>02</span>
+                <div class="experience-decoration decoration-two"></div>
+              </div>
+
+              <div class="experience-main">
+                <div class="experience-meta">
+                  <span>DESARROLLO DE SOFTWARE</span>
+                  <span>2025</span>
+                </div>
+
+                <h3>Newport Capital S.A.C.</h3>
+                <p class="experience-role">Programador Full Stack</p>
+
+                <ul class="experience-highlights" aria-label="Logros técnicos destacados">
+                  <li>Implementación de lógica de caja chica y alertas de proveedores con C# y ASP.NET Core.</li>
+                  <li>Implementación de módulos de registro multisede y tarjetas de membresía.</li>
+                </ul>
+
+                <ul class="experience-tags" aria-label="Tecnologías">
+                  <li>Angular</li>
+                  <li>NestJS</li>
+                  <li>SQL Server</li>
+                  <li>C#</li>
+                  <li>ASP.NET Core</li>
+                </ul>
+
+                <details class="experience-details">
+                  <summary>
+                    <span>Ver más detalles<span class="sr-only"> de Newport Capital S.A.C.</span></span>
+                    <span class="details-icon" aria-hidden="true">+</span>
+                  </summary>
+
+                  <div class="experience-description">
+                    <ul>
+                      <li>Desarrollo y mantenimiento de funcionalidades para una plataforma de gestión de casinos.</li>
+                      <li>Desarrollo de funcionalidades para plantillas de planificación de comidas.</li>
+                      <li>Gestión de información y consultas mediante SQL Server.</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <aside class="experience-focus visual-two" aria-label="Foco técnico: Newport Capital S.A.C.">
+                <span class="experience-focus-area">FULL STACK</span>
+                <ul>
+                  <li>ASP.NET Core</li>
+                  <li>SQL Server</li>
+                  <li>Angular · NestJS</li>
+                </ul>
+              </aside>
+            </article>
+
+            <article class="experience-card" data-reveal>
+              <div class="experience-index" aria-hidden="true">
+                <span>03</span>
+                <div class="experience-decoration decoration-three"></div>
+              </div>
+
+              <div class="experience-main">
+                <div class="experience-meta">
+                  <span>DESARROLLO WEB / E-COMMERCE</span>
+                  <span>2024 — 2025</span>
+                </div>
+
+                <h3>Kuali.ai / Aprendizaje Digital SAC</h3>
+                <div class="experience-position">
+                  <p class="experience-role">Full Stack Junior · Kuali.ai</p>
+                  <span>Feb 2025 — Mar 2025</span>
+                </div>
+                <div class="experience-position">
+                  <p class="experience-role">Asistente de Contenido y SKU</p>
+                  <span>Ene 2024 — Ene 2025</span>
+                </div>
+
+                <ul class="experience-highlights" aria-label="Logros técnicos destacados">
+                  <li>Integración de OpenAI y LangChain para procesamiento de contenido.</li>
+                  <li>Uso de Celery, Redis y Docker para tareas asíncronas y despliegue.</li>
+                </ul>
+
+                <ul class="experience-tags" aria-label="Tecnologías">
+                  <li>React</li>
+                  <li>Python</li>
+                  <li>Django REST</li>
+                  <li>PostgreSQL</li>
+                  <li>OpenAI</li>
+                  <li>Pandas</li>
+                  <li>Selenium</li>
+                </ul>
+
+                <details class="experience-details">
+                  <summary>
+                    <span>Ver más detalles<span class="sr-only"> de Kuali.ai / Aprendizaje Digital SAC</span></span>
+                    <span class="details-icon" aria-hidden="true">+</span>
+                  </summary>
+
+                  <div class="experience-description">
+                    <strong>Full Stack Junior — Kuali.ai</strong>
+                    <ul>
+                      <li>Desarrollo de una aplicación web para automatizar procesos de contenido y gestión de SKU.</li>
+                      <li>Implementación de funcionalidades con React, Django REST Framework y PostgreSQL.</li>
+                    </ul>
+                    <strong>Asistente de Contenido y SKU — Aprendizaje Digital SAC</strong>
+                    <ul>
+                      <li>Gestión y actualización de catálogos de productos en VTEX.</li>
+                      <li>Automatización de tareas de extracción y procesamiento de información con Python, Selenium y BeautifulSoup.</li>
+                      <li>Generación de plantillas Excel para importación de productos mediante Pandas.</li>
+                      <li>Validación de atributos y control de calidad de información de productos.</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <aside class="experience-focus visual-three" aria-label="Foco técnico: Kuali.ai / Aprendizaje Digital SAC">
+                <span class="experience-focus-area">DATOS / AUTOMATIZACIÓN</span>
+                <ul>
+                  <li>OpenAI · LangChain</li>
+                  <li>Extracción de datos</li>
+                  <li>Tareas asíncronas</li>
+                </ul>
+              </aside>
+            </article>
+
+            <article class="experience-card" data-reveal>
+              <div class="experience-index" aria-hidden="true">
+                <span>04</span>
+                <div class="experience-decoration decoration-four"></div>
+              </div>
+
+              <div class="experience-main">
+                <div class="experience-meta">
+                  <span>TELECOMUNICACIONES</span>
+                  <span>2023 — 2024</span>
+                </div>
+
+                <h3>ISAT PERU</h3>
+                <p class="experience-role">Practicante de Ingeniería</p>
+
+                <ul class="experience-highlights" aria-label="Logros técnicos destacados">
+                  <li>Elaboración y revisión de reportes técnicos TSS para nodos de Claro.</li>
+                  <li>Familiarización con tecnologías móviles 5G, 4G LTE, 3G UMTS y 2G.</li>
+                </ul>
+
+                <ul class="experience-tags" aria-label="Tecnologías">
+                  <li>5G</li>
+                  <li>4G LTE</li>
+                  <li>3G UMTS</li>
+                  <li>2G</li>
+                  <li>TSS</li>
+                </ul>
+
+                <details class="experience-details">
+                  <summary>
+                    <span>Ver más detalles<span class="sr-only"> de ISAT PERU</span></span>
+                    <span class="details-icon" aria-hidden="true">+</span>
+                  </summary>
+
+                  <div class="experience-description">
+                    <ul>
+                      <li>Apoyo en actividades relacionadas con infraestructura de telecomunicaciones.</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+
+              <aside class="experience-focus visual-four" aria-label="Foco técnico: ISAT PERU">
+                <span class="experience-focus-area">REDES</span>
+                <ul>
+                  <li>Redes móviles</li>
+                  <li>Reportes TSS</li>
+                  <li>Infraestructura</li>
+                </ul>
+              </aside>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== SKILLSET ========== -->
+      <section id="skillset" class="skillset-section" aria-labelledby="skillset-title">
+        <div class="section-container">
+          <div class="section-header">
+            <div class="section-heading" data-reveal>
+              <span class="section-eyebrow">
+                <span class="eyebrow-line" aria-hidden="true"></span>
+                STACK TECNOLÓGICO / HERRAMIENTAS
+              </span>
+              <h2 class="section-title" id="skillset-title">Habilidades<span>.</span></h2>
+            </div>
+
+            <p class="section-description" data-reveal="fade">
+              Tecnologías organizadas como las capas de un sistema: de la
+              interfaz a los datos y la inteligencia.
+            </p>
+          </div>
+
+          <hr class="section-divider" data-reveal="line" />
+
+          <!-- Stack by layers: the system, from interface to foundation -->
+          <div class="stack">
+            <span class="stack-bus" aria-hidden="true" data-reveal="trace"></span>
+
+            <ol class="stack-layers" data-reveal-group>
+              <li class="stack-layer" data-reveal>
+                <div class="stack-layer-label">
+                  <span class="stack-layer-index" aria-hidden="true">01</span>
+                  <h3 class="stack-layer-title">Interfaz</h3>
+                  <p class="stack-layer-desc">Interfaces web modernas</p>
+                </div>
+
+                <ul class="stack-layer-techs" aria-label="Tecnologías: Interfaz">
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/reactjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>React</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/nextjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Next.js</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/tailwindcss.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Tailwind CSS</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/angular.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Angular</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="stack-layer is-core" data-reveal>
+                <div class="stack-layer-label">
+                  <span class="stack-layer-index" aria-hidden="true">02</span>
+                  <h3 class="stack-layer-title">APIs y servicios</h3>
+                  <p class="stack-layer-desc">APIs y desarrollo del lado del servidor</p>
+                </div>
+
+                <ul class="stack-layer-techs" aria-label="Tecnologías: APIs y servicios">
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/nodejs.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Node.js</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/expressjs-light.svg" alt="" class="logo-on-dark" width="48" height="48" decoding="async" />
+                    <span>Express.js</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/django.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Django REST</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/nestjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>NestJS</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/prisma.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <span>Prisma</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="stack-layer is-core" data-reveal>
+                <div class="stack-layer-label">
+                  <span class="stack-layer-index" aria-hidden="true">03</span>
+                  <h3 class="stack-layer-title">Datos</h3>
+                  <p class="stack-layer-desc">Gestión y almacenamiento de datos</p>
+                </div>
+
+                <ul class="stack-layer-techs" aria-label="Tecnologías: Datos">
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/postgresql.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>PostgreSQL</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/mysql.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <span>MySQL</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/microsoft-sql-server.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <span>SQL Server</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/supabase.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Supabase</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/redis.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Redis</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/mongodb.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>MongoDB</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="stack-layer is-core" data-reveal>
+                <div class="stack-layer-label">
+                  <span class="stack-layer-index" aria-hidden="true">04</span>
+                  <h3 class="stack-layer-title">Inteligencia y automatización</h3>
+                  <p class="stack-layer-desc">Inteligencia artificial y automatización</p>
+                </div>
+
+                <ul class="stack-layer-techs" aria-label="Tecnologías: Inteligencia y automatización">
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/openai-white.svg" alt="" class="logo-plate" width="48" height="48" decoding="async" />
+                    <span>OpenAI</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/claude-ai.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>ClaudeAI</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/n8n.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>n8n</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="stack-layer" data-reveal>
+                <div class="stack-layer-label">
+                  <span class="stack-layer-index" aria-hidden="true">05</span>
+                  <h3 class="stack-layer-title">Infraestructura y herramientas</h3>
+                  <p class="stack-layer-desc">Desarrollo e infraestructura</p>
+                </div>
+
+                <ul class="stack-layer-techs" aria-label="Tecnologías: Infraestructura y herramientas">
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/git.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Git</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/github-light.svg" alt="" class="logo-on-dark" width="48" height="48" decoding="async" />
+                    <span>GitHub</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/docker.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Docker</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/linux.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Linux</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/aws.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <span>AWS</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/bash.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Bash</span>
+                  </li>
+                </ul>
+              </li>
+              <li class="stack-layer" data-reveal>
+                <div class="stack-layer-label">
+                  <span class="stack-layer-index" aria-hidden="true">06</span>
+                  <h3 class="stack-layer-title">Lenguajes</h3>
+                  <p class="stack-layer-desc">Lenguajes y fundamentos · base del stack</p>
+                </div>
+
+                <ul class="stack-layer-techs" aria-label="Tecnologías: Lenguajes">
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/html5.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>HTML5</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/css3.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>CSS3</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/javascript.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>JavaScript</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/typescript.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>TypeScript</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/python.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>Python</span>
+                  </li>
+                  <li class="stack-tech">
+                    <img src="assets/img/skillset/c-sharp.svg" alt="" width="48" height="48" decoding="async" />
+                    <span>C#</span>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
       <!-- ========== CONTACT ========== -->
       <section id="contact" aria-labelledby="contact-title">
         <div class="section-container">
           <div class="section-header">
-            <div class="section-heading">
+            <div class="section-heading" data-reveal>
               <span class="section-eyebrow">
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 CONTACTO / CONVERSEMOS
@@ -1163,17 +1086,17 @@
               <h2 class="section-title" id="contact-title">Contacto<span>.</span></h2>
             </div>
 
-            <p class="section-description">
+            <p class="section-description" data-reveal="fade">
               ¿Tienes un proyecto en mente o una oportunidad que conversar? No
               dudes en escribirme.
             </p>
           </div>
 
-          <hr class="section-divider" />
+          <hr class="section-divider" data-reveal="line" />
 
-          <div class="contact-container">
+          <div class="contact-container" data-reveal-group>
             <!-- Contact information -->
-            <div class="contact-info">
+            <div class="contact-info" data-reveal>
               <span class="contact-number">01 / DATOS DE CONTACTO</span>
 
               <h3>
@@ -1237,7 +1160,7 @@
             </div>
 
             <!-- Contact form -->
-            <div class="contact-form-container">
+            <div class="contact-form-container" data-reveal>
               <div class="contact-form-heading">
                 <span class="contact-number">02 / ENVÍAME UN MENSAJE</span>
                 <span class="contact-form-symbol" aria-hidden="true">&lt;/&gt;</span>
@@ -1325,9 +1248,9 @@
     </main>
 
     <footer id="footer">
-      <div class="footer-container">
+      <div class="footer-container" data-reveal-group>
         <!-- Brand -->
-        <div class="footer-brand">
+        <div class="footer-brand" data-reveal>
           <a href="#home" class="footer-logo" aria-label="Gefferson, volver al inicio">GEFFERSON<span>.</span></a>
 
           <p>
@@ -1337,20 +1260,20 @@
         </div>
 
         <!-- Navigation -->
-        <div class="footer-navigation">
+        <div class="footer-navigation" data-reveal>
           <span class="footer-heading" id="footer-nav-title">NAVEGACIÓN</span>
 
           <nav aria-labelledby="footer-nav-title">
             <a href="#home">Inicio</a>
-            <a href="#skillset">Habilidades</a>
-            <a href="#experience">Experiencia</a>
             <a href="#portfolio">Proyectos</a>
+            <a href="#experience">Experiencia</a>
+            <a href="#skillset">Habilidades</a>
             <a href="#contact">Contacto</a>
           </nav>
         </div>
 
         <!-- Social media -->
-        <div class="footer-social">
+        <div class="footer-social" data-reveal>
           <span class="footer-heading">CONECTA</span>
 
           <a

@@ -1,360 +1,276 @@
-
 /* ========================================
-   SHOWCASE HEADER
+   SKILLSET — STACK BY LAYERS
+   The technologies are presented as the layers of a system, joined by
+   a vertical "signal bus". Everything is visible at once (no carousel):
+   - fixed-size logo cells → stable alignment from 320px to 2560px
+   - label area reserves two lines → rows never misalign
+   - core layers (APIs, Data, AI — the hero headline) get a gold node
+   (header, divider and spacing: sections.css)
 ======================================== */
 
-.skills-showcase-header {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-}
+.stack {
+    --bus-x: 9px;                                   /* bus position */
+    --node: 11px;                                   /* node size */
+    --label-col: clamp(220px, 22vw, 300px);         /* layer label column */
+    --cell: clamp(84px, 3.5vw + 48px, 104px);       /* technology cell */
+    --logo: clamp(40px, 1.6vw + 28px, 52px);        /* logo size */
 
-.skills-showcase-header > span {
-    color: var(--text-muted);
-    font-family: var(--font-tech);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-}
-
-/* Navigation arrows */
-
-.skills-controls {
-    display: flex;
-    gap: 0.7rem;
-}
-
-.skills-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-
-    background: rgba(var(--primary-rgb), 0.06);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-
-    color: var(--primary);
-    font-size: 1.3rem;
-
-    cursor: pointer;
-
-    transition:
-        background-color var(--transition-fast),
-        color var(--transition-fast),
-        border-color var(--transition-fast),
-        box-shadow var(--transition-fast),
-        opacity var(--transition-fast);
-}
-
-.skills-arrow:hover:not(:disabled) {
-    background: var(--primary-fill);
-    color: var(--on-accent);
-    border-color: var(--primary);
-    box-shadow: 0 0 14px var(--cyan-glow);
-}
-
-.skills-arrow:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-/* ========================================
-   HORIZONTAL CAROUSEL
-======================================== */
-
-.skills-track {
     position: relative;
-    display: flex;
-    gap: 1.2rem;
-
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    overscroll-behavior-x: contain;
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    padding: 0.5rem 0 1.5rem;
 }
 
-.skills-track::-webkit-scrollbar {
-    display: none;
-}
-
-/* ========================================
-   CATEGORY SLIDES
-======================================== */
-
-.skills-slide {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    flex: 0 0 calc((100% - 2.4rem) / 3);
-    min-width: 0;
-    min-height: 390px;
-
-    padding: 2rem;
-
-    background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(var(--primary-rgb), 0.12),
-            transparent 45%
-        ),
-        linear-gradient(
-            145deg,
-            rgba(var(--surface-2-rgb), 0.97),
-            rgba(var(--surface-rgb), 0.99)
-        );
-
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-
-    scroll-snap-align: start;
-
-    transition:
-        border-color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.skills-slide::before {
-    content: '';
+/* Vertical signal bus */
+.stack-bus {
     position: absolute;
     top: 0;
-    right: 0;
-
-    width: 70px;
-    height: 70px;
-
-    border-top: 2px solid rgba(var(--primary-rgb), 0.5);
-    border-right: 2px solid rgba(var(--primary-rgb), 0.5);
-
+    bottom: 0;
+    left: var(--bus-x);
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        rgba(var(--primary-rgb), 0.6),
+        rgba(var(--primary-rgb), 0.12)
+    );
+    transform-origin: top center;
     pointer-events: none;
 }
 
-.skills-slide:hover,
-.skills-slide:focus-within {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-    box-shadow: 0 12px 30px var(--cyan-glow);
+.stack-layers {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
 }
 
-/* Slide number */
+/* ========================================
+   LAYER ROW
+======================================== */
 
-.slide-number {
-    color: var(--secondary);
+.stack-layer {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--label-col) minmax(0, 1fr);
+    align-items: center;
+    gap: 1.25rem 3rem;
+    padding: 1.75rem 1rem 1.75rem calc(var(--bus-x) * 2 + 1.75rem);
+    border-bottom: 1px solid var(--hairline);
+    transition: background-color var(--transition-fast);
+}
+
+.stack-layer:first-child {
+    border-top: 1px solid var(--hairline);
+}
+
+.stack-layer:hover {
+    background: rgba(var(--primary-rgb), 0.03);
+}
+
+/* Node on the bus (diamond, like the experience highlights) */
+.stack-layer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: calc(var(--bus-x) - var(--node) / 2 + 0.5px);
+    width: var(--node);
+    height: var(--node);
+    border: 1.5px solid var(--primary);
+    background: var(--bg);
+    transform: translateY(-50%) rotate(45deg);
+    transition: background-color var(--transition-fast);
+}
+
+.stack-layer:hover::before {
+    background: var(--primary);
+}
+
+/* Core layers: the ones named in the hero headline */
+.stack-layer.is-core::before {
+    border-color: var(--secondary);
+    background: var(--secondary-fill);
+    box-shadow: 0 0 0 3px rgba(var(--secondary-rgb), 0.15);
+}
+
+/* ========================================
+   LAYER LABEL
+======================================== */
+
+.stack-layer-label {
+    display: grid;
+    gap: 0.3rem;
+    min-width: 0;
+}
+
+.stack-layer-index {
+    color: var(--text-subtle);
     font-family: var(--font-tech);
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.15em;
-    margin-bottom: 1.5rem;
 }
 
-/* Category symbol */
-
-.slide-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 55px;
-    height: 55px;
-
-    margin-bottom: 1.2rem;
-
-    background: rgba(var(--primary-rgb), 0.08);
-    border: 1px solid rgba(var(--primary-rgb), 0.3);
-    border-radius: 12px;
-
-    color: var(--primary);
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 700;
+.stack-layer.is-core .stack-layer-index {
+    color: var(--secondary);
 }
 
-/* Category title */
-
-.skills-slide h3 {
+.stack-layer-title {
     color: var(--text-strong);
     font-family: var(--font-display);
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 0.4rem;
+    font-size: clamp(1rem, 0.9rem + 0.35vw, 1.2rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
 }
 
-.skills-slide > p {
+.stack-layer-desc {
     color: var(--text-muted);
     font-size: 0.85rem;
-    margin-bottom: 2rem;
+    line-height: 1.5;
 }
 
 /* ========================================
-   TECHNOLOGY LOGOS
+   TECHNOLOGIES (fixed-size cells)
 ======================================== */
 
-.slide-technologies {
-    list-style: none;
+.stack-layer-techs {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.8rem 0.8rem;
-    margin-top: auto;
+    grid-template-columns: repeat(auto-fill, var(--cell));
+    justify-content: start;
+    gap: 0.75rem;
+    list-style: none;
 }
 
-.slide-tech {
+.stack-tech {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-
-    gap: 0.7rem;
+    gap: 0.55rem;
     min-width: 0;
-
-    color: var(--text);
     text-align: center;
-
-    transition:
-        transform 0.3s ease,
-        color 0.3s ease;
 }
 
-.slide-tech img {
-    width: 68px;
-    height: 68px;
-
-    display: block;
+.stack-tech img {
+    width: var(--logo);
+    height: var(--logo);
     object-fit: contain;
-
     transition:
-        transform 0.3s ease,
-        filter 0.3s ease;
+        transform var(--transition-fast),
+        filter var(--transition-fast);
 }
 
-.slide-tech span {
+/* Two lines reserved for every label: rows stay aligned even when a
+   name wraps on small screens */
+.stack-tech span {
+    min-height: 2.6em;
+    color: var(--text);
     font-size: 0.75rem;
     font-weight: 600;
-    line-height: 1.4;
-    white-space: normal;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+    transition: color var(--transition-fast);
 }
 
-.slide-tech:hover {
-    transform: translateY(-5px);
+/* Hover: transform/filter only (no layout change) */
+.stack-tech:hover img {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 0 8px rgba(var(--primary-rgb), 0.28));
+}
+
+.stack-tech:hover span {
     color: var(--primary);
 }
 
-.slide-tech:hover img {
-    transform: scale(1.12);
-    filter: drop-shadow(
-        0 0 10px rgba(var(--primary-rgb), 0.28)
-    );
-}
+/* ========================================
+   LOGO TREATMENT PER THEME
+======================================== */
 
-/* Dark logos (Prisma, AWS wordmark): rendered light on the dark UI,
-   same treatment as the *-light variants of Express.js and GitHub */
-.slide-tech img.logo-invert {
+/* Dark logos (Prisma, AWS, MySQL, SQL Server): rendered light on the dark UI,
+   original colours in the light theme */
+.stack-tech img.logo-invert {
     filter: brightness(0) invert(0.95);
 }
 
-.slide-tech:hover img.logo-invert {
-    filter: brightness(0) invert(0.95) drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.28));
+.stack-tech:hover img.logo-invert {
+    filter: brightness(0) invert(0.95) drop-shadow(0 0 8px rgba(var(--primary-rgb), 0.28));
+}
+
+:root[data-theme="light"] .stack-tech img.logo-invert {
+    filter: none;
+}
+
+:root[data-theme="light"] .stack-tech:hover img.logo-invert {
+    filter: drop-shadow(0 0 8px rgba(var(--primary-rgb), 0.28));
+}
+
+/* White-only logos (Express.js, GitHub): dark counterparts in light theme */
+:root[data-theme="light"] .stack-tech img.logo-on-dark {
+    filter: brightness(0);
+}
+
+:root[data-theme="light"] .stack-tech:hover img.logo-on-dark {
+    filter: brightness(0) drop-shadow(0 0 8px rgba(var(--primary-rgb), 0.28));
+}
+
+/* White logo on a plate (OpenAI): the plate only shows in light theme */
+.stack-tech img.logo-plate {
+    border-radius: 50%;
+    background: var(--logo-plate);
+}
+
+:root[data-theme="light"] .stack-tech img.logo-plate {
+    padding: 8px;
 }
 
 /* ========================================
-   PROGRESS BAR
+   RESPONSIVE
 ======================================== */
 
-.skills-progress {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.skills-progress-track {
-    position: relative;
-    flex: 1;
-    height: 3px;
-    background: var(--track);
-    overflow: hidden;
-}
-
-.skills-progress-bar {
-    width: 33.333%;
-    height: 100%;
-    will-change: transform;
-    background: var(--primary);
-    border-radius: 2px;
-    transition: width var(--transition-fast);
-}
-
-#skills-counter {
-    min-width: 70px;
-    color: var(--text-muted);
-    font-family: var(--font-tech);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-align: right;
-}
-
-/* ========================================
-   TABLET
-======================================== */
-
-@media (max-width: 1000px) {
-    .skills-slide {
-        flex-basis: calc((100% - 1.2rem) / 2);
+/* Tablet: label above the technologies */
+@media (max-width: 1023px) {
+    .stack-layer {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 1rem;
     }
 
-    .slide-tech img {
-        width: 62px;
-        height: 62px;
+    /* Node aligned with the layer index line */
+    .stack-layer::before {
+        top: calc(1.75rem + 0.45rem);
+        transform: rotate(45deg);
     }
 }
 
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 768px) {
-    .skills-slide {
-        flex-basis: 85%;
-        min-height: 390px;
-        padding: 1.6rem;
+/* Mobile */
+@media (max-width: 600px) {
+    .stack {
+        --bus-x: 7px;
+        --node: 10px;
+        --cell: 84px;
     }
 
-    .slide-tech img {
-        width: 65px;
-        height: 65px;
+    .stack-layer {
+        padding: 1.5rem 0 1.5rem calc(var(--bus-x) * 2 + 1.25rem);
+    }
+
+    .stack-layer::before {
+        top: calc(1.5rem + 0.45rem);
+    }
+
+    .stack-layer-techs {
+        gap: 0.5rem;
     }
 }
 
-@media (max-width: 480px) {
-    .skills-slide {
-        flex-basis: 92%;
-        min-height: 370px;
+/* Small phones: three cells per row still fit in 288px */
+@media (max-width: 400px) {
+    .stack {
+        --cell: 76px;
+        --logo: 40px;
     }
 
-    .slide-technologies {
-        gap: 1.5rem 0.5rem;
+    .stack-layer-techs {
+        gap: 0.4rem;
     }
 
-    .slide-tech img {
-        width: 58px;
-        height: 58px;
-    }
-
-    .skills-arrow {
-        width: 40px;
-        height: 40px;
+    .stack-tech span {
+        font-size: 0.72rem;
     }
 }
 
@@ -363,52 +279,14 @@
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-    .skills-slide:hover,
-    .skills-slide:focus-within,
-    .slide-tech:hover,
-    .slide-tech:hover img {
+    .stack-tech:hover img {
         transform: none;
     }
 }
 
 /* Touch devices: no sticky hover lift */
 @media (hover: none) {
-    .skills-slide:hover,
-    .slide-tech:hover,
-    .slide-tech:hover img {
+    .stack-tech:hover img {
         transform: none;
     }
-}
-
-/* ========================================
-   LOGO TREATMENT PER THEME
-======================================== */
-
-/* White logo on a plate (OpenAI): the logo is white in both themes.
-   The plate only shows in the light theme (--logo-plate). */
-.slide-tech img.logo-plate {
-    border-radius: 50%;
-    background: var(--logo-plate);
-}
-
-:root[data-theme="light"] .slide-tech img.logo-plate {
-    padding: 12px;
-}
-
-/* Light theme: white-only logos (Express.js, GitHub) render as their
-   dark counterparts; Prisma returns to its original dark colour */
-:root[data-theme="light"] .slide-tech img.logo-on-dark {
-    filter: brightness(0);
-}
-
-:root[data-theme="light"] .slide-tech:hover img.logo-on-dark {
-    filter: brightness(0) drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.28));
-}
-
-:root[data-theme="light"] .slide-tech img.logo-invert {
-    filter: none;
-}
-
-:root[data-theme="light"] .slide-tech:hover img.logo-invert {
-    filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.28));
 }

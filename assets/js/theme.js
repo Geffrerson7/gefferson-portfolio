@@ -51,7 +51,14 @@
     toggle?.addEventListener('click', () => {
         const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
         save(next);
-        apply(next, { animate: true });
+
+        // Progressive enhancement: a soft cross-fade via the View Transitions
+        // API where available; otherwise the CSS colour transition above.
+        if (document.startViewTransition && !reducedMotion.matches) {
+            document.startViewTransition(() => apply(next));
+        } else {
+            apply(next, { animate: true });
+        }
     });
 
     // Follow OS changes only while the visitor has not chosen a theme
