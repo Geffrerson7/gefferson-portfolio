@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gefferson Casasola | Electronic Engineer & Full Stack Developer</title>
+    <title>
+      Gefferson Casasola | Electronic Engineer & Full Stack Developer
+    </title>
     <meta
       name="description"
       content="Portfolio of Gefferson Casasola, Electronic Engineering graduate and Full Stack Developer building web applications, backend solutions, process automation and technology integrations."
@@ -15,21 +17,26 @@
          wrong theme). Saved choice > OS preference > dark (default). -->
     <script>
       (function () {
-        var theme = 'dark';
+        var theme = "dark";
         try {
-          var saved = localStorage.getItem('theme');
-          if (saved === 'light' || saved === 'dark') theme = saved;
-          else if (window.matchMedia('(prefers-color-scheme: light)').matches) theme = 'light';
+          var saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") theme = saved;
+          else if (window.matchMedia("(prefers-color-scheme: light)").matches)
+            theme = "light";
         } catch (e) {}
-        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute("data-theme", theme);
 
         // Motion: enable scroll reveals only if allowed and supported.
         // Safety net: if reveal.js has not started within 3 s, show everything.
         var root = document.documentElement;
-        if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          root.classList.add('motion');
+        if (
+          "IntersectionObserver" in window &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          root.classList.add("motion");
           window.setTimeout(function () {
-            if (!root.classList.contains('motion-ready')) root.classList.remove('motion');
+            if (!root.classList.contains("motion-ready"))
+              root.classList.remove("motion");
           }, 3000);
         }
       })();
@@ -37,13 +44,28 @@
 
     <!-- Canonical + language alternates -->
     <link rel="canonical" href="https://gefferson-portfolio.vercel.app/en/" />
-    <link rel="alternate" hreflang="es" href="https://gefferson-portfolio.vercel.app/" />
-    <link rel="alternate" hreflang="en" href="https://gefferson-portfolio.vercel.app/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://gefferson-portfolio.vercel.app/" />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://gefferson-portfolio.vercel.app/"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://gefferson-portfolio.vercel.app/en/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://gefferson-portfolio.vercel.app/"
+    />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gefferson-portfolio.vercel.app/en/" />
+    <meta
+      property="og:url"
+      content="https://gefferson-portfolio.vercel.app/en/"
+    />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="es_PE" />
     <meta property="og:site_name" content="Gefferson Casasola" />
@@ -55,15 +77,28 @@
       property="og:description"
       content="Web applications, backend solutions, process automation and technology integrations."
     />
-    <meta property="og:image" content="https://gefferson-portfolio.vercel.app/assets/img/og/og-en.jpg" />
+    <meta
+      property="og:image"
+      content="https://gefferson-portfolio.vercel.app/assets/img/og/og-en.jpg"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Portfolio of Gefferson Casasola, Electronic Engineer and Full Stack Developer" />
+    <meta
+      property="og:image:alt"
+      content="Portfolio of Gefferson Casasola, Electronic Engineer and Full Stack Developer"
+    />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Icons -->
-    <link rel="icon" href="../assets/img/icons/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="../assets/img/icons/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      href="../assets/img/icons/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../assets/img/icons/apple-touch-icon.png"
+    />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -118,25 +153,55 @@
   </head>
   <body>
     <!-- Shared inline icons (referenced with <use>) -->
-    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
       <symbol id="icon-github" viewBox="0 0 16 16">
-        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+        <path
+          fill="currentColor"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+        />
       </symbol>
       <symbol id="icon-resume" viewBox="0 0 24 24">
-        <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"
+          />
           <path d="M14 3v5h5" />
           <path d="M9 13h6M9 17h4" />
         </g>
       </symbol>
       <symbol id="icon-sun" viewBox="0 0 24 24">
-        <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        >
           <circle cx="12" cy="12" r="4.2" />
-          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" />
+          <path
+            d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"
+          />
         </g>
       </symbol>
       <symbol id="icon-moon" viewBox="0 0 24 24">
-        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20.2 14.6A8.5 8.5 0 0 1 9.4 3.8a8.5 8.5 0 1 0 10.8 10.8z" />
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linejoin="round"
+          d="M20.2 14.6A8.5 8.5 0 0 1 9.4 3.8a8.5 8.5 0 1 0 10.8 10.8z"
+        />
       </symbol>
     </svg>
 
@@ -146,7 +211,11 @@
       <!-- NAVBAR -->
       <nav id="navbar" class="navbar" aria-label="Main navigation">
         <div class="navbar-container">
-          <a href="#home" class="navbar-brand" aria-label="Gefferson, back to top">
+          <a
+            href="#home"
+            class="navbar-brand"
+            aria-label="Gefferson, back to top"
+          >
             <span class="brand-name">GEFFERSON<span>.</span></span>
             <span class="brand-caption">DEVELOPER / ENGINEER</span>
           </a>
@@ -167,7 +236,11 @@
 
           <div class="navbar-menu" id="navbar-menu">
             <ul class="navbar-links">
-              <li><a href="#home" class="nav-link active" aria-current="true">Home</a></li>
+              <li>
+                <a href="#home" class="nav-link active" aria-current="true"
+                  >Home</a
+                >
+              </li>
               <li><a href="#portfolio" class="nav-link">Projects</a></li>
               <li><a href="#experience" class="nav-link">Experience</a></li>
               <li><a href="#skillset" class="nav-link">Skillset</a></li>
@@ -180,9 +253,24 @@
 
           <div class="navbar-tools">
             <div class="lang-switch" role="group" aria-label="Language">
-              <a href="../" class="lang-link" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
+              <a
+                href="../"
+                class="lang-link"
+                hreflang="es"
+                lang="es"
+                aria-label="Versión en español"
+                >ES</a
+              >
               <span aria-hidden="true">|</span>
-              <a href="./" class="lang-link active" hreflang="en" lang="en" aria-current="true" aria-label="English (current language)">EN</a>
+              <a
+                href="./"
+                class="lang-link active"
+                hreflang="en"
+                lang="en"
+                aria-current="true"
+                aria-label="English (current language)"
+                >EN</a
+              >
             </div>
 
             <button
@@ -193,8 +281,12 @@
               aria-pressed="false"
               title="Switch between light and dark mode"
             >
-              <svg class="icon-moon" aria-hidden="true" focusable="false"><use href="#icon-moon" /></svg>
-              <svg class="icon-sun" aria-hidden="true" focusable="false"><use href="#icon-sun" /></svg>
+              <svg class="icon-moon" aria-hidden="true" focusable="false">
+                <use href="#icon-moon" />
+              </svg>
+              <svg class="icon-sun" aria-hidden="true" focusable="false">
+                <use href="#icon-sun" />
+              </svg>
             </button>
           </div>
         </div>
@@ -227,7 +319,12 @@
               modern technologies, automation and AI-powered solutions.
             </p>
 
-            <ul class="hero-tags" aria-label="Focus areas" data-hero style="--hero-step: 4">
+            <ul
+              class="hero-tags"
+              aria-label="Focus areas"
+              data-hero
+              style="--hero-step: 4"
+            >
               <li>Backend Development</li>
               <li>REST APIs</li>
               <li>AI Integration</li>
@@ -244,7 +341,9 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg aria-hidden="true" focusable="false"><use href="#icon-resume" /></svg>
+                <svg aria-hidden="true" focusable="false">
+                  <use href="#icon-resume" />
+                </svg>
                 View Resume<span class="sr-only"> (opens in a new tab)</span>
               </a>
 
@@ -291,7 +390,10 @@
                 />
               </div>
 
-              <div class="hero-decoration hero-decoration-top" aria-hidden="true">
+              <div
+                class="hero-decoration hero-decoration-top"
+                aria-hidden="true"
+              >
                 <span>STATUS</span>
                 <span>AVAILABLE</span>
               </div>
@@ -321,7 +423,9 @@
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 SELECTED WORK / 2026
               </span>
-              <h2 class="section-title" id="portfolio-title">Projects<span>.</span></h2>
+              <h2 class="section-title" id="portfolio-title">
+                Projects<span>.</span>
+              </h2>
             </div>
 
             <p class="section-description" data-reveal="fade">
@@ -363,15 +467,21 @@
                 <h3>Football Players</h3>
 
                 <p>
-                  Web app for managing a football squad: full player CRUD backed by Supabase, player detail view, position filter and light/dark theme. Teams and matches modules are in development.
+                  Full stack web app for managing a football squad: full player
+                  CRUD with Server Actions and server-side validation, player
+                  profile with sports card, position filter, pagination and
+                  light/dark theme. Data lives in PostgreSQL via Prisma,
+                  migrated from Supabase. Teams and matches modules are in
+                  development.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Technologies">
-                  <li>React</li>
-                  <li>JavaScript</li>
-                  <li>Supabase</li>
+                  <li>Next.js</li>
+                  <li>TypeScript</li>
+                  <li>Prisma</li>
+                  <li>PostgreSQL</li>
                   <li>Tailwind CSS</li>
-                  <li>React Router</li>
+                  <li>HeroUI</li>
                 </ul>
 
                 <div class="portfolio-links">
@@ -381,7 +491,9 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Live demo<span class="sr-only">: Football Players (opens in a new tab)</span>
+                    Live demo<span class="sr-only"
+                      >: Football Players (opens in a new tab)</span
+                    >
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -391,8 +503,13 @@
                     rel="noopener noreferrer"
                     class="portfolio-link portfolio-link-source"
                   >
-                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    View source<span class="sr-only">: Football Players repository on GitHub (opens in a new tab)</span>
+                    <svg aria-hidden="true" focusable="false">
+                      <use href="#icon-github" />
+                    </svg>
+                    View source<span class="sr-only"
+                      >: Football Players repository on GitHub (opens in a new
+                      tab)</span
+                    >
                   </a>
                 </div>
               </div>
@@ -428,7 +545,9 @@
                 <h3>ProductAdmin</h3>
 
                 <p>
-                  Admin dashboard for managing a product catalog: CRUD with modal forms, delete confirmation, pagination and toast notifications, backed by a mock REST API (MockAPI).
+                  Admin dashboard for managing a product catalog: CRUD with
+                  modal forms, delete confirmation, pagination and toast
+                  notifications, backed by a mock REST API (MockAPI).
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Technologies">
@@ -446,7 +565,9 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Live demo<span class="sr-only">: ProductAdmin (opens in a new tab)</span>
+                    Live demo<span class="sr-only"
+                      >: ProductAdmin (opens in a new tab)</span
+                    >
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -456,8 +577,13 @@
                     rel="noopener noreferrer"
                     class="portfolio-link portfolio-link-source"
                   >
-                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    View source<span class="sr-only">: ProductAdmin repository on GitHub (opens in a new tab)</span>
+                    <svg aria-hidden="true" focusable="false">
+                      <use href="#icon-github" />
+                    </svg>
+                    View source<span class="sr-only"
+                      >: ProductAdmin repository on GitHub (opens in a new
+                      tab)</span
+                    >
                   </a>
                 </div>
               </div>
@@ -493,7 +619,9 @@
                 <h3>Rick and Morty Explorer</h3>
 
                 <p>
-                  Character and episode explorer with name search, pagination, detail views, nested routes and breadcrumbs, powered by the official public Rick and Morty API.
+                  Character and episode explorer with name search, pagination,
+                  detail views, nested routes and breadcrumbs, powered by the
+                  official public Rick and Morty API.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Technologies">
@@ -512,7 +640,9 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Live demo<span class="sr-only">: Rick and Morty Explorer (opens in a new tab)</span>
+                    Live demo<span class="sr-only"
+                      >: Rick and Morty Explorer (opens in a new tab)</span
+                    >
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -522,8 +652,13 @@
                     rel="noopener noreferrer"
                     class="portfolio-link portfolio-link-source"
                   >
-                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    View source<span class="sr-only">: Rick and Morty Explorer repository on GitHub (opens in a new tab)</span>
+                    <svg aria-hidden="true" focusable="false">
+                      <use href="#icon-github" />
+                    </svg>
+                    View source<span class="sr-only"
+                      >: Rick and Morty Explorer repository on GitHub (opens in
+                      a new tab)</span
+                    >
                   </a>
                 </div>
               </div>
@@ -559,7 +694,10 @@
                 <h3>Pokédex</h3>
 
                 <p>
-                  Pokédex with search by name or number, paginated loading, base stats and Pokémon capture, built on PokéAPI with fetch, async/await and Promise.all, including error handling and retry.
+                  Pokédex with search by name or number, paginated loading, base
+                  stats and Pokémon capture, built on PokéAPI with fetch,
+                  async/await and Promise.all, including error handling and
+                  retry.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Technologies">
@@ -575,7 +713,9 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Live demo<span class="sr-only">: Pokédex (opens in a new tab)</span>
+                    Live demo<span class="sr-only"
+                      >: Pokédex (opens in a new tab)</span
+                    >
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -585,8 +725,12 @@
                     rel="noopener noreferrer"
                     class="portfolio-link portfolio-link-source"
                   >
-                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    View source<span class="sr-only">: Pokédex repository on GitHub (opens in a new tab)</span>
+                    <svg aria-hidden="true" focusable="false">
+                      <use href="#icon-github" />
+                    </svg>
+                    View source<span class="sr-only"
+                      >: Pokédex repository on GitHub (opens in a new tab)</span
+                    >
                   </a>
                 </div>
               </div>
@@ -616,7 +760,9 @@
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 CAREER / 2023 — 2026
               </span>
-              <h2 class="section-title" id="experience-title">Experience<span>.</span></h2>
+              <h2 class="section-title" id="experience-title">
+                Experience<span>.</span>
+              </h2>
             </div>
 
             <p class="section-description" data-reveal="fade">
@@ -628,7 +774,6 @@
           <hr class="section-divider" data-reveal="line" />
 
           <div class="experience-list" data-reveal-group>
-
             <article class="experience-card" data-reveal>
               <div class="experience-index" aria-hidden="true">
                 <span>01</span>
@@ -644,9 +789,17 @@
                 <h3>William Mercay S.A.</h3>
                 <p class="experience-role">Full Stack Developer · Freelance</p>
 
-                <ul class="experience-highlights" aria-label="Key technical achievements">
-                  <li>Built REST APIs with Django REST Framework and PostgreSQL.</li>
-                  <li>Integrated authentication with Keycloak using OAuth 2.0 / OIDC.</li>
+                <ul
+                  class="experience-highlights"
+                  aria-label="Key technical achievements"
+                >
+                  <li>
+                    Built REST APIs with Django REST Framework and PostgreSQL.
+                  </li>
+                  <li>
+                    Integrated authentication with Keycloak using OAuth 2.0 /
+                    OIDC.
+                  </li>
                 </ul>
 
                 <ul class="experience-tags" aria-label="Technologies">
@@ -660,21 +813,37 @@
 
                 <details class="experience-details">
                   <summary>
-                    <span>More details<span class="sr-only"> for William Mercay S.A.</span></span>
+                    <span
+                      >More details<span class="sr-only">
+                        for William Mercay S.A.</span
+                      ></span
+                    >
                     <span class="details-icon" aria-hidden="true">+</span>
                   </summary>
 
                   <div class="experience-description">
                     <ul>
-                      <li>Developed web applications for legal and accounting consulting services.</li>
-                      <li>Set up asynchronous task processing with Celery and Redis.</li>
-                      <li>Used Docker and AWS services for the development environment.</li>
+                      <li>
+                        Developed web applications for legal and accounting
+                        consulting services.
+                      </li>
+                      <li>
+                        Set up asynchronous task processing with Celery and
+                        Redis.
+                      </li>
+                      <li>
+                        Used Docker and AWS services for the development
+                        environment.
+                      </li>
                     </ul>
                   </div>
                 </details>
               </div>
 
-              <aside class="experience-focus visual-one" aria-label="Technical focus: William Mercay S.A.">
+              <aside
+                class="experience-focus visual-one"
+                aria-label="Technical focus: William Mercay S.A."
+              >
                 <span class="experience-focus-area">BACKEND / CLOUD</span>
                 <ul>
                   <li>REST APIs</li>
@@ -699,9 +868,18 @@
                 <h3>Newport Capital S.A.C.</h3>
                 <p class="experience-role">Full Stack Programmer</p>
 
-                <ul class="experience-highlights" aria-label="Key technical achievements">
-                  <li>Implemented petty cash logic and supplier alerts with C# and ASP.NET Core.</li>
-                  <li>Implemented multi-site registration and membership card modules.</li>
+                <ul
+                  class="experience-highlights"
+                  aria-label="Key technical achievements"
+                >
+                  <li>
+                    Implemented petty cash logic and supplier alerts with C# and
+                    ASP.NET Core.
+                  </li>
+                  <li>
+                    Implemented multi-site registration and membership card
+                    modules.
+                  </li>
                 </ul>
 
                 <ul class="experience-tags" aria-label="Technologies">
@@ -714,13 +892,20 @@
 
                 <details class="experience-details">
                   <summary>
-                    <span>More details<span class="sr-only"> for Newport Capital S.A.C.</span></span>
+                    <span
+                      >More details<span class="sr-only">
+                        for Newport Capital S.A.C.</span
+                      ></span
+                    >
                     <span class="details-icon" aria-hidden="true">+</span>
                   </summary>
 
                   <div class="experience-description">
                     <ul>
-                      <li>Developed and maintained features for a casino management platform.</li>
+                      <li>
+                        Developed and maintained features for a casino
+                        management platform.
+                      </li>
                       <li>Built features for meal-planning templates.</li>
                       <li>Managed data and queries with SQL Server.</li>
                     </ul>
@@ -728,7 +913,10 @@
                 </details>
               </div>
 
-              <aside class="experience-focus visual-two" aria-label="Technical focus: Newport Capital S.A.C.">
+              <aside
+                class="experience-focus visual-two"
+                aria-label="Technical focus: Newport Capital S.A.C."
+              >
                 <span class="experience-focus-area">FULL STACK</span>
                 <ul>
                   <li>ASP.NET Core</li>
@@ -752,7 +940,9 @@
 
                 <h3>Kuali.ai / Aprendizaje Digital SAC</h3>
                 <div class="experience-position">
-                  <p class="experience-role">Junior Full Stack Developer · Kuali.ai</p>
+                  <p class="experience-role">
+                    Junior Full Stack Developer · Kuali.ai
+                  </p>
                   <span>Feb 2025 — Mar 2025</span>
                 </div>
                 <div class="experience-position">
@@ -760,9 +950,17 @@
                   <span>Jan 2024 — Jan 2025</span>
                 </div>
 
-                <ul class="experience-highlights" aria-label="Key technical achievements">
-                  <li>Integrated OpenAI and LangChain for content processing.</li>
-                  <li>Used Celery, Redis and Docker for asynchronous tasks and deployment.</li>
+                <ul
+                  class="experience-highlights"
+                  aria-label="Key technical achievements"
+                >
+                  <li>
+                    Integrated OpenAI and LangChain for content processing.
+                  </li>
+                  <li>
+                    Used Celery, Redis and Docker for asynchronous tasks and
+                    deployment.
+                  </li>
                 </ul>
 
                 <ul class="experience-tags" aria-label="Technologies">
@@ -777,28 +975,52 @@
 
                 <details class="experience-details">
                   <summary>
-                    <span>More details<span class="sr-only"> for Kuali.ai / Aprendizaje Digital SAC</span></span>
+                    <span
+                      >More details<span class="sr-only">
+                        for Kuali.ai / Aprendizaje Digital SAC</span
+                      ></span
+                    >
                     <span class="details-icon" aria-hidden="true">+</span>
                   </summary>
 
                   <div class="experience-description">
                     <strong>Junior Full Stack Developer — Kuali.ai</strong>
                     <ul>
-                      <li>Developed a web application to automate content and SKU management workflows.</li>
-                      <li>Implemented features with React, Django REST Framework and PostgreSQL.</li>
+                      <li>
+                        Developed a web application to automate content and SKU
+                        management workflows.
+                      </li>
+                      <li>
+                        Implemented features with React, Django REST Framework
+                        and PostgreSQL.
+                      </li>
                     </ul>
-                    <strong>Content & SKU Assistant — Aprendizaje Digital SAC</strong>
+                    <strong
+                      >Content & SKU Assistant — Aprendizaje Digital SAC</strong
+                    >
                     <ul>
                       <li>Managed and updated product catalogs in VTEX.</li>
-                      <li>Automated data extraction and processing tasks with Python, Selenium and BeautifulSoup.</li>
-                      <li>Generated Excel templates for bulk product imports using Pandas.</li>
-                      <li>Validated product attributes and performed data quality checks.</li>
+                      <li>
+                        Automated data extraction and processing tasks with
+                        Python, Selenium and BeautifulSoup.
+                      </li>
+                      <li>
+                        Generated Excel templates for bulk product imports using
+                        Pandas.
+                      </li>
+                      <li>
+                        Validated product attributes and performed data quality
+                        checks.
+                      </li>
                     </ul>
                   </div>
                 </details>
               </div>
 
-              <aside class="experience-focus visual-three" aria-label="Technical focus: Kuali.ai / Aprendizaje Digital SAC">
+              <aside
+                class="experience-focus visual-three"
+                aria-label="Technical focus: Kuali.ai / Aprendizaje Digital SAC"
+              >
                 <span class="experience-focus-area">DATA / AUTOMATION</span>
                 <ul>
                   <li>OpenAI · LangChain</li>
@@ -823,9 +1045,18 @@
                 <h3>ISAT PERU</h3>
                 <p class="experience-role">Engineering Intern</p>
 
-                <ul class="experience-highlights" aria-label="Key technical achievements">
-                  <li>Prepared and reviewed TSS (Technical Site Survey) reports for Claro network sites.</li>
-                  <li>Gained hands-on exposure to 5G, 4G LTE, 3G UMTS and 2G mobile technologies.</li>
+                <ul
+                  class="experience-highlights"
+                  aria-label="Key technical achievements"
+                >
+                  <li>
+                    Prepared and reviewed TSS (Technical Site Survey) reports
+                    for Claro network sites.
+                  </li>
+                  <li>
+                    Gained hands-on exposure to 5G, 4G LTE, 3G UMTS and 2G
+                    mobile technologies.
+                  </li>
                 </ul>
 
                 <ul class="experience-tags" aria-label="Technologies">
@@ -838,19 +1069,29 @@
 
                 <details class="experience-details">
                   <summary>
-                    <span>More details<span class="sr-only"> for ISAT PERU</span></span>
+                    <span
+                      >More details<span class="sr-only">
+                        for ISAT PERU</span
+                      ></span
+                    >
                     <span class="details-icon" aria-hidden="true">+</span>
                   </summary>
 
                   <div class="experience-description">
                     <ul>
-                      <li>Supported activities related to telecommunications infrastructure.</li>
+                      <li>
+                        Supported activities related to telecommunications
+                        infrastructure.
+                      </li>
                     </ul>
                   </div>
                 </details>
               </div>
 
-              <aside class="experience-focus visual-four" aria-label="Technical focus: ISAT PERU">
+              <aside
+                class="experience-focus visual-four"
+                aria-label="Technical focus: ISAT PERU"
+              >
                 <span class="experience-focus-area">NETWORKS</span>
                 <ul>
                   <li>Mobile networks</li>
@@ -864,7 +1105,11 @@
       </section>
 
       <!-- ========== SKILLS ========== -->
-      <section id="skillset" class="skillset-section" aria-labelledby="skillset-title">
+      <section
+        id="skillset"
+        class="skillset-section"
+        aria-labelledby="skillset-title"
+      >
         <div class="section-container">
           <div class="section-header">
             <div class="section-heading" data-reveal>
@@ -872,7 +1117,9 @@
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 TECH STACK / TOOLKIT
               </span>
-              <h2 class="section-title" id="skillset-title">Skillset<span>.</span></h2>
+              <h2 class="section-title" id="skillset-title">
+                Skillset<span>.</span>
+              </h2>
             </div>
 
             <p class="section-description" data-reveal="fade">
@@ -885,7 +1132,11 @@
 
           <!-- Stack by layers: the system, from interface to foundation -->
           <div class="stack">
-            <span class="stack-bus" aria-hidden="true" data-reveal="trace"></span>
+            <span
+              class="stack-bus"
+              aria-hidden="true"
+              data-reveal="trace"
+            ></span>
 
             <ol class="stack-layers" data-reveal-group>
               <li class="stack-layer" data-reveal>
@@ -895,21 +1146,48 @@
                   <p class="stack-layer-desc">Modern web interfaces</p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Technologies: Interface">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Technologies: Interface"
+                >
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/reactjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/reactjs.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>React</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/nextjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/nextjs.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Next.js</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/tailwindcss.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/tailwindcss.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Tailwind CSS</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/angular.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/angular.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Angular</span>
                   </li>
                 </ul>
@@ -918,28 +1196,65 @@
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">02</span>
                   <h3 class="stack-layer-title">APIs &amp; Services</h3>
-                  <p class="stack-layer-desc">APIs &amp; server-side development</p>
+                  <p class="stack-layer-desc">
+                    APIs &amp; server-side development
+                  </p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Technologies: APIs & Services">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Technologies: APIs & Services"
+                >
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/nodejs.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/nodejs.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Node.js</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/expressjs-light.svg" alt="" class="logo-on-dark" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/expressjs-light.svg"
+                      alt=""
+                      class="logo-on-dark"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Express.js</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/django.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/django.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Django REST</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/nestjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/nestjs.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>NestJS</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/prisma.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/prisma.svg"
+                      alt=""
+                      class="logo-invert"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Prisma</span>
                   </li>
                 </ul>
@@ -953,27 +1268,65 @@
 
                 <ul class="stack-layer-techs" aria-label="Technologies: Data">
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/postgresql.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/postgresql.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>PostgreSQL</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/mysql.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/mysql.svg"
+                      alt=""
+                      class="logo-invert"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>MySQL</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/microsoft-sql-server.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/microsoft-sql-server.svg"
+                      alt=""
+                      class="logo-invert"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>SQL Server</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/supabase.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/supabase.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Supabase</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/redis.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/redis.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Redis</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/mongodb.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/mongodb.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>MongoDB</span>
                   </li>
                 </ul>
@@ -981,21 +1334,45 @@
               <li class="stack-layer is-core" data-reveal>
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">04</span>
-                  <h3 class="stack-layer-title">Intelligence &amp; Automation</h3>
+                  <h3 class="stack-layer-title">
+                    Intelligence &amp; Automation
+                  </h3>
                   <p class="stack-layer-desc">AI &amp; automation</p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Technologies: Intelligence & Automation">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Technologies: Intelligence & Automation"
+                >
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/openai-white.svg" alt="" class="logo-plate" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/openai-white.svg"
+                      alt=""
+                      class="logo-plate"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>OpenAI</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/claude-ai.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/claude-ai.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>ClaudeAI</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/n8n.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/n8n.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>n8n</span>
                   </li>
                 </ul>
@@ -1003,33 +1380,78 @@
               <li class="stack-layer" data-reveal>
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">05</span>
-                  <h3 class="stack-layer-title">Infrastructure &amp; Tooling</h3>
-                  <p class="stack-layer-desc">Development &amp; infrastructure</p>
+                  <h3 class="stack-layer-title">
+                    Infrastructure &amp; Tooling
+                  </h3>
+                  <p class="stack-layer-desc">
+                    Development &amp; infrastructure
+                  </p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Technologies: Infrastructure & Tooling">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Technologies: Infrastructure & Tooling"
+                >
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/git.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/git.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Git</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/github-light.svg" alt="" class="logo-on-dark" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/github-light.svg"
+                      alt=""
+                      class="logo-on-dark"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>GitHub</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/docker.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/docker.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Docker</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/linux.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/linux.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Linux</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/aws.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/aws.svg"
+                      alt=""
+                      class="logo-invert"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>AWS</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/bash.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/bash.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Bash</span>
                   </li>
                 </ul>
@@ -1038,32 +1460,73 @@
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">06</span>
                   <h3 class="stack-layer-title">Languages</h3>
-                  <p class="stack-layer-desc">Languages &amp; fundamentals · stack foundation</p>
+                  <p class="stack-layer-desc">
+                    Languages &amp; fundamentals · stack foundation
+                  </p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Technologies: Languages">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Technologies: Languages"
+                >
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/html5.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/html5.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>HTML5</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/css3.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/css3.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>CSS3</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/javascript.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/javascript.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>JavaScript</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/typescript.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/typescript.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>TypeScript</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/python.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/python.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Python</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="../assets/img/skillset/c-sharp.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="../assets/img/skillset/c-sharp.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>C#</span>
                   </li>
                 </ul>
@@ -1082,7 +1545,9 @@
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 GET IN TOUCH / LET'S CONNECT
               </span>
-              <h2 class="section-title" id="contact-title">Contact<span>.</span></h2>
+              <h2 class="section-title" id="contact-title">
+                Contact<span>.</span>
+              </h2>
             </div>
 
             <p class="section-description" data-reveal="fade">
@@ -1162,7 +1627,9 @@
             <div class="contact-form-container" data-reveal>
               <div class="contact-form-heading">
                 <span class="contact-number">02 / SEND A MESSAGE</span>
-                <span class="contact-form-symbol" aria-hidden="true">&lt;/&gt;</span>
+                <span class="contact-form-symbol" aria-hidden="true"
+                  >&lt;/&gt;</span
+                >
               </div>
 
               <h3 id="contact-form-title">Send me a message</h3>
@@ -1238,7 +1705,12 @@
                   <span class="spinner" aria-hidden="true"></span>
                 </button>
 
-                <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+                <p
+                  class="contact-form-status"
+                  id="contact-form-status"
+                  role="status"
+                  aria-live="polite"
+                ></p>
               </form>
             </div>
           </div>
@@ -1250,7 +1722,12 @@
       <div class="footer-container" data-reveal-group>
         <!-- Brand -->
         <div class="footer-brand" data-reveal>
-          <a href="#home" class="footer-logo" aria-label="Gefferson, back to top">GEFFERSON<span>.</span></a>
+          <a
+            href="#home"
+            class="footer-logo"
+            aria-label="Gefferson, back to top"
+            >GEFFERSON<span>.</span></a
+          >
 
           <p>
             Electronic Engineer & Full Stack Developer. Building digital
@@ -1293,7 +1770,10 @@
             GitHub <span aria-hidden="true">↗</span>
           </a>
 
-          <a href="mailto:gefferson.casasola@gmail.com" aria-label="Email: send me a message">
+          <a
+            href="mailto:gefferson.casasola@gmail.com"
+            aria-label="Email: send me a message"
+          >
             Email <span aria-hidden="true">↗</span>
           </a>
         </div>
@@ -1306,7 +1786,9 @@
           reserved.
         </span>
 
-        <a href="#home" class="footer-back-top">BACK TO TOP <span aria-hidden="true">↑</span></a>
+        <a href="#home" class="footer-back-top"
+          >BACK TO TOP <span aria-hidden="true">↑</span></a
+        >
       </div>
     </footer>
   </body>
