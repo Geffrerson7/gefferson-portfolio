@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gefferson Casasola | Ingeniero Electrónico y Desarrollador Full Stack</title>
+    <title>
+      Gefferson Casasola | Ingeniero Electrónico y Desarrollador Full Stack
+    </title>
     <meta
       name="description"
       content="Portafolio de Gefferson Casasola, Bachiller en Ingeniería Electrónica y Desarrollador Full Stack: aplicaciones web, soluciones backend, automatización de procesos e integración de tecnologías."
@@ -15,21 +17,26 @@
          wrong theme). Saved choice > OS preference > dark (default). -->
     <script>
       (function () {
-        var theme = 'dark';
+        var theme = "dark";
         try {
-          var saved = localStorage.getItem('theme');
-          if (saved === 'light' || saved === 'dark') theme = saved;
-          else if (window.matchMedia('(prefers-color-scheme: light)').matches) theme = 'light';
+          var saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") theme = saved;
+          else if (window.matchMedia("(prefers-color-scheme: light)").matches)
+            theme = "light";
         } catch (e) {}
-        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute("data-theme", theme);
 
         // Motion: enable scroll reveals only if allowed and supported.
         // Safety net: if reveal.js has not started within 3 s, show everything.
         var root = document.documentElement;
-        if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          root.classList.add('motion');
+        if (
+          "IntersectionObserver" in window &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          root.classList.add("motion");
           window.setTimeout(function () {
-            if (!root.classList.contains('motion-ready')) root.classList.remove('motion');
+            if (!root.classList.contains("motion-ready"))
+              root.classList.remove("motion");
           }, 3000);
         }
       })();
@@ -37,9 +44,21 @@
 
     <!-- Canonical + language alternates -->
     <link rel="canonical" href="https://gefferson-portfolio.vercel.app/" />
-    <link rel="alternate" hreflang="es" href="https://gefferson-portfolio.vercel.app/" />
-    <link rel="alternate" hreflang="en" href="https://gefferson-portfolio.vercel.app/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://gefferson-portfolio.vercel.app/" />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href="https://gefferson-portfolio.vercel.app/"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://gefferson-portfolio.vercel.app/en/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://gefferson-portfolio.vercel.app/"
+    />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
@@ -55,10 +74,16 @@
       property="og:description"
       content="Desarrollo de aplicaciones web, soluciones backend, automatización de procesos e integración de tecnologías."
     />
-    <meta property="og:image" content="https://gefferson-portfolio.vercel.app/assets/img/og/og-es.jpg" />
+    <meta
+      property="og:image"
+      content="https://gefferson-portfolio.vercel.app/assets/img/og/og-es.jpg"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Portafolio de Gefferson Casasola, Ingeniero Electrónico y Desarrollador Full Stack" />
+    <meta
+      property="og:image:alt"
+      content="Portafolio de Gefferson Casasola, Ingeniero Electrónico y Desarrollador Full Stack"
+    />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Icons -->
@@ -118,25 +143,55 @@
   </head>
   <body>
     <!-- Shared inline icons (referenced with <use>) -->
-    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
       <symbol id="icon-github" viewBox="0 0 16 16">
-        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+        <path
+          fill="currentColor"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+        />
       </symbol>
       <symbol id="icon-resume" viewBox="0 0 24 24">
-        <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"
+          />
           <path d="M14 3v5h5" />
           <path d="M9 13h6M9 17h4" />
         </g>
       </symbol>
       <symbol id="icon-sun" viewBox="0 0 24 24">
-        <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        >
           <circle cx="12" cy="12" r="4.2" />
-          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" />
+          <path
+            d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"
+          />
         </g>
       </symbol>
       <symbol id="icon-moon" viewBox="0 0 24 24">
-        <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20.2 14.6A8.5 8.5 0 0 1 9.4 3.8a8.5 8.5 0 1 0 10.8 10.8z" />
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linejoin="round"
+          d="M20.2 14.6A8.5 8.5 0 0 1 9.4 3.8a8.5 8.5 0 1 0 10.8 10.8z"
+        />
       </symbol>
     </svg>
 
@@ -146,7 +201,11 @@
       <!-- NAVBAR -->
       <nav id="navbar" class="navbar" aria-label="Navegación principal">
         <div class="navbar-container">
-          <a href="#home" class="navbar-brand" aria-label="Gefferson, ir al inicio">
+          <a
+            href="#home"
+            class="navbar-brand"
+            aria-label="Gefferson, ir al inicio"
+          >
             <span class="brand-name">GEFFERSON<span>.</span></span>
             <span class="brand-caption">DESARROLLADOR / INGENIERO</span>
           </a>
@@ -167,7 +226,11 @@
 
           <div class="navbar-menu" id="navbar-menu">
             <ul class="navbar-links">
-              <li><a href="#home" class="nav-link active" aria-current="true">Inicio</a></li>
+              <li>
+                <a href="#home" class="nav-link active" aria-current="true"
+                  >Inicio</a
+                >
+              </li>
               <li><a href="#portfolio" class="nav-link">Proyectos</a></li>
               <li><a href="#experience" class="nav-link">Experiencia</a></li>
               <li><a href="#skillset" class="nav-link">Habilidades</a></li>
@@ -180,9 +243,24 @@
 
           <div class="navbar-tools">
             <div class="lang-switch" role="group" aria-label="Idioma">
-              <a href="./" class="lang-link active" hreflang="es" lang="es" aria-current="true" aria-label="Español (idioma actual)">ES</a>
+              <a
+                href="./"
+                class="lang-link active"
+                hreflang="es"
+                lang="es"
+                aria-current="true"
+                aria-label="Español (idioma actual)"
+                >ES</a
+              >
               <span aria-hidden="true">|</span>
-              <a href="en/" class="lang-link" hreflang="en" lang="en" aria-label="English version">EN</a>
+              <a
+                href="en/"
+                class="lang-link"
+                hreflang="en"
+                lang="en"
+                aria-label="English version"
+                >EN</a
+              >
             </div>
 
             <button
@@ -193,8 +271,12 @@
               aria-pressed="false"
               title="Cambiar entre modo claro y oscuro"
             >
-              <svg class="icon-moon" aria-hidden="true" focusable="false"><use href="#icon-moon" /></svg>
-              <svg class="icon-sun" aria-hidden="true" focusable="false"><use href="#icon-sun" /></svg>
+              <svg class="icon-moon" aria-hidden="true" focusable="false">
+                <use href="#icon-moon" />
+              </svg>
+              <svg class="icon-sun" aria-hidden="true" focusable="false">
+                <use href="#icon-sun" />
+              </svg>
             </button>
           </div>
         </div>
@@ -228,7 +310,12 @@
               inteligencia artificial.
             </p>
 
-            <ul class="hero-tags" aria-label="Áreas de especialización" data-hero style="--hero-step: 4">
+            <ul
+              class="hero-tags"
+              aria-label="Áreas de especialización"
+              data-hero
+              style="--hero-step: 4"
+            >
               <li>Desarrollo Backend</li>
               <li>APIs REST</li>
               <li>Integración de IA</li>
@@ -245,8 +332,12 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg aria-hidden="true" focusable="false"><use href="#icon-resume" /></svg>
-                Ver CV<span class="sr-only"> (se abre en una pestaña nueva)</span>
+                <svg aria-hidden="true" focusable="false">
+                  <use href="#icon-resume" />
+                </svg>
+                Ver CV<span class="sr-only">
+                  (se abre en una pestaña nueva)</span
+                >
               </a>
 
               <a href="#contact" class="hero-link">
@@ -292,7 +383,10 @@
                 />
               </div>
 
-              <div class="hero-decoration hero-decoration-top" aria-hidden="true">
+              <div
+                class="hero-decoration hero-decoration-top"
+                aria-hidden="true"
+              >
                 <span>ESTADO</span>
                 <span>DISPONIBLE</span>
               </div>
@@ -322,7 +416,9 @@
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 PROYECTOS DESTACADOS / 2026
               </span>
-              <h2 class="section-title" id="portfolio-title">Proyectos<span>.</span></h2>
+              <h2 class="section-title" id="portfolio-title">
+                Proyectos<span>.</span>
+              </h2>
             </div>
 
             <p class="section-description" data-reveal="fade">
@@ -364,15 +460,21 @@
                 <h3>Football Players</h3>
 
                 <p>
-                  Aplicación web para gestionar un plantel de fútbol: CRUD completo de jugadores con Supabase, vista de detalle, filtro por posición y tema claro/oscuro. Los módulos de equipos y partidos están en desarrollo.
+                  Aplicación full stack para gestionar un plantel de fútbol:
+                  CRUD completo de jugadores con Server Actions y validación en
+                  servidor, perfil con ficha deportiva, filtro por posición,
+                  paginación y tema claro/oscuro. Datos en PostgreSQL con
+                  Prisma, migrados desde Supabase. Los módulos de equipos y
+                  partidos están en desarrollo.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Tecnologías">
-                  <li>React</li>
-                  <li>JavaScript</li>
-                  <li>Supabase</li>
+                  <li>Next.js</li>
+                  <li>TypeScript</li>
+                  <li>Prisma</li>
+                  <li>PostgreSQL</li>
                   <li>Tailwind CSS</li>
-                  <li>React Router</li>
+                  <li>HeroUI</li>
                 </ul>
 
                 <div class="portfolio-links">
@@ -382,7 +484,10 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Ver demo<span class="sr-only">: Football Players (se abre en una pestaña nueva)</span>
+                    Ver demo<span class="sr-only"
+                      >: Football Players (se abre en una pestaña
+                      nueva)</span
+                    >
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -392,8 +497,13 @@
                     rel="noopener noreferrer"
                     class="portfolio-link portfolio-link-source"
                   >
-                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    Ver código<span class="sr-only">: repositorio de Football Players en GitHub (se abre en una pestaña nueva)</span>
+                    <svg aria-hidden="true" focusable="false">
+                      <use href="#icon-github" />
+                    </svg>
+                    Ver código<span class="sr-only"
+                      >: repositorio de Football Players en GitHub (se abre en
+                      una pestaña nueva)</span
+                    >
                   </a>
                 </div>
               </div>
@@ -429,7 +539,10 @@
                 <h3>ProductAdmin</h3>
 
                 <p>
-                  Panel administrativo para gestionar un catálogo de productos: CRUD con formularios modales, confirmación de eliminación, paginación y notificaciones, consumiendo una API REST simulada con MockAPI.
+                  Panel administrativo para gestionar un catálogo de productos:
+                  CRUD con formularios modales, confirmación de eliminación,
+                  paginación y notificaciones, consumiendo una API REST simulada
+                  con MockAPI.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Tecnologías">
@@ -447,7 +560,9 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Ver demo<span class="sr-only">: ProductAdmin (se abre en una pestaña nueva)</span>
+                    Ver demo<span class="sr-only"
+                      >: ProductAdmin (se abre en una pestaña nueva)</span
+                    >
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -457,8 +572,13 @@
                     rel="noopener noreferrer"
                     class="portfolio-link portfolio-link-source"
                   >
-                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    Ver código<span class="sr-only">: repositorio de ProductAdmin en GitHub (se abre en una pestaña nueva)</span>
+                    <svg aria-hidden="true" focusable="false">
+                      <use href="#icon-github" />
+                    </svg>
+                    Ver código<span class="sr-only"
+                      >: repositorio de ProductAdmin en GitHub (se abre en una
+                      pestaña nueva)</span
+                    >
                   </a>
                 </div>
               </div>
@@ -494,7 +614,9 @@
                 <h3>Rick and Morty Explorer</h3>
 
                 <p>
-                  Explorador de personajes y episodios con búsqueda por nombre, paginación, vistas de detalle, rutas anidadas y breadcrumbs, consumiendo la API pública oficial de Rick and Morty.
+                  Explorador de personajes y episodios con búsqueda por nombre,
+                  paginación, vistas de detalle, rutas anidadas y breadcrumbs,
+                  consumiendo la API pública oficial de Rick and Morty.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Tecnologías">
@@ -513,7 +635,10 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Ver demo<span class="sr-only">: Rick and Morty Explorer (se abre en una pestaña nueva)</span>
+                    Ver demo<span class="sr-only"
+                      >: Rick and Morty Explorer (se abre en una pestaña
+                      nueva)</span
+                    >
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -523,8 +648,13 @@
                     rel="noopener noreferrer"
                     class="portfolio-link portfolio-link-source"
                   >
-                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    Ver código<span class="sr-only">: repositorio de Rick and Morty Explorer en GitHub (se abre en una pestaña nueva)</span>
+                    <svg aria-hidden="true" focusable="false">
+                      <use href="#icon-github" />
+                    </svg>
+                    Ver código<span class="sr-only"
+                      >: repositorio de Rick and Morty Explorer en GitHub (se
+                      abre en una pestaña nueva)</span
+                    >
                   </a>
                 </div>
               </div>
@@ -560,7 +690,10 @@
                 <h3>Pokédex</h3>
 
                 <p>
-                  Pokédex con búsqueda por nombre o número, carga paginada, estadísticas base y captura de Pokémon, consumiendo PokéAPI con fetch, async/await y Promise.all, con manejo de errores y opción de reintento.
+                  Pokédex con búsqueda por nombre o número, carga paginada,
+                  estadísticas base y captura de Pokémon, consumiendo PokéAPI
+                  con fetch, async/await y Promise.all, con manejo de errores y
+                  opción de reintento.
                 </p>
 
                 <ul class="portfolio-tags" aria-label="Tecnologías">
@@ -576,7 +709,9 @@
                     rel="noopener noreferrer"
                     class="portfolio-link"
                   >
-                    Ver demo<span class="sr-only">: Pokédex (se abre en una pestaña nueva)</span>
+                    Ver demo<span class="sr-only"
+                      >: Pokédex (se abre en una pestaña nueva)</span
+                    >
                     <span aria-hidden="true">↗</span>
                   </a>
 
@@ -586,8 +721,13 @@
                     rel="noopener noreferrer"
                     class="portfolio-link portfolio-link-source"
                   >
-                    <svg aria-hidden="true" focusable="false"><use href="#icon-github" /></svg>
-                    Ver código<span class="sr-only">: repositorio de Pokédex en GitHub (se abre en una pestaña nueva)</span>
+                    <svg aria-hidden="true" focusable="false">
+                      <use href="#icon-github" />
+                    </svg>
+                    Ver código<span class="sr-only"
+                      >: repositorio de Pokédex en GitHub (se abre en una
+                      pestaña nueva)</span
+                    >
                   </a>
                 </div>
               </div>
@@ -601,7 +741,9 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              EXPLORAR GITHUB<span class="sr-only"> (se abre en una pestaña nueva)</span>
+              EXPLORAR GITHUB<span class="sr-only">
+                (se abre en una pestaña nueva)</span
+              >
               <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -617,7 +759,9 @@
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 TRAYECTORIA / 2023 — 2026
               </span>
-              <h2 class="section-title" id="experience-title">Experiencia<span>.</span></h2>
+              <h2 class="section-title" id="experience-title">
+                Experiencia<span>.</span>
+              </h2>
             </div>
 
             <p class="section-description" data-reveal="fade">
@@ -629,7 +773,6 @@
           <hr class="section-divider" data-reveal="line" />
 
           <div class="experience-list" data-reveal-group>
-
             <article class="experience-card" data-reveal>
               <div class="experience-index" aria-hidden="true">
                 <span>01</span>
@@ -643,11 +786,22 @@
                 </div>
 
                 <h3>William Mercay S.A.</h3>
-                <p class="experience-role">Desarrollador Full Stack · Freelance</p>
+                <p class="experience-role">
+                  Desarrollador Full Stack · Freelance
+                </p>
 
-                <ul class="experience-highlights" aria-label="Logros técnicos destacados">
-                  <li>Implementación de APIs REST con Django REST Framework y PostgreSQL.</li>
-                  <li>Integración de autenticación mediante Keycloak y protocolos OAuth 2.0 / OIDC.</li>
+                <ul
+                  class="experience-highlights"
+                  aria-label="Logros técnicos destacados"
+                >
+                  <li>
+                    Implementación de APIs REST con Django REST Framework y
+                    PostgreSQL.
+                  </li>
+                  <li>
+                    Integración de autenticación mediante Keycloak y protocolos
+                    OAuth 2.0 / OIDC.
+                  </li>
                 </ul>
 
                 <ul class="experience-tags" aria-label="Tecnologías">
@@ -661,21 +815,36 @@
 
                 <details class="experience-details">
                   <summary>
-                    <span>Ver más detalles<span class="sr-only"> de William Mercay S.A.</span></span>
+                    <span
+                      >Ver más detalles<span class="sr-only">
+                        de William Mercay S.A.</span
+                      ></span
+                    >
                     <span class="details-icon" aria-hidden="true">+</span>
                   </summary>
 
                   <div class="experience-description">
                     <ul>
-                      <li>Desarrollo de aplicaciones web para consultoría legal y contable.</li>
-                      <li>Configuración de tareas asíncronas con Celery y Redis.</li>
-                      <li>Uso de Docker y servicios AWS para el entorno de desarrollo.</li>
+                      <li>
+                        Desarrollo de aplicaciones web para consultoría legal y
+                        contable.
+                      </li>
+                      <li>
+                        Configuración de tareas asíncronas con Celery y Redis.
+                      </li>
+                      <li>
+                        Uso de Docker y servicios AWS para el entorno de
+                        desarrollo.
+                      </li>
                     </ul>
                   </div>
                 </details>
               </div>
 
-              <aside class="experience-focus visual-one" aria-label="Foco técnico: William Mercay S.A.">
+              <aside
+                class="experience-focus visual-one"
+                aria-label="Foco técnico: William Mercay S.A."
+              >
                 <span class="experience-focus-area">BACKEND / CLOUD</span>
                 <ul>
                   <li>APIs REST</li>
@@ -700,9 +869,18 @@
                 <h3>Newport Capital S.A.C.</h3>
                 <p class="experience-role">Programador Full Stack</p>
 
-                <ul class="experience-highlights" aria-label="Logros técnicos destacados">
-                  <li>Implementación de lógica de caja chica y alertas de proveedores con C# y ASP.NET Core.</li>
-                  <li>Implementación de módulos de registro multisede y tarjetas de membresía.</li>
+                <ul
+                  class="experience-highlights"
+                  aria-label="Logros técnicos destacados"
+                >
+                  <li>
+                    Implementación de lógica de caja chica y alertas de
+                    proveedores con C# y ASP.NET Core.
+                  </li>
+                  <li>
+                    Implementación de módulos de registro multisede y tarjetas
+                    de membresía.
+                  </li>
                 </ul>
 
                 <ul class="experience-tags" aria-label="Tecnologías">
@@ -715,21 +893,36 @@
 
                 <details class="experience-details">
                   <summary>
-                    <span>Ver más detalles<span class="sr-only"> de Newport Capital S.A.C.</span></span>
+                    <span
+                      >Ver más detalles<span class="sr-only">
+                        de Newport Capital S.A.C.</span
+                      ></span
+                    >
                     <span class="details-icon" aria-hidden="true">+</span>
                   </summary>
 
                   <div class="experience-description">
                     <ul>
-                      <li>Desarrollo y mantenimiento de funcionalidades para una plataforma de gestión de casinos.</li>
-                      <li>Desarrollo de funcionalidades para plantillas de planificación de comidas.</li>
-                      <li>Gestión de información y consultas mediante SQL Server.</li>
+                      <li>
+                        Desarrollo y mantenimiento de funcionalidades para una
+                        plataforma de gestión de casinos.
+                      </li>
+                      <li>
+                        Desarrollo de funcionalidades para plantillas de
+                        planificación de comidas.
+                      </li>
+                      <li>
+                        Gestión de información y consultas mediante SQL Server.
+                      </li>
                     </ul>
                   </div>
                 </details>
               </div>
 
-              <aside class="experience-focus visual-two" aria-label="Foco técnico: Newport Capital S.A.C.">
+              <aside
+                class="experience-focus visual-two"
+                aria-label="Foco técnico: Newport Capital S.A.C."
+              >
                 <span class="experience-focus-area">FULL STACK</span>
                 <ul>
                   <li>ASP.NET Core</li>
@@ -761,9 +954,18 @@
                   <span>Ene 2024 — Ene 2025</span>
                 </div>
 
-                <ul class="experience-highlights" aria-label="Logros técnicos destacados">
-                  <li>Integración de OpenAI y LangChain para procesamiento de contenido.</li>
-                  <li>Uso de Celery, Redis y Docker para tareas asíncronas y despliegue.</li>
+                <ul
+                  class="experience-highlights"
+                  aria-label="Logros técnicos destacados"
+                >
+                  <li>
+                    Integración de OpenAI y LangChain para procesamiento de
+                    contenido.
+                  </li>
+                  <li>
+                    Uso de Celery, Redis y Docker para tareas asíncronas y
+                    despliegue.
+                  </li>
                 </ul>
 
                 <ul class="experience-tags" aria-label="Tecnologías">
@@ -778,29 +980,59 @@
 
                 <details class="experience-details">
                   <summary>
-                    <span>Ver más detalles<span class="sr-only"> de Kuali.ai / Aprendizaje Digital SAC</span></span>
+                    <span
+                      >Ver más detalles<span class="sr-only">
+                        de Kuali.ai / Aprendizaje Digital SAC</span
+                      ></span
+                    >
                     <span class="details-icon" aria-hidden="true">+</span>
                   </summary>
 
                   <div class="experience-description">
                     <strong>Full Stack Junior — Kuali.ai</strong>
                     <ul>
-                      <li>Desarrollo de una aplicación web para automatizar procesos de contenido y gestión de SKU.</li>
-                      <li>Implementación de funcionalidades con React, Django REST Framework y PostgreSQL.</li>
+                      <li>
+                        Desarrollo de una aplicación web para automatizar
+                        procesos de contenido y gestión de SKU.
+                      </li>
+                      <li>
+                        Implementación de funcionalidades con React, Django REST
+                        Framework y PostgreSQL.
+                      </li>
                     </ul>
-                    <strong>Asistente de Contenido y SKU — Aprendizaje Digital SAC</strong>
+                    <strong
+                      >Asistente de Contenido y SKU — Aprendizaje Digital
+                      SAC</strong
+                    >
                     <ul>
-                      <li>Gestión y actualización de catálogos de productos en VTEX.</li>
-                      <li>Automatización de tareas de extracción y procesamiento de información con Python, Selenium y BeautifulSoup.</li>
-                      <li>Generación de plantillas Excel para importación de productos mediante Pandas.</li>
-                      <li>Validación de atributos y control de calidad de información de productos.</li>
+                      <li>
+                        Gestión y actualización de catálogos de productos en
+                        VTEX.
+                      </li>
+                      <li>
+                        Automatización de tareas de extracción y procesamiento
+                        de información con Python, Selenium y BeautifulSoup.
+                      </li>
+                      <li>
+                        Generación de plantillas Excel para importación de
+                        productos mediante Pandas.
+                      </li>
+                      <li>
+                        Validación de atributos y control de calidad de
+                        información de productos.
+                      </li>
                     </ul>
                   </div>
                 </details>
               </div>
 
-              <aside class="experience-focus visual-three" aria-label="Foco técnico: Kuali.ai / Aprendizaje Digital SAC">
-                <span class="experience-focus-area">DATOS / AUTOMATIZACIÓN</span>
+              <aside
+                class="experience-focus visual-three"
+                aria-label="Foco técnico: Kuali.ai / Aprendizaje Digital SAC"
+              >
+                <span class="experience-focus-area"
+                  >DATOS / AUTOMATIZACIÓN</span
+                >
                 <ul>
                   <li>OpenAI · LangChain</li>
                   <li>Extracción de datos</li>
@@ -824,9 +1056,18 @@
                 <h3>ISAT PERU</h3>
                 <p class="experience-role">Practicante de Ingeniería</p>
 
-                <ul class="experience-highlights" aria-label="Logros técnicos destacados">
-                  <li>Elaboración y revisión de reportes técnicos TSS para nodos de Claro.</li>
-                  <li>Familiarización con tecnologías móviles 5G, 4G LTE, 3G UMTS y 2G.</li>
+                <ul
+                  class="experience-highlights"
+                  aria-label="Logros técnicos destacados"
+                >
+                  <li>
+                    Elaboración y revisión de reportes técnicos TSS para nodos
+                    de Claro.
+                  </li>
+                  <li>
+                    Familiarización con tecnologías móviles 5G, 4G LTE, 3G UMTS
+                    y 2G.
+                  </li>
                 </ul>
 
                 <ul class="experience-tags" aria-label="Tecnologías">
@@ -839,19 +1080,29 @@
 
                 <details class="experience-details">
                   <summary>
-                    <span>Ver más detalles<span class="sr-only"> de ISAT PERU</span></span>
+                    <span
+                      >Ver más detalles<span class="sr-only">
+                        de ISAT PERU</span
+                      ></span
+                    >
                     <span class="details-icon" aria-hidden="true">+</span>
                   </summary>
 
                   <div class="experience-description">
                     <ul>
-                      <li>Apoyo en actividades relacionadas con infraestructura de telecomunicaciones.</li>
+                      <li>
+                        Apoyo en actividades relacionadas con infraestructura de
+                        telecomunicaciones.
+                      </li>
                     </ul>
                   </div>
                 </details>
               </div>
 
-              <aside class="experience-focus visual-four" aria-label="Foco técnico: ISAT PERU">
+              <aside
+                class="experience-focus visual-four"
+                aria-label="Foco técnico: ISAT PERU"
+              >
                 <span class="experience-focus-area">REDES</span>
                 <ul>
                   <li>Redes móviles</li>
@@ -865,7 +1116,11 @@
       </section>
 
       <!-- ========== SKILLSET ========== -->
-      <section id="skillset" class="skillset-section" aria-labelledby="skillset-title">
+      <section
+        id="skillset"
+        class="skillset-section"
+        aria-labelledby="skillset-title"
+      >
         <div class="section-container">
           <div class="section-header">
             <div class="section-heading" data-reveal>
@@ -873,7 +1128,9 @@
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 STACK TECNOLÓGICO / HERRAMIENTAS
               </span>
-              <h2 class="section-title" id="skillset-title">Habilidades<span>.</span></h2>
+              <h2 class="section-title" id="skillset-title">
+                Habilidades<span>.</span>
+              </h2>
             </div>
 
             <p class="section-description" data-reveal="fade">
@@ -886,7 +1143,11 @@
 
           <!-- Stack by layers: the system, from interface to foundation -->
           <div class="stack">
-            <span class="stack-bus" aria-hidden="true" data-reveal="trace"></span>
+            <span
+              class="stack-bus"
+              aria-hidden="true"
+              data-reveal="trace"
+            ></span>
 
             <ol class="stack-layers" data-reveal-group>
               <li class="stack-layer" data-reveal>
@@ -896,21 +1157,48 @@
                   <p class="stack-layer-desc">Interfaces web modernas</p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Tecnologías: Interfaz">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Tecnologías: Interfaz"
+                >
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/reactjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/reactjs.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>React</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/nextjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/nextjs.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Next.js</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/tailwindcss.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/tailwindcss.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Tailwind CSS</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/angular.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/angular.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Angular</span>
                   </li>
                 </ul>
@@ -919,28 +1207,65 @@
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">02</span>
                   <h3 class="stack-layer-title">APIs y servicios</h3>
-                  <p class="stack-layer-desc">APIs y desarrollo del lado del servidor</p>
+                  <p class="stack-layer-desc">
+                    APIs y desarrollo del lado del servidor
+                  </p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Tecnologías: APIs y servicios">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Tecnologías: APIs y servicios"
+                >
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/nodejs.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/nodejs.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Node.js</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/expressjs-light.svg" alt="" class="logo-on-dark" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/expressjs-light.svg"
+                      alt=""
+                      class="logo-on-dark"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Express.js</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/django.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/django.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Django REST</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/nestjs.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/nestjs.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>NestJS</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/prisma.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/prisma.svg"
+                      alt=""
+                      class="logo-invert"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Prisma</span>
                   </li>
                 </ul>
@@ -949,32 +1274,72 @@
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">03</span>
                   <h3 class="stack-layer-title">Datos</h3>
-                  <p class="stack-layer-desc">Gestión y almacenamiento de datos</p>
+                  <p class="stack-layer-desc">
+                    Gestión y almacenamiento de datos
+                  </p>
                 </div>
 
                 <ul class="stack-layer-techs" aria-label="Tecnologías: Datos">
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/postgresql.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/postgresql.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>PostgreSQL</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/mysql.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/mysql.svg"
+                      alt=""
+                      class="logo-invert"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>MySQL</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/microsoft-sql-server.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/microsoft-sql-server.svg"
+                      alt=""
+                      class="logo-invert"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>SQL Server</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/supabase.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/supabase.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Supabase</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/redis.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/redis.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Redis</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/mongodb.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/mongodb.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>MongoDB</span>
                   </li>
                 </ul>
@@ -982,21 +1347,47 @@
               <li class="stack-layer is-core" data-reveal>
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">04</span>
-                  <h3 class="stack-layer-title">Inteligencia y automatización</h3>
-                  <p class="stack-layer-desc">Inteligencia artificial y automatización</p>
+                  <h3 class="stack-layer-title">
+                    Inteligencia y automatización
+                  </h3>
+                  <p class="stack-layer-desc">
+                    Inteligencia artificial y automatización
+                  </p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Tecnologías: Inteligencia y automatización">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Tecnologías: Inteligencia y automatización"
+                >
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/openai-white.svg" alt="" class="logo-plate" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/openai-white.svg"
+                      alt=""
+                      class="logo-plate"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>OpenAI</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/claude-ai.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/claude-ai.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>ClaudeAI</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/n8n.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/n8n.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>n8n</span>
                   </li>
                 </ul>
@@ -1004,33 +1395,76 @@
               <li class="stack-layer" data-reveal>
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">05</span>
-                  <h3 class="stack-layer-title">Infraestructura y herramientas</h3>
+                  <h3 class="stack-layer-title">
+                    Infraestructura y herramientas
+                  </h3>
                   <p class="stack-layer-desc">Desarrollo e infraestructura</p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Tecnologías: Infraestructura y herramientas">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Tecnologías: Infraestructura y herramientas"
+                >
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/git.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/git.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Git</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/github-light.svg" alt="" class="logo-on-dark" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/github-light.svg"
+                      alt=""
+                      class="logo-on-dark"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>GitHub</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/docker.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/docker.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Docker</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/linux.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/linux.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Linux</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/aws.svg" alt="" class="logo-invert" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/aws.svg"
+                      alt=""
+                      class="logo-invert"
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>AWS</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/bash.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/bash.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Bash</span>
                   </li>
                 </ul>
@@ -1039,32 +1473,73 @@
                 <div class="stack-layer-label">
                   <span class="stack-layer-index" aria-hidden="true">06</span>
                   <h3 class="stack-layer-title">Lenguajes</h3>
-                  <p class="stack-layer-desc">Lenguajes y fundamentos · base del stack</p>
+                  <p class="stack-layer-desc">
+                    Lenguajes y fundamentos · base del stack
+                  </p>
                 </div>
 
-                <ul class="stack-layer-techs" aria-label="Tecnologías: Lenguajes">
+                <ul
+                  class="stack-layer-techs"
+                  aria-label="Tecnologías: Lenguajes"
+                >
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/html5.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/html5.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>HTML5</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/css3.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/css3.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>CSS3</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/javascript.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/javascript.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>JavaScript</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/typescript.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/typescript.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>TypeScript</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/python.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/python.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>Python</span>
                   </li>
                   <li class="stack-tech">
-                    <img src="assets/img/skillset/c-sharp.svg" alt="" width="48" height="48" decoding="async" />
+                    <img
+                      src="assets/img/skillset/c-sharp.svg"
+                      alt=""
+                      width="48"
+                      height="48"
+                      decoding="async"
+                    />
                     <span>C#</span>
                   </li>
                 </ul>
@@ -1083,7 +1558,9 @@
                 <span class="eyebrow-line" aria-hidden="true"></span>
                 CONTACTO / CONVERSEMOS
               </span>
-              <h2 class="section-title" id="contact-title">Contacto<span>.</span></h2>
+              <h2 class="section-title" id="contact-title">
+                Contacto<span>.</span>
+              </h2>
             </div>
 
             <p class="section-description" data-reveal="fade">
@@ -1163,7 +1640,9 @@
             <div class="contact-form-container" data-reveal>
               <div class="contact-form-heading">
                 <span class="contact-number">02 / ENVÍAME UN MENSAJE</span>
-                <span class="contact-form-symbol" aria-hidden="true">&lt;/&gt;</span>
+                <span class="contact-form-symbol" aria-hidden="true"
+                  >&lt;/&gt;</span
+                >
               </div>
 
               <h3 id="contact-form-title">Envíame un mensaje</h3>
@@ -1239,7 +1718,12 @@
                   <span class="spinner" aria-hidden="true"></span>
                 </button>
 
-                <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+                <p
+                  class="contact-form-status"
+                  id="contact-form-status"
+                  role="status"
+                  aria-live="polite"
+                ></p>
               </form>
             </div>
           </div>
@@ -1251,7 +1735,12 @@
       <div class="footer-container" data-reveal-group>
         <!-- Brand -->
         <div class="footer-brand" data-reveal>
-          <a href="#home" class="footer-logo" aria-label="Gefferson, volver al inicio">GEFFERSON<span>.</span></a>
+          <a
+            href="#home"
+            class="footer-logo"
+            aria-label="Gefferson, volver al inicio"
+            >GEFFERSON<span>.</span></a
+          >
 
           <p>
             Ingeniero Electrónico y Desarrollador Full Stack. Construyendo
@@ -1294,7 +1783,10 @@
             GitHub <span aria-hidden="true">↗</span>
           </a>
 
-          <a href="mailto:gefferson.casasola@gmail.com" aria-label="Correo: enviar un email">
+          <a
+            href="mailto:gefferson.casasola@gmail.com"
+            aria-label="Correo: enviar un email"
+          >
             Correo <span aria-hidden="true">↗</span>
           </a>
         </div>
@@ -1307,7 +1799,9 @@
           derechos reservados.
         </span>
 
-        <a href="#home" class="footer-back-top">VOLVER ARRIBA <span aria-hidden="true">↑</span></a>
+        <a href="#home" class="footer-back-top"
+          >VOLVER ARRIBA <span aria-hidden="true">↑</span></a
+        >
       </div>
     </footer>
   </body>
